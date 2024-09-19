@@ -947,15 +947,30 @@ function CreateTournamentImg(teams, result) {
 
     /* レースを挿入 */
     const kindsSize = 18;
-    const kindsLength = 3;
     const raceSize = 20;
-    const race1_a = document.createElementNS('http://www.w3.org/2000/svg','text');
-    const raceText1_a = document.createTextNode("1試合");
-    // const raceText1_a = document.createTextNode(raceInfos[0][0][0]);
-    race1_a.appendChild(raceText1_a)
+    const kindsLength = 3;
+    // const textLength = 3;
+
+    // 第1試合
+    const race1 = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText1 = document.createTextNode("１試合");
+    race1.appendChild(raceText1)
     let fontSize = kindsSize;
     x1 = baseHorMargin + viewWidth/2 + horLineLength - (fontSize*kindsLength/2);
-    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize+5); 
+    y1 = baseVerMargin + 20 + varLineLength*3 + fontSize+5;
+    race1.setAttribute('x', x1);
+    race1.setAttribute('y', y1);
+    race1.setAttribute('writing-mode', 'lr');
+    race1.setAttribute('font-size', fontSize);
+    race1.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race1);
+
+    const race1_a = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText1_a = document.createTextNode(raceInfos[0][0][0]);
+    race1_a.appendChild(raceText1_a)
+    fontSize = kindsSize;
+    x1 = baseHorMargin + viewWidth/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize*2)+5; 
     race1_a.setAttribute('x', x1);
     race1_a.setAttribute('y', y1);
     race1_a.setAttribute('writing-mode', 'lr');
@@ -964,27 +979,24 @@ function CreateTournamentImg(teams, result) {
     svgImg.appendChild(race1_a);
 
     const race1_b = document.createElementNS('http://www.w3.org/2000/svg','text');
-    const raceText1_b = document.createTextNode("x-o");
-    // const raceText1_b = document.createTextNode(raceInfos[0][0][1][0]);
-    fontSize = raceSize;
-    textLength = raceInfos[0][0][1][1];
+    const raceText1_b = document.createTextNode(raceInfos[0][0][1]);
+    fontSize = kindsSize;
     race1_b.appendChild(raceText1_b)
-    x1 = baseHorMargin + viewWidth/2 + horLineLength - (fontSize*textLength/2);
-    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize+kindsSize+5); 
+    x1 = baseHorMargin + viewWidth/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize*3)+5; 
     race1_b.setAttribute('x', x1);
     race1_b.setAttribute('y', y1);
     race1_b.setAttribute('writing-mode', 'lr');
     race1_b.setAttribute('font-size', 18);
     race1_b.setAttribute('glyph-orientation-horizontal', 0);
     svgImg.appendChild(race1_b);
-
+    
     const race2_a = document.createElementNS('http://www.w3.org/2000/svg','text');
-    const raceText2_a = document.createTextNode("x-o");
-    // const raceText2_a = document.createTextNode(raceInfos[0][1][0]);
+    const raceText2_a = document.createTextNode(raceInfos[0][1][0]);
     race2_a.appendChild(raceText2_a)
     fontSize = kindsSize;
     x1 = baseHorMargin + viewWidth/2 + horLineLength - (fontSize*kindsLength/2);
-    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize+kindsSize+raceSize+15); 
+    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize*4)+5; 
     race2_a.setAttribute('x', x1);
     race2_a.setAttribute('y', y1);
     race2_a.setAttribute('writing-mode', 'lr');
@@ -993,13 +1005,11 @@ function CreateTournamentImg(teams, result) {
     svgImg.appendChild(race2_a);
 
     const race2_b = document.createElementNS('http://www.w3.org/2000/svg','text');
-    const raceText2_b = document.createTextNode("o-x");
-    // const raceText2_b = document.createTextNode(raceInfos[0][1][1][0]);
-    fontSize = raceSize;
-    textLength = raceInfos[0][1][1][1];
+    const raceText2_b = document.createTextNode(raceInfos[0][1][1]);
+    fontSize = kindsSize;
     race2_b.appendChild(raceText2_b)
-    x1 = baseHorMargin + viewWidth/2 + horLineLength - (fontSize*textLength/2);
-    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize+kindsSize*2+raceSize+15); 
+    x1 = baseHorMargin + viewWidth/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize*5)+5; 
     race2_b.setAttribute('x', x1);
     race2_b.setAttribute('y', y1);
     race2_b.setAttribute('writing-mode', 'lr');
@@ -1007,34 +1017,490 @@ function CreateTournamentImg(teams, result) {
     race2_b.setAttribute('glyph-orientation-horizontal', 0);
     svgImg.appendChild(race2_b);
     
-    // const race3_a = document.createElementNS('http://www.w3.org/2000/svg','text');
-    // const raceText3_a = document.createTextNode(raceInfos[0][2][0]);
-    // race3_a.appendChild(raceText3_a)
-    // fontSize = kindsSize;
-    // textLength = 3;
-    // x1 = baseHorMargin + viewWidth/2 + horLineLength - (fontSize*kindsLength/2);
-    // y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize+kindsSize*2+raceSize*2+30); 
-    // race3_a.setAttribute('x', x1);
-    // race3_a.setAttribute('y', y1);
-    // race3_a.setAttribute('writing-mode', 'lr');
-    // race3_a.setAttribute('font-size', fontSize);
-    // race3_a.setAttribute('glyph-orientation-horizontal', 0);
-    // svgImg.appendChild(race3_a);
+    const race3_a = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText3_a = document.createTextNode(raceInfos[0][2][0]);
+    race3_a.appendChild(raceText3_a)
+    fontSize = kindsSize;
+    x1 = baseHorMargin + viewWidth/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize*6)+5; 
+    race3_a.setAttribute('x', x1);
+    race3_a.setAttribute('y', y1);
+    race3_a.setAttribute('writing-mode', 'lr');
+    race3_a.setAttribute('font-size', fontSize);
+    race3_a.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race3_a);
 
-    // const race3_b = document.createElementNS('http://www.w3.org/2000/svg','text');
-    // const raceText3_b = document.createTextNode(raceInfos[0][2][1][0]);
-    // fontSize = raceSize;
-    // textLength = raceInfos[0][2][1][1];
-    // race3_b.appendChild(raceText3_b)
-    // x1 = baseHorMargin + viewWidth/2 + horLineLength - (fontSize*textLength/2);
-    // y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize+kindsSize*3+raceSize*2+30); 
-    // race3_b.setAttribute('x', x1);
-    // race3_b.setAttribute('y', y1);
-    // race3_b.setAttribute('writing-mode', 'lr');
-    // race3_b.setAttribute('font-size', 18);
-    // race3_b.setAttribute('glyph-orientation-horizontal', 0);
-    // svgImg.appendChild(race3_b);
+    const race3_b = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText3_b = document.createTextNode(raceInfos[0][2][1]);
+    fontSize = kindsSize;
+    race3_b.appendChild(raceText3_b)
+    x1 = baseHorMargin + viewWidth/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize*7)+5; 
+    race3_b.setAttribute('x', x1);
+    race3_b.setAttribute('y', y1);
+    race3_b.setAttribute('writing-mode', 'lr');
+    race3_b.setAttribute('font-size', 18);
+    race3_b.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race3_b);
     
+    // 第2試合
+    const race4 = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText4 = document.createTextNode("第2試合");
+    fontSize = kindsSize;
+    race4.appendChild(raceText4)
+    x1 = baseHorMargin + (viewWidth*7)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize)+5; 
+    race4.setAttribute('x', x1);
+    race4.setAttribute('y', y1);
+    race4.setAttribute('writing-mode', 'lr');
+    race4.setAttribute('font-size', 18);
+    race4.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race4);
+
+    const race4_a = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText4_a = document.createTextNode(raceInfos[1][0][0]);
+    fontSize = kindsSize;
+    race4_a.appendChild(raceText4_a)
+    x1 = baseHorMargin + (viewWidth*7)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize*2)+5; 
+    race4_a.setAttribute('x', x1);
+    race4_a.setAttribute('y', y1);
+    race4_a.setAttribute('writing-mode', 'lr');
+    race4_a.setAttribute('font-size', 18);
+    race4_a.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race4_a);
+    
+    const race4_b = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText4_b = document.createTextNode(raceInfos[1][0][1]);
+    fontSize = kindsSize;
+    race4_b.appendChild(raceText4_b)
+    x1 = baseHorMargin + (viewWidth*7)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize*3)+5; 
+    race4_b.setAttribute('x', x1);
+    race4_b.setAttribute('y', y1);
+    race4_b.setAttribute('writing-mode', 'lr');
+    race4_b.setAttribute('font-size', 18);
+    race4_b.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race4_b);
+    
+    const race5_a = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText5_a = document.createTextNode(raceInfos[1][1][0]);
+    fontSize = kindsSize;
+    race5_a.appendChild(raceText5_a)
+    x1 = baseHorMargin + (viewWidth*7)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize*4)+5; 
+    race5_a.setAttribute('x', x1);
+    race5_a.setAttribute('y', y1);
+    race5_a.setAttribute('writing-mode', 'lr');
+    race5_a.setAttribute('font-size', 18);
+    race5_a.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race5_a);
+
+    const race5_b = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText5_b = document.createTextNode(raceInfos[1][1][1]);
+    fontSize = kindsSize;
+    race5_b.appendChild(raceText5_b)
+    x1 = baseHorMargin + (viewWidth*7)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize*5)+5; 
+    race5_b.setAttribute('x', x1);
+    race5_b.setAttribute('y', y1);
+    race5_b.setAttribute('writing-mode', 'lr');
+    race5_b.setAttribute('font-size', 18);
+    race5_b.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race5_b);
+    
+    const race6_a = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText6_a = document.createTextNode(raceInfos[1][2][0]);
+    fontSize = kindsSize;
+    race6_a.appendChild(raceText6_a)
+    x1 = baseHorMargin + (viewWidth*7)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize*6)+5; 
+    race6_a.setAttribute('x', x1);
+    race6_a.setAttribute('y', y1);
+    race6_a.setAttribute('writing-mode', 'lr');
+    race6_a.setAttribute('font-size', 18);
+    race6_a.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race6_a);
+
+    const race6_b = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText6_b = document.createTextNode(raceInfos[1][2][1]);
+    fontSize = kindsSize;
+    race6_b.appendChild(raceText6_b)
+    x1 = baseHorMargin + (viewWidth*7)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize*7)+5; 
+    race6_b.setAttribute('x', x1);
+    race6_b.setAttribute('y', y1);
+    race6_b.setAttribute('writing-mode', 'lr');
+    race6_b.setAttribute('font-size', 18);
+    race6_b.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race6_b);
+
+    // 第3試合
+    const race7 = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText7 = document.createTextNode("第3試合");
+    fontSize = kindsSize;
+    race7.appendChild(raceText7)
+    x1 = baseHorMargin + (viewWidth*13)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize)+5; 
+    race7.setAttribute('x', x1);
+    race7.setAttribute('y', y1);
+    race7.setAttribute('writing-mode', 'lr');
+    race7.setAttribute('font-size', 18);
+    race7.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race7);
+
+    const race7_a = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText7_a = document.createTextNode(raceInfos[2][0][0]);
+    fontSize = kindsSize;
+    race7_a.appendChild(raceText7_a)
+    x1 = baseHorMargin + (viewWidth*13)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize*2)+5; 
+    race7_a.setAttribute('x', x1);
+    race7_a.setAttribute('y', y1);
+    race7_a.setAttribute('writing-mode', 'lr');
+    race7_a.setAttribute('font-size', 18);
+    race7_a.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race7_a);
+
+    const race7_b = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText7_b = document.createTextNode(raceInfos[2][0][1]);
+    fontSize = kindsSize;
+    race7_b.appendChild(raceText7_b)
+    x1 = baseHorMargin + (viewWidth*13)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize*3)+5; 
+    race7_b.setAttribute('x', x1);
+    race7_b.setAttribute('y', y1);
+    race7_b.setAttribute('writing-mode', 'lr');
+    race7_b.setAttribute('font-size', 18);
+    race7_b.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race7_b);
+
+    const race8_a = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText8_a = document.createTextNode(raceInfos[2][1][0]);
+    fontSize = kindsSize;
+    race8_a.appendChild(raceText8_a)
+    x1 = baseHorMargin + (viewWidth*13)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize*4)+5; 
+    race8_a.setAttribute('x', x1);
+    race8_a.setAttribute('y', y1);
+    race8_a.setAttribute('writing-mode', 'lr');
+    race8_a.setAttribute('font-size', 18);
+    race8_a.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race8_a);
+
+    const race8_b = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText8_b = document.createTextNode(raceInfos[2][1][1]);
+    fontSize = kindsSize;
+    race8_b.appendChild(raceText8_b)
+    x1 = baseHorMargin + (viewWidth*13)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize*5)+5; 
+    race8_b.setAttribute('x', x1);
+    race8_b.setAttribute('y', y1);
+    race8_b.setAttribute('writing-mode', 'lr');
+    race8_b.setAttribute('font-size', 18);
+    race8_b.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race8_b);
+  
+    const race9_a = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText9_a = document.createTextNode(raceInfos[2][2][0]);
+    fontSize = kindsSize;
+    race9_a.appendChild(raceText9_a)
+    x1 = baseHorMargin + (viewWidth*13)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize*6)+5; 
+    race9_a.setAttribute('x', x1);
+    race9_a.setAttribute('y', y1);
+    race9_a.setAttribute('writing-mode', 'lr');
+    race9_a.setAttribute('font-size', 18);
+    race9_a.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race9_a);
+
+    const race9_b = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText9_b = document.createTextNode(raceInfos[2][2][1]);
+    fontSize = kindsSize;
+    race9_b.appendChild(raceText9_b)
+    x1 = baseHorMargin + (viewWidth*13)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*3 + (fontSize*7)+5; 
+    race9_b.setAttribute('x', x1);
+    race9_b.setAttribute('y', y1);
+    race9_b.setAttribute('writing-mode', 'lr');
+    race9_b.setAttribute('font-size', 18);
+    race9_b.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race9_b);
+  
+    // 第4試合
+    const race10 = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText10 = document.createTextNode("第4試合");
+    fontSize = kindsSize;
+    race10.appendChild(raceText10)
+    x1 = baseHorMargin + (viewWidth*4)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*2 + (fontSize)+5; 
+    race10.setAttribute('x', x1);
+    race10.setAttribute('y', y1);
+    race10.setAttribute('writing-mode', 'lr');
+    race10.setAttribute('font-size', 18);
+    race10.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race10);
+  
+    const race10_a = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText10_a = document.createTextNode(raceInfos[3][0][0]);
+    fontSize = kindsSize;
+    race10_a.appendChild(raceText10_a)
+    x1 = baseHorMargin + (viewWidth*4)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*2 + (fontSize*2)+5; 
+    race10_a.setAttribute('x', x1);
+    race10_a.setAttribute('y', y1);
+    race10_a.setAttribute('writing-mode', 'lr');
+    race10_a.setAttribute('font-size', 18);
+    race10_a.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race10_a);
+  
+    const race10_b = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText10_b = document.createTextNode(raceInfos[3][0][1]);
+    fontSize = kindsSize;
+    race10_b.appendChild(raceText10_b)
+    x1 = baseHorMargin + (viewWidth*4)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*2 + (fontSize*3)+5; 
+    race10_b.setAttribute('x', x1);
+    race10_b.setAttribute('y', y1);
+    race10_b.setAttribute('writing-mode', 'lr');
+    race10_b.setAttribute('font-size', 18);
+    race10_b.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race10_b);
+
+    const race11_a = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText11_a = document.createTextNode(raceInfos[3][1][0]);
+    fontSize = kindsSize;
+    race11_a.appendChild(raceText11_a)
+    x1 = baseHorMargin + (viewWidth*4)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*2 + (fontSize*4)+5; 
+    race11_a.setAttribute('x', x1);
+    race11_a.setAttribute('y', y1);
+    race11_a.setAttribute('writing-mode', 'lr');
+    race11_a.setAttribute('font-size', 18);
+    race11_a.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race11_a);
+  
+    const race11_b = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText11_b = document.createTextNode(raceInfos[3][1][1]);
+    fontSize = kindsSize;
+    race11_b.appendChild(raceText11_b)
+    x1 = baseHorMargin + (viewWidth*4)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*2 + (fontSize*5)+5;
+    race11_b.setAttribute('x', x1);
+    race11_b.setAttribute('y', y1);
+    race11_b.setAttribute('writing-mode', 'lr');
+    race11_b.setAttribute('font-size', 18);
+    race11_b.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race11_b);
+  
+    const race12_a = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText12_a = document.createTextNode(raceInfos[3][2][0]);
+    fontSize = kindsSize;
+    race12_a.appendChild(raceText12_a)
+    x1 = baseHorMargin + (viewWidth*4)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*2 + (fontSize*6)+5;
+    race12_a.setAttribute('x', x1);
+    race12_a.setAttribute('y', y1);
+    race12_a.setAttribute('writing-mode', 'lr');
+    race12_a.setAttribute('font-size', 18);
+    race12_a.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race12_a);
+  
+    const race12_b = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText12_b = document.createTextNode(raceInfos[3][2][1]);
+    fontSize = kindsSize;
+    race12_b.appendChild(raceText12_b)
+    x1 = baseHorMargin + (viewWidth*4)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*2 + (fontSize*7)+5;
+    race12_b.setAttribute('x', x1);
+    race12_b.setAttribute('y', y1);
+    race12_b.setAttribute('writing-mode', 'lr');
+    race12_b.setAttribute('font-size', 18);
+    race12_b.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race12_b);
+  
+    // 第5試合
+    const race13 = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText13 = document.createTextNode("第5試合");
+    fontSize = kindsSize;
+    race13.appendChild(raceText13)
+    x1 = baseHorMargin + (viewWidth*15.5)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*2 + (fontSize)+5;
+    race13.setAttribute('x', x1);
+    race13.setAttribute('y', y1);
+    race13.setAttribute('writing-mode', 'lr');
+    race13.setAttribute('font-size', 18);
+    race13.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race13);
+  
+    const race13_a = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText13_a = document.createTextNode(raceInfos[4][0][0]);
+    fontSize = kindsSize;
+    race13_a.appendChild(raceText13_a)
+    x1 = baseHorMargin + (viewWidth*15.5)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*2 + (fontSize*2)+5;
+    race13_a.setAttribute('x', x1);
+    race13_a.setAttribute('y', y1);
+    race13_a.setAttribute('writing-mode', 'lr');
+    race13_a.setAttribute('font-size', 18);
+    race13_a.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race13_a);
+  
+    const race13_b = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText13_b = document.createTextNode(raceInfos[4][0][1]);
+    fontSize = kindsSize;
+    race13_b.appendChild(raceText13_b)
+    x1 = baseHorMargin + (viewWidth*15.5)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*2 + (fontSize*3)+5;
+    race13_b.setAttribute('x', x1);
+    race13_b.setAttribute('y', y1);
+    race13_b.setAttribute('writing-mode', 'lr');
+    race13_b.setAttribute('font-size', 18);
+    race13_b.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race13_b);
+  
+    const race14_a = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText14_a = document.createTextNode(raceInfos[4][1][0]);
+    fontSize = kindsSize;
+    race14_a.appendChild(raceText14_a)
+    x1 = baseHorMargin + (viewWidth*15.5)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*2 + (fontSize*4)+5;
+    race14_a.setAttribute('x', x1);
+    race14_a.setAttribute('y', y1);
+    race14_a.setAttribute('writing-mode', 'lr');
+    race14_a.setAttribute('font-size', 18);
+    race14_a.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race14_a);
+  
+    const race14_b = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText14_b = document.createTextNode(raceInfos[4][1][1]);
+    fontSize = kindsSize;
+    race14_b.appendChild(raceText14_b)
+    x1 = baseHorMargin + (viewWidth*15.5)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*2 + (fontSize*5)+5;
+    race14_b.setAttribute('x', x1);
+    race14_b.setAttribute('y', y1);
+    race14_b.setAttribute('writing-mode', 'lr');
+    race14_b.setAttribute('font-size', 18);
+    race14_b.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race14_b);
+  
+    const race15_a = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText15_a = document.createTextNode(raceInfos[4][2][0]);
+    fontSize = kindsSize;
+    race15_a.appendChild(raceText15_a)
+    x1 = baseHorMargin + (viewWidth*15.5)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*2 + (fontSize*6)+5;
+    race15_a.setAttribute('x', x1);
+    race15_a.setAttribute('y', y1);
+    race15_a.setAttribute('writing-mode', 'lr');
+    race15_a.setAttribute('font-size', 18);
+    race15_a.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race15_a);
+  
+    const race15_b = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText15_b = document.createTextNode(raceInfos[4][2][1]);
+    fontSize = kindsSize;
+    race15_b.appendChild(raceText15_b)
+    x1 = baseHorMargin + (viewWidth*15.5)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength*2 + (fontSize*7)+5;
+    race15_b.setAttribute('x', x1);
+    race15_b.setAttribute('y', y1);
+    race15_b.setAttribute('writing-mode', 'lr');
+    race15_b.setAttribute('font-size', 18);
+    race15_b.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race15_b);
+  
+    const race16 = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText16 = document.createTextNode("第6試合");
+    fontSize = kindsSize;
+    race16.appendChild(raceText16)
+    x1 = baseHorMargin + (viewWidth*8.5)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength + (fontSize)+5;
+    race16.setAttribute('x', x1);
+    race16.setAttribute('y', y1);
+    race16.setAttribute('writing-mode', 'lr');
+    race16.setAttribute('font-size', 18);
+    race16.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race16);
+
+    const race16_a = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText16_a = document.createTextNode(raceInfos[5][0][0]);
+    fontSize = kindsSize;
+    race16_a.appendChild(raceText16_a)
+    x1 = baseHorMargin + (viewWidth*8.5)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength + (fontSize*2)+5;
+    race16_a.setAttribute('x', x1);
+    race16_a.setAttribute('y', y1);
+    race16_a.setAttribute('writing-mode', 'lr');
+    race16_a.setAttribute('font-size', 18);
+    race16_a.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race16_a);
+  
+    const race16_b = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText16_b = document.createTextNode(raceInfos[5][0][1]);
+    fontSize = kindsSize;
+    race16_b.appendChild(raceText16_b)
+    x1 = baseHorMargin + (viewWidth*8.5)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength + (fontSize*3)+5;
+    race16_b.setAttribute('x', x1);
+    race16_b.setAttribute('y', y1);
+    race16_b.setAttribute('writing-mode', 'lr');
+    race16_b.setAttribute('font-size', 18);
+    race16_b.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race16_b);
+  
+    const race17_a = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText17_a = document.createTextNode(raceInfos[5][1][0]);
+    fontSize = kindsSize;
+    race17_a.appendChild(raceText17_a)
+    x1 = baseHorMargin + (viewWidth*8.5)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength + (fontSize*4)+5;
+    race17_a.setAttribute('x', x1);
+    race17_a.setAttribute('y', y1);
+    race17_a.setAttribute('writing-mode', 'lr');
+    race17_a.setAttribute('font-size', 18);
+    race17_a.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race17_a);
+  
+    const race17_b = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText17_b = document.createTextNode(raceInfos[5][1][1]);
+    fontSize = kindsSize;
+    race17_b.appendChild(raceText17_b)
+    x1 = baseHorMargin + (viewWidth*8.5)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength + (fontSize*5)+5;
+    race17_b.setAttribute('x', x1);
+    race17_b.setAttribute('y', y1);
+    race17_b.setAttribute('writing-mode', 'lr');
+    race17_b.setAttribute('font-size', 18);
+    race17_b.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race17_b);
+  
+    const race18_a = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText18_a = document.createTextNode(raceInfos[5][2][0]);
+    fontSize = kindsSize;
+    race18_a.appendChild(raceText18_a)
+    x1 = baseHorMargin + (viewWidth*8.5)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength + (fontSize*6)+5;
+    race18_a.setAttribute('x', x1);
+    race18_a.setAttribute('y', y1);
+    race18_a.setAttribute('writing-mode', 'lr');
+    race18_a.setAttribute('font-size', 18);
+    race18_a.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race18_a);
+
+    const race18_b = document.createElementNS('http://www.w3.org/2000/svg','text');
+    const raceText18_b = document.createTextNode(raceInfos[5][2][1]);
+    fontSize = kindsSize;
+    race18_b.appendChild(raceText18_b)
+    x1 = baseHorMargin + (viewWidth*8.5)/2 + horLineLength - (fontSize*kindsLength/2);
+    y1 = baseVerMargin + 20 + varLineLength + (fontSize*7)+5;
+    race18_b.setAttribute('x', x1);
+    race18_b.setAttribute('y', y1);
+    race18_b.setAttribute('writing-mode', 'lr');
+    race18_b.setAttribute('font-size', 18);
+    race18_b.setAttribute('glyph-orientation-horizontal', 0);
+    svgImg.appendChild(race18_b);
 
     document.getElementById('Tournament').appendChild(svgImg);
 
