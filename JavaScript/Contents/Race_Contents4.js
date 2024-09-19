@@ -1044,65 +1044,65 @@ function CreateTournamentImg(teams, result) {
     /* チーム1の画像*/
     let imgY = baseVerMargin + 20 + varLineLength*4 + 510;
     let imgL = 460;
-    text += '<img src="../../../Img/Members/サークルメンバー2.png"  alt="1-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー2.png"  alt="1-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
     imgY = imgY + 85;
-    text += '<img src="../../../Img/Members/サークルメンバー14.png" alt="1-2" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー14.png" alt="1-2" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
     imgY = imgY + 85;
-    text += '<img src="../../../Img/Members/サークルメンバー16.png" alt="1-3" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー16.png" alt="1-3" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
     
     /* チーム2の画像*/
     imgY = baseVerMargin + 20 + varLineLength*4 + 510;
     imgL += picSize * 3;
-    text += '<img src="../../../Img/Members/サークルメンバー6.png"  alt="1-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー6.png"  alt="2-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
     imgY = imgY + 85;
-    text += '<img src="../../../Img/Members/サークルメンバー10.png" alt="1-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー10.png" alt="2-2" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
     imgY = imgY + 85;
-    text += '<img src="../../../Img/Members/サークルメンバー8.png"  alt="1-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー8.png"  alt="2-3" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
 
     /* チーム3の画像*/
     imgY = baseVerMargin + 20 + varLineLength*4 + 510;
     imgL += picSize;
-    text += '<img src="../../../Img/Members/サークルメンバー3.png" alt="1-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー3.png" alt="3-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
     imgY = imgY + 85;
-    text += '<img src="../../../Img/Members/サークルメンバー7.png" alt="1-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー7.png" alt="3-2" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
     imgY = imgY + 85;
-    text += '<img src="../../../Img/Members/サークルメンバー5.png" alt="1-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー5.png" alt="3-3" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
 
     /* チーム4の画像*/
     imgY = baseVerMargin + 20 + varLineLength*4 + 510;
     imgL += picSize * 3;
-    text += '<img src="../../../Img/Members/サークルメンバー19.png" alt="1-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー19.png" alt="4-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
     imgY = imgY + 85;
-    text += '<img src="../../../Img/Members/サークルメンバー20.png" alt="1-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー20.png" alt="4-2" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
     imgY = imgY + 85;
-    text += '<img src="../../../Img/Members/サークルメンバー17.png" alt="1-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー17.png" alt="4-3" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
 
     /* チーム5の画像*/
     imgY = baseVerMargin + 20 + varLineLength*4 + 510;
     imgL += picSize;
-    text += '<img src="../../../Img/Members/サークルメンバー21.png" alt="1-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー21.png" alt="5-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
     imgY = imgY + 85;
-    text += '<img src="../../../Img/Members/サークルメンバー23.png" alt="1-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー23.png" alt="5-2" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
     imgY = imgY + 85;
-    text += '<img src="../../../Img/Members/サークルメンバー27.png" alt="1-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー27.png" alt="5-3" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
 
     /* チーム6の画像*/
     imgY = baseVerMargin + 20 + varLineLength*4 + 510;
     imgL += picSize * 3;
-    text += '<img src="../../../Img/Members/サークルメンバー11.png" alt="1-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー11.png" alt="6-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
     imgY = imgY + 85;
-    text += '<img src="../../../Img/Members/サークルメンバー13.png" alt="1-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー13.png" alt="6-2" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
     imgY = imgY + 85;
-    text += '<img src="../../../Img/Members/サークルメンバー15.png" alt="1-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー15.png" alt="6-3" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
 
     /* チーム7の画像*/
     imgY = baseVerMargin + 20 + varLineLength*4 + 510;
     imgL += picSize * 2;
-    text += '<img src="../../../Img/Members/サークルメンバー4.png"  alt="1-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー4.png"  alt="7-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
     imgY = imgY + 85;
-    text += '<img src="../../../Img/Members/サークルメンバー28.png" alt="1-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー28.png" alt="7-2" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
     imgY = imgY + 85;
-    text += '<img src="../../../Img/Members/サークルメンバー12.png" alt="1-1" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
+    text += '<img src="../Img/Members/サークルメンバー12.png" alt="7-3" style="z-index:50; position:absolute; top:' + imgY + 'px; left:' + imgL + 'px; width:' + picSize + 'px; border:solid 1px black;">';
 
     const divs = document.createElement('div');
     divs.innerHTML = text;
