@@ -1,0 +1,39 @@
+#RaceHome{
+    margin: auto;
+    width: 50vw;
+    height: auto;
+}
+
+.race_topic {
+    margin: 0;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+}
+.race_topic_contents {
+    padding: 5% 10% 5%;
+    margin: auto 10px;
+    width: 50%;
+    height: 45%;
+    border: solid 1px #000;
+}
+
+.race_top_head {
+    width: 100%;
+    display: flex;
+}
+.race_top_title {
+    margin: 0 25% 0 0;
+    width: 25%;
+    position: relative;
+}
+.race_more_info {
+    margin: 0 0 0 25%;
+    width: 25%;
+    text-align: right;
+    position: relative;
+}
+
+.race_top {
+    border: solid 1px #000;
+}
