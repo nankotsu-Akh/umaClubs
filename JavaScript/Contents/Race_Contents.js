@@ -175,13 +175,14 @@ function SetRaceResult (data) {
             if(idx < result.length) {
                 const clone = template.content.cloneNode(true);
                 const currRes = result[idx] - 1;
+                const id = member[currRes].MemberID;
 
                 clone.querySelector('.result_table_runk').textContent            = idx + 1;
                 clone.querySelector('.result_table_number').textContent          = result[idx];
                 clone.querySelector('.result_table_name').textContent            = member[currRes].Name;
                 clone.querySelector('.result_table_training_rank').textContent   = member[currRes].Runk[0];
                 clone.querySelector('.result_table_training_point').textContent  = member[currRes].Runk[1];
-                clone.querySelector('.result_table_trainer').textContent         = member[currRes].Trainer;
+                clone.querySelector('.result_table_trainer').textContent         = id>0?Members[id-1].Name[0]:member[currRes].Trainer;
                 clone.querySelector('.result_table_goal_time').textContent       = member[currRes].GoalTime;
                 clone.querySelector('.result_table_goal_def').textContent        = member[currRes].GoalTimeDef;
                 clone.querySelector('.result_table_corner_pass').textContent     = member[currRes].CornerPass;
@@ -254,10 +255,11 @@ function SetRaceRunner (data) {
         const template = document.getElementById('RunnerTemplate');
         for(let idx = 0; idx < member.length; idx++) {
             const clone = template.content.cloneNode(true);
+            const id = member[idx].MemberID;
 
             clone.querySelector('.runner_table_number').textContent          = idx + 1;
             clone.querySelector('.runner_table_name').textContent            = member[idx].Name;
-            clone.querySelector('.runner_table_trainer').textContent         = member[idx].Trainer;
+            clone.querySelector('.runner_table_trainer').textContent         = id>0?Members[id-1].Name[0]:member[idx].Trainer;;
             clone.querySelector('.runner_table_parent1').textContent         = member[idx].parents[0];
             clone.querySelector('.runner_table_parent2').textContent         = member[idx].parents[1];
             clone.querySelector('.runner_table_training_runk').textContent   = member[idx].Runk[0];
@@ -274,13 +276,14 @@ function SetRaceRunner (data) {
 
                 const befData = member[idx].beforeRuns[idx2];
 
-                clone.querySelector(targetTxtBase+'_date').textContent              = befData.Date;
+                clone.querySelector(targetTxtBase+'_date').textContent              = "20"+befData.Date.year+"/"+befData.Date.month+"/"+befData.Date.day;
                 clone.querySelector(targetTxtBase+'_prace').textContent             = befData.Place;
                 clone.querySelector(targetTxtBase+'_race_name').textContent         = befData.Title;
                 clone.querySelector(targetTxtBase+'_result').textContent            = befData.Goal;
+                clone.querySelector(targetTxtBase+'_result_unit').textContent       = "着";
                 clone.querySelector(targetTxtBase+'_number').textContent            = befData.MembersCnt + "頭 " + ("00" + befData.Number).slice(-2) + "番";
                 clone.querySelector(targetTxtBase+'_favorite').textContent          = befData.Favorite + " 番人気";
-                clone.querySelector(targetTxtBase+'_trainer').textContent           = member[idx].Name;
+                clone.querySelector(targetTxtBase+'_trainer').textContent           = befData.Name;
                 clone.querySelector(targetTxtBase+'_training_runk').textContent     = befData.Runk[1] + "(" + befData.Runk[0] + ")";
                 clone.querySelector(targetTxtBase+'_training_couse').textContent    = "-";
                 clone.querySelector(targetTxtBase+'_course').textContent            = befData.CourseLength + "00 " + befData.Feald;
@@ -291,7 +294,7 @@ function SetRaceRunner (data) {
                 clone.querySelector(targetTxtBase+'_top_runner').textContent        = befData.Top + " (" + befData.TopDef + ")";
             }
 
-            // 前走の未入力欄を網掛けにする
+            // 行を見やすいように1行ごとに色を変える
             document.getElementById('RunnerTable').tBodies[0].appendChild(clone);
             const row = document.getElementById('RunnerTable').tBodies[0].getElementsByClassName('runner_table_rows')[idx];
             if((idx + 1) % 2 == 0) {
@@ -301,10 +304,35 @@ function SetRaceRunner (data) {
                 row.style.backgroundColor = "#ffffff";
             }
 
+            for(let idx2 = 0; idx2 < member[idx].beforeRuns.length; idx2++) {
+                if(member[idx].beforeRuns[idx2].Goal == 1) {
+                    
+                }
+            }
+
+            // 背景色の変更
             const befsMax = 4;
             const befs = row.getElementsByClassName('runner_table_befores');
-            for(let idx2 = member[idx].beforeRuns.length; idx2 < befsMax; idx2++){
-                befs[idx2].style.backgroundColor = "#d0d0d0";
+            for(let idx2 = 0; idx2 < befsMax; idx2++){
+                if(idx2 < member[idx].beforeRuns.length) {
+                    // 上位順位の背景は変更する
+                    if(member[idx].beforeRuns[idx2].Goal == 1) {
+                        befs[idx2].style.backgroundColor = "#ffd7d7";
+                    }
+                    else if(member[idx].beforeRuns[idx2].Goal == 2) {
+                        befs[idx2].style.backgroundColor = "#dee6ef";
+                    }
+                    else if(member[idx].beforeRuns[idx2].Goal == 3) {
+                        befs[idx2].style.backgroundColor = "#dde8cb";
+                    }
+                    else {
+                        /* NOP */
+                    }
+                }
+                else {
+                    // 前走の未入力欄を網掛けにする
+                    befs[idx2].style.backgroundColor = "#d0d0d0";
+                }
             }
 
             const frame = document.createElement('img');
