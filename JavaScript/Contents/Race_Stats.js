@@ -26,7 +26,7 @@ function SetRaceResult () {
         clone.querySelector('.member_name').textContent = memb.Name[0];
         memb.result.forEach(race => {
             const cln_Race = ele_race.content.cloneNode(true);
-            cln_Race.querySelector('.race_result_before_date').textContent              = race.Date;
+            cln_Race.querySelector('.race_result_before_date').textContent              = "20"+race.Date.year+"/"+race.Date.month+"/"+race.Date.day;
             cln_Race.querySelector('.race_result_before_prace').textContent             = race.Place;
             cln_Race.querySelector('.race_result_before_race_name').textContent         = race.Title;
             cln_Race.querySelector('.race_result_before_result').textContent            = race.Goal;
