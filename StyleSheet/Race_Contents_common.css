@@ -7,18 +7,19 @@
 
 /*============= レースヘッダ情報 =============*/
 .race_contents_head {
-    margin: 50px auto 0;
-    width: 85vw;
+    margin: 5vh auto 0;
+    width: 90vw;
     height: 150px;
     border-top: solid 5px black;
     border-bottom: solid 5px black;
     position: relative;
 }
 .race_contents_head_wrapper {
-    margin: 15px auto;
+    margin: 1.5vh auto;
     width: 100%;
     height: 120px;
 }
+
 /* レース見出し設定 */
 .race_contents_head_main {
     margin: 0 auto;
@@ -38,15 +39,17 @@
     background-color: #f1f35e;
 }
 .race_contents_head_main_race_name {
-    height: 70px;
+    height: 7.5vh;
     display: flex;
+    align-items: flex-end;
 }
 .race_contents_head_main_race_name_numbering {
-    padding: 50px 0 0;
+    padding: 5vh 0 0;
     font-weight: bold;
 }
 .race_contents_head_main_race_name_title {
-    font-size: 60px;
+    height: 90%;
+    font-size: 6vh;
 }
 .race_contents_head_main_race_name_subtitle {
     height: 25px;
@@ -228,7 +231,7 @@ table {
     width: 85px;
 }
 .runner_table_befores {
-    width: 155px;
+    min-width: 155px;
 }
 
 /* 出馬表 - 前走 */
