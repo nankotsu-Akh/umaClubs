@@ -336,11 +336,15 @@ function SetRaceRunner (data) {
                 }
             }
 
-            // const frame = document.createElement('img');
-            // frame.src = ar_FrameMap[member[idx].Frame - 1];
-            // frame.alt = "枠番 - " + member[idx].Frame;
-            // row.getElementsByClassName('runner_table_frame')[0].appendChild(frame);
             row.getElementsByClassName('runner_table_frame')[0].appendChild(SetFrameImg(member.length, idx));
+
+            const nowTime = new Date().getTime() / 1000.0;
+            const raceTime = new Date(2024, 8, 23, 2, 47, 4).getTime() / 1000.0;
+
+            if(raceTime > nowTime) {
+                row.getElementsByClassName('runner_table_number')[0].textContent = "";
+                row.getElementsByClassName('runner_table_frame')[0].textContent = "";
+            }
         }
     }
     else {
@@ -361,30 +365,18 @@ function SetFrameImg(fullCnt, idx) {
     const frame = document.createElement('img');
 
     let flm_idx;
-    switch(fullCnt){
-        case 9:
-            if(idx < 8) flm_idx = idx;
-            else        flm_idx = 7;
-            break;
-
-        case 12:
-            if(idx < 4) flm_idx = idx;
-            else        flm_idx = Math.trunc((idx+4)/2);
-            break;
-
-        case 16:
-            flm_idx = Math.trunc(idx/2);
-            break;
-
-        case 18:
-            if(idx < 12)        flm_idx = Math.trunc(idx/2);
-            else                flm_idx = Math.trunc((idx+6)/3);
-            break;
-
-        default:
-            flm_idx = 0;
-            break;
+    
+    if(fullCnt < 17) {
+        let defs = (2*8)-fullCnt;
+        if(idx < defs)  flm_idx = Math.trunc(idx);
+        else            flm_idx = Math.trunc((idx+defs)/2)
     }
+    else {
+        let defs = (3*16)-(2*fullCnt);
+        if(idx < defs)  flm_idx = Math.trunc(idx/2);
+        else                    flm_idx = Math.trunc((2*idx+defs)/6)
+    }
+
     frame.src = ar_FrameMap[flm_idx];
     frame.alt = "枠番 - " + flm_idx;
     return frame;
