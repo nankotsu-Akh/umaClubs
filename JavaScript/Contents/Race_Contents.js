@@ -110,22 +110,24 @@ function WriteResult() {
     const ele = document.getElementById('RaceScoreInfos');
 
     let text = `
-        <table id="ResultTable">
-            <tr class="result_table_row_tag">
-                <th class="result_table_col_goal">着順</th>
-                <th class="result_table_col_frame">枠</th>
-                <th class="result_table_col_number">ウマ番</th>
-                <th class="result_table_col_name">バ名</th>
-                <th class="result_table_col_rank">評価ランク</th>
-                <th class="result_table_col_point">評価点</th>
-                <th class="result_table_col_trainer">トレーナー名</th>
-                <th class="result_table_col_time">タイム</th>
-                <th class="result_table_col_def">着差</th>
-                <th class="result_table_col_corner">コーナー通過順位</th>
-                <th class="result_table_col_furlong">推定上り</th>
-                <th class="result_table_col_favorite">人気</th>
-            </tr>
-        </table>
+        <div class="race_contents_main_items_raceScores_Infos_result_item">
+            <table id="ResultTable">
+                <tr class="result_table_row_tag">
+                    <th class="result_table_col_goal">着順</th>
+                    <th class="result_table_col_frame">枠</th>
+                    <th class="result_table_col_number">ウマ番</th>
+                    <th class="result_table_col_name">バ名</th>
+                    <th class="result_table_col_rank">評価ランク</th>
+                    <th class="result_table_col_point">評価点</th>
+                    <th class="result_table_col_trainer">トレーナー名</th>
+                    <th class="result_table_col_time">タイム</th>
+                    <th class="result_table_col_def">着差</th>
+                    <th class="result_table_col_corner">コーナー通過順位</th>
+                    <th class="result_table_col_furlong">推定上り</th>
+                    <th class="result_table_col_favorite">人気</th>
+                </tr>
+            </table>
+        </div>
         <div class="result_ex_info">
             <div>タイム</div>
             <table class="result_ex_info_table">
@@ -198,10 +200,7 @@ function SetRaceResult (data) {
                     row.style.backgroundColor = "#ffffff";
                 }
 
-                const frame = document.createElement('img');
-                frame.src = ar_FrameMap[member[currRes].Frame - 1];
-                frame.alt = "枠番 - " + member[currRes].Frame;
-                row.getElementsByClassName('result_table_frame')[0].appendChild(frame);
+                row.getElementsByClassName('result_table_frame')[0].appendChild(SetFrameImg(result.length, currRes));
             }
         }
     }
@@ -224,25 +223,27 @@ function WriteRunner() {
     const ele = document.getElementById('RaceScoreInfos');
 
     let text = `
-        <table id="RunnerTable">
-            <tr class="runner_table_row_tag">
-                <th class="runner_table_col_frame">枠</th>
-                <th class="runner_table_col_number">ウマ番</th>
-                <th class="runner_table_col_name_etc">
-                    <div style="margin: 0 2px;">バ名</div>
-                    <div style="margin: 0 2px;">トレーナー名</div>
-                    <div style="margin: 0 2px;">継承</div>
-                </th>
-                <th class="runner_table_col_ranks">
-                    <div style="margin: 0 2px;">評価ランク</div>
-                    <div style="margin: 0 2px;">評価点</div>
-                </th>
-                <th class="runner_table_col_befores">前走</th>
-                <th class="runner_table_col_befores">前々走</th>
-                <th class="runner_table_col_befores">3走前</th>
-                <th class="runner_table_col_befores">4走前</th>
-            </tr>
-        </table>
+        <div class="race_contents_main_items_raceScores_Infos_result_item">
+            <table id="RunnerTable">
+                <tr class="runner_table_row_tag">
+                    <th class="runner_table_col_frame">枠</th>
+                    <th class="runner_table_col_number">ウマ番</th>
+                    <th class="runner_table_col_name_etc">
+                        <div style="margin: 0 2px;">バ名</div>
+                        <div style="margin: 0 2px;">トレーナー名</div>
+                        <div style="margin: 0 2px;">継承</div>
+                    </th>
+                    <th class="runner_table_col_ranks">
+                        <div style="margin: 0 2px;">評価ランク</div>
+                        <div style="margin: 0 2px;">評価点</div>
+                    </th>
+                    <th class="runner_table_col_befores">前走</th>
+                    <th class="runner_table_col_befores">前々走</th>
+                    <th class="runner_table_col_befores">3走前</th>
+                    <th class="runner_table_col_befores">4走前</th>
+                </tr>
+            </table>
+        </div>
     `;
 
     ele.innerHTML = text;
@@ -335,10 +336,11 @@ function SetRaceRunner (data) {
                 }
             }
 
-            const frame = document.createElement('img');
-            frame.src = ar_FrameMap[member[idx].Frame - 1];
-            frame.alt = "枠番 - " + member[idx].Frame;
-            row.getElementsByClassName('runner_table_frame')[0].appendChild(frame);
+            // const frame = document.createElement('img');
+            // frame.src = ar_FrameMap[member[idx].Frame - 1];
+            // frame.alt = "枠番 - " + member[idx].Frame;
+            // row.getElementsByClassName('runner_table_frame')[0].appendChild(frame);
+            row.getElementsByClassName('runner_table_frame')[0].appendChild(SetFrameImg(member.length, idx));
         }
     }
     else {
@@ -353,6 +355,39 @@ function SetRaceRunner (data) {
             
         document.getElementById('RunnerTable').tBodies[0].appendChild(row);
     }
+}
+
+function SetFrameImg(fullCnt, idx) {
+    const frame = document.createElement('img');
+
+    let flm_idx;
+    switch(fullCnt){
+        case 9:
+            if(idx < 8) flm_idx = idx;
+            else        flm_idx = 7;
+            break;
+
+        case 12:
+            if(idx < 4) flm_idx = idx;
+            else        flm_idx = Math.trunc((idx+4)/2);
+            break;
+
+        case 16:
+            flm_idx = Math.trunc(idx/2);
+            break;
+
+        case 18:
+            if(idx < 12)        flm_idx = Math.trunc(idx/2);
+            else                flm_idx = Math.trunc((idx+6)/3);
+            break;
+
+        default:
+            flm_idx = 0;
+            break;
+    }
+    frame.src = ar_FrameMap[flm_idx];
+    frame.alt = "枠番 - " + flm_idx;
+    return frame;
 }
 
 function WriteRaceInfo() {
