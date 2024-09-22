@@ -69,7 +69,29 @@ function AddEvent_SelectTab(el, idx){
 }
 
 function WriteInfo() {
-    if( ActiveTabIdx < MatchingRace.length){
+    const nowTime = new Date().getTime() / 1000.0;
+    let strtTime = MatchingRace[ActiveTabIdx][2].startTime.substr(0,2)*60 + MatchingRace[ActiveTabIdx][2].startTime.substr(3,5) - 5;
+    const raceTime = new Date("20"+MatchingRace[ActiveTabIdx][2].raceDay.year, MatchingRace[ActiveTabIdx][2].raceDay.month-1, MatchingRace[ActiveTabIdx][2].raceDay.day, Math.trunc(strtTime/60), strtTime-Math.trunc(strtTime/60)).getTime() / 1000.0;
+
+    if(raceTime > nowTime) {
+        // 5分前までは未公開にする
+        SetRaceInfo([[],[],{},]);
+        switch(ActiveKindIdx){
+            case WRITE_INFO_TYPE_TABS:
+                WriteResult();
+                SetRaceResult([[],[],{},]);
+                break;
+    
+            case WRITE_INFO_TYPE_KIND:
+                WriteRunner();
+                SetRaceRunner([[],[],{},]);
+                break;
+    
+            default:
+                break;
+        }
+    }
+    else if( ActiveTabIdx < MatchingRace.length){
         SetRaceInfo(MatchingRace[ActiveTabIdx]);
     
         switch(ActiveKindIdx){
@@ -251,6 +273,7 @@ function WriteRunner() {
 
 function SetRaceRunner (data) {
     const member = data[1];
+    const raceInfo = data[2];
 
     if(member.length > 0){
         const template = document.getElementById('RunnerTemplate');
@@ -339,7 +362,7 @@ function SetRaceRunner (data) {
             row.getElementsByClassName('runner_table_frame')[0].appendChild(SetFrameImg(member.length, idx));
 
             const nowTime = new Date().getTime() / 1000.0;
-            const raceTime = new Date(2024, 8, 23, 2, 47, 4).getTime() / 1000.0;
+            const raceTime = new Date("20"+raceInfo.raceDay.year, raceInfo.raceDay.month-1, raceInfo.raceDay.day, raceInfo.startTime.substr(0,2), raceInfo.startTime.substr(3,5)).getTime() / 1000.0;
 
             if(raceTime > nowTime) {
                 row.getElementsByClassName('runner_table_number')[0].textContent = "";
