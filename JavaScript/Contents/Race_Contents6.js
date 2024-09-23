@@ -20,7 +20,7 @@ const MatchingRace = [
                 "beforeRuns":[],
             },
             {
-                "Name":"", "Strategy":"",  "Runk":["", "-"], "MemberID":, "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
+                "Name":"", "Strategy":"",  "Runk":["", "-"], "MemberID":"", "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
                 "beforeRuns":[],
             },
             {
@@ -36,7 +36,7 @@ const MatchingRace = [
                 "beforeRuns":[],
             },
             {
-                "Name":"", "Strategy":"",  "Runk":["", "-"], "MemberID":, "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
+                "Name":"", "Strategy":"",  "Runk":["", "-"], "MemberID":"", "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
                 "beforeRuns":[],
             },
             {
@@ -44,7 +44,7 @@ const MatchingRace = [
                 "beforeRuns":[],
             },
             {
-                "Name":"", "Strategy":"",  "Runk":["", "-"], "MemberID":, "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
+                "Name":"", "Strategy":"",  "Runk":["", "-"], "MemberID":"", "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
                 "beforeRuns":[],
             },            
             {
