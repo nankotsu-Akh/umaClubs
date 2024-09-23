@@ -73,7 +73,8 @@ function WriteInfo() {
     let strtTime = MatchingRace[ActiveTabIdx][2].startTime.substr(0,2)*60 + MatchingRace[ActiveTabIdx][2].startTime.substr(3,5) - 5;
     const raceTime = new Date("20"+MatchingRace[ActiveTabIdx][2].raceDay.year, MatchingRace[ActiveTabIdx][2].raceDay.month-1, MatchingRace[ActiveTabIdx][2].raceDay.day, Math.trunc(strtTime/60), strtTime-Math.trunc(strtTime/60)).getTime() / 1000.0;
 
-    if(raceTime > nowTime) {
+    // if(raceTime > nowTime) {
+    if(false) {
         // 5分前までは未公開にする
         SetRaceInfo([[],[],{},]);
         switch(ActiveKindIdx){
