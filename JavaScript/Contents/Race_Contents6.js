@@ -1,18 +1,18 @@
 const MatchingRace = [
     // レース出走情報　レース順
     [   // 第1レース
-        [],
+        [6,4,12,1,7,10,3,8,11,9,5,2],
         [
             {
-                "Name":"ジェンティルドンナ", "Strategy":"",  "Runk":["", "-"], "MemberID":4, "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
-                "beforeRuns":[],
-            },
-            {
-                "Name":"スイープトウショウ", "Strategy":"",  "Runk":["", "-"], "MemberID":14, "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
-                "beforeRuns":[],
-            },
-            {
                 "Name":"ジェンティルドンナ", "Strategy":"",  "Runk":["", "-"], "MemberID":3, "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
+                "beforeRuns":[],
+            },
+            {
+                "Name":"", "Strategy":"",  "Runk":["", "-"], "MemberID":"", "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
+                "beforeRuns":[],
+            },
+                        {
+                "Name":"ジェンティルドンナ", "Strategy":"",  "Runk":["", "-"], "MemberID":4, "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
                 "beforeRuns":[],
             },
             {
@@ -20,11 +20,15 @@ const MatchingRace = [
                 "beforeRuns":[],
             },
             {
-                "Name":"-", "Strategy":"",  "Runk":["", "-"], "MemberID":10, "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
+                "Name":"", "Strategy":"",  "Runk":["", "-"], "MemberID":, "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
                 "beforeRuns":[],
             },
             {
-                "Name":"-", "Strategy":"",  "Runk":["", "-"], "MemberID":20, "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
+                "Name":"ジェンティルドンナ", "Strategy":"",  "Runk":["", "-"], "MemberID":10, "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
+                "beforeRuns":[],
+            },
+            {
+                "Name":"サクラローレル", "Strategy":"",  "Runk":["", "-"], "MemberID":27, "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
                 "beforeRuns":[],
             },
             {
@@ -32,7 +36,19 @@ const MatchingRace = [
                 "beforeRuns":[],
             },
             {
-                "Name":"サクラローレル", "Strategy":"",  "Runk":["", "-"], "MemberID":27, "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
+                "Name":"", "Strategy":"",  "Runk":["", "-"], "MemberID":, "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
+                "beforeRuns":[],
+            },
+            {
+                "Name":"スイープトウショウ", "Strategy":"",  "Runk":["", "-"], "MemberID":14, "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
+                "beforeRuns":[],
+            },
+            {
+                "Name":"", "Strategy":"",  "Runk":["", "-"], "MemberID":, "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
+                "beforeRuns":[],
+            },            
+            {
+                "Name":"ドリームジャーニー", "Strategy":"",  "Runk":["", "-"], "MemberID":20, "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":"", "parents":["", ""],
                 "beforeRuns":[],
             },
         ],
