@@ -599,3 +599,19 @@ table {
 .runner_table_4before_training_couse {
     display: none;
 }
+
+
+
+/* おためし */
+.skills_tooltip {
+    display: none;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    color: #000;
+    background-color: #eee;
+    border: solid 1px #000;
+}
+.result_table_rows:hover .skills_tooltip {
+    display: block;
+}
