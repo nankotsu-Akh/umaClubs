@@ -470,3 +470,32 @@ function GetElementListTag(tagID) {
     console.log("[Race_Contents.js][GetElementListTag] Tag Undefined ["+tagID+"]");
     return document.createElement("li");
 }
+
+function ViewInfomation(event){
+    const target = event.target;
+    const targetParent = target.parentNode;
+    const  targetTableRow = targetParent.parentNode.querySelectorAll("tr");
+
+    let i;
+    for(i = 0; i < targetTableRow.length; i++) {
+        if(targetTableRow[i] === targetParent) {
+            break;
+        }
+    };
+
+    const el = document.getElementById("ViewModal");
+    if(el != null){
+        el.style.top = window.scrollY+"px";
+        el.style.display = "block";
+        document.getElementsByTagName("body")[0].style.overflow = "hidden";
+
+        el.addEventListener('click',()=>{
+            el.style.display = "none";
+            document.getElementsByTagName("body")[0].style.overflow = "visible";
+        },false);
+    }
+    
+    console.log("idx:"+i);
+    console.log(targetTableRow[i].querySelector(".result_table_number").innerHTML);
+    console.log(targetTableRow[i].querySelector(".result_table_name").innerHTML);
+}
