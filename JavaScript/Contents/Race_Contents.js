@@ -94,8 +94,8 @@ function WriteInfo() {
     }
     else {
         // 5分前までは未公開にする
-
         SetRaceInfo(false);
+
         switch(ActiveKindIdx){
             case WRITE_INFO_TYPE_TABS:
                 WriteResult();
@@ -339,11 +339,11 @@ function SetRaceRunner () {
                     let defTime;
                     defTime = befRace.Races[befData.RaceID-1].Winner.Next.Time - befData.GoalTime;
                     if( defTime == NaN) defTime = "-";
-                    if(befData.Name>0) {
+                    if(befRace.Races[befData.RaceID-1].Winner.Next.Name>0) {
                         name = Characters[Math.trunc(befRace.Races[befData.RaceID-1].Winner.Top.Name/100-1)].Name[0];
                     }
                     else {
-                        name = befData.Name
+                        name = befRace.Races[befData.RaceID-1].Winner.Top.Name
                     }
                     clone.querySelector(targetTxtBase+'_top_runner').textContent = name + " (" + defTime/10 + ")";
                 }
@@ -352,11 +352,11 @@ function SetRaceRunner () {
                     let defTime;
                     defTime = befData.GoalTime - befRace.Races[befData.RaceID-1].Winner.Top.Time;
                     if( defTime == NaN) defTime = "-";
-                    if(befData.Name>0) {
+                    if(befRace.Races[befData.RaceID-1].Winner.Next.Name>0) {
                         name = Characters[Math.trunc(befRace.Races[befData.RaceID-1].Winner.Next.Name/100-1)].Name[0];
                     }
                     else {
-                        name = befData.Name
+                        name = befRace.Races[befData.RaceID-1].Winner.Next.Name
                     }
                     clone.querySelector(targetTxtBase+'_top_runner').textContent = name + " (" + defTime/10 + ")";
                 }
