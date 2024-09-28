@@ -1,3 +1,4 @@
+const RaceGroupeID = 4;
 const el_AccordionTitle = document.getElementsByClassName('main_info_title');
 let tournamentViewFlag = false;
 let MatchingRace;
@@ -6,112 +7,15 @@ let MatchingRace;
 const MatchingRace_1 = [
     [   // 第1レース
         [6,7,1,9,3,4,8,5,2],
-        [
-            {
-                "Name":"アイキャレット", "Strategy":"逃げ", "Runk":["A+", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"6", "CornerPass":[], "FurlongTime":"", "Favorite":9, "parents":["", ""], "Motivation": "絶不調",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"インペリアルタリス", "Strategy":"追込", "Runk":["A+", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":8, "parents":["", ""], "Motivation": "不調",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"ワイスマネージャー", "Strategy":"逃げ", "Runk":["A+", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"3/4", "CornerPass":[], "FurlongTime":"", "Favorite":7, "parents":["", ""], "Motivation": "絶不調",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"ブラボーアール", "Strategy":"先行", "Runk":["S", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":6, "parents":["", ""], "Motivation": "普通",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"アクアフィヨルド", "Strategy":"差し", "Runk":["A+", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":3, "parents":["", ""], "Motivation": "普通",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"ダイタクヘリオス", "Strategy":"先行", "Runk":["UE4", ], "MemberID":8, "GoalTime":"1:30.1", "GoalTimeDef":"-", "CornerPass":[], "FurlongTime":"", "Favorite":1, "parents":["", ""], "Motivation": "絶好調",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"エアグルーヴ", "Strategy":"先行", "Runk":["UE2", ], "MemberID":2, "GoalTime":"", "GoalTimeDef":"3", "CornerPass":[], "FurlongTime":"", "Favorite":2, "parents":["", ""], "Motivation": "好調",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"アルベドベラドンナ", "Strategy":"追込", "Runk":["A+", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":4, "parents":["", ""], "Motivation": "絶好調",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"マリフィクス", "Strategy":"先行", "Runk":["S", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"1", "CornerPass":[], "FurlongTime":"", "Favorite":5, "parents":["", ""], "Motivation": "絶好調",
-                "beforeRuns":[]
-            },
-        ],
-        {
-            "grade": "G1",
-            "raceTitle": "NHKマイルカップ",
-            "raceDay": { "year": "24", "month": 2, "day": 12, "date": "月曜" },
-            "startTime": "22:00",
-            "season": "春",
-            "timeZone": "昼",
-            "weather": "晴",
-            "field": "芝",
-            "condition": "良",
-            "course": {"length": 16, "place": "東京", "rotate": "左", },
-        },
+        [1039,1008,1004,1040,1041,8,2,1042,1043]
     ],
     [   // 第2レース
         [2,7,3,1,8,5,9,6,4],
-        [
-            {
-                "Name":"アルゴル", "Strategy":"逃げ", "Runk":["A+", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"3/4", "CornerPass":[], "FurlongTime":"", "Favorite":3, "parents":["", ""], "Motivation": "絶好調",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"タイキシャトル", "Strategy":"先行", "Runk":["UF7", 32813], "MemberID":6, "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":1, "parents":["", ""], "Motivation": "好調",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"アバブリニ", "Strategy":"差し", "Runk":["A+", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"大差", "CornerPass":[], "FurlongTime":"", "Favorite":7, "parents":["", ""], "Motivation": "普通",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"パンパシフィック", "Strategy":"逃げ", "Runk":["A+", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"5/2", "CornerPass":[], "FurlongTime":"", "Favorite":8, "parents":["", ""], "Motivation": "普通",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"アクアオーシャン", "Strategy":"逃げ", "Runk":["A+", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"ハナ", "CornerPass":[], "FurlongTime":"", "Favorite":4, "parents":["", ""], "Motivation": "絶好調",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"シルバーベリー", "Strategy":"先行", "Runk":["A+", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"アタマ", "CornerPass":[], "FurlongTime":"", "Favorite":6, "parents":["", ""], "Motivation": "不調",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"タニノギムレット", "Strategy":"追込", "Runk":["UF1", 24648], "MemberID":14, "GoalTime":"", "GoalTimeDef":"3", "CornerPass":[], "FurlongTime":"", "Favorite":2, "parents":["", ""], "Motivation": "不調",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"タクティカルワン", "Strategy":"追込", "Runk":["A+", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"3/2", "CornerPass":[], "FurlongTime":"", "Favorite":9, "parents":["", ""], "Motivation": "不調",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"アジャイルタレント", "Strategy":"追込", "Runk":["A+", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"アタマ", "CornerPass":[], "FurlongTime":"", "Favorite":5, "parents":["", ""], "Motivation": "絶好調",
-                "beforeRuns":[]
-            },
-        ],
-        {
-            "grade": "G1",
-            "raceTitle": "日本ダービー",
-            "raceDay": { "year": "24", "month": 2, "day": 12, "date": "月曜" },
-            "startTime": "22:10",
-            "season": "春",
-            "timeZone": "昼",
-            "weather": "晴",
-            "field": "芝",
-            "condition": "良",
-            "course": {"length": 24, "place": "東京", "rotate": "左", },
-        },
+        [1044,6,1045,1025,1046,1047,14,1048,1049]
     ],
     [   // 第3レース
         [3,2,9,8,4,6,7,1,5],
+        [1001,10,16,1001,1001,1001,1001,1001,1001],
         [
             {
                 "Name":"ミニマリーゴールド", "Strategy":"先行", "Runk":["A+", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"1", "CornerPass":[], "FurlongTime":"", "Favorite":9, "parents":["", ""], "Motivation": "不調",
@@ -169,6 +73,7 @@ const MatchingRace_2 = [
     // レース出走情報　レース順
     [   // 第1レース
         [],
+        [1,1001,1001,1001,1001,1001,1001,1001,1001],
         [
             {
                 "Name":"サイレンススズカ", "Strategy":"逃げ", "Runk":["UE3", 30677], "MemberID":"", "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":1, "parents":["", ""], "Motivation": "不調",
@@ -222,6 +127,7 @@ const MatchingRace_2 = [
     ],
     [   // 第1レース
         [],
+        [2,1001,1001,1001,1001,1001,1001,1001,1001],
         [
             {
                 "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
@@ -243,6 +149,7 @@ const MatchingRace_2 = [
     ],
     [   // 第2レース
         [],
+        [3,1001,1001,1001,1001,1001,1001,1001,1001],
         [
             {
                 "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
@@ -268,6 +175,7 @@ const MatchingRace_3 = [
     // レース出走情報　レース順
     [   // 第1レース
         [],
+        [4,1001,1001,1001,1001,1001,1001,1001,1001],
         [
             {
                 "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
@@ -289,6 +197,7 @@ const MatchingRace_3 = [
     ],
     [   // 第1レース
         [],
+        [5,1001,1001,1001,1001,1001,1001,1001,1001],
         [
             {
                 "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
@@ -310,6 +219,7 @@ const MatchingRace_3 = [
     ],
     [   // 第2レース
         [],
+        [6,1001,1001,1001,1001,1001,1001,1001,1001],
         [
             {
                 "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
@@ -335,6 +245,7 @@ const MatchingRace_4 = [
     // レース出走情報　レース順
     [   // 第1レース
         [],
+        [7,1001,1001,1001,1001,1001,1001,1001,1001],
         [
             {
                 "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
@@ -356,6 +267,7 @@ const MatchingRace_4 = [
     ],
     [   // 第1レース
         [],
+        [8,1001,1001,1001,1001,1001,1001,1001,1001],
         [
             {
                 "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
@@ -377,6 +289,7 @@ const MatchingRace_4 = [
     ],
     [   // 第2レース
         [],
+        [9,1001,1001,1001,1001,1001,1001,1001,1001],
         [
             {
                 "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
@@ -402,6 +315,7 @@ const MatchingRace_5 = [
     // レース出走情報　レース順
     [   // 第1レース
         [],
+        [10,1001,1001,1001,1001,1001,1001,1001,1001],
         [
             {
                 "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
@@ -423,6 +337,7 @@ const MatchingRace_5 = [
     ],
     [   // 第1レース
         [],
+        [11,1001,1001,1001,1001,1001,1001,1001,1001],
         [
             {
                 "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
@@ -444,6 +359,7 @@ const MatchingRace_5 = [
     ],
     [   // 第2レース
         [],
+        [12,1001,1001,1001,1001,1001,1001,1001,1001],
         [
             {
                 "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
@@ -469,6 +385,7 @@ const MatchingRace_6 = [
     // レース出走情報　レース順
     [   // 第1レース
         [],
+        [13,1001,1001,1001,1001,1001,1001,1001,1001],
         [
             {
                 "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
@@ -490,6 +407,7 @@ const MatchingRace_6 = [
     ],
     [   // 第1レース
         [],
+        [14,1001,1001,1001,1001,1001,1001,1001,1001],
         [
             {
                 "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
@@ -511,6 +429,7 @@ const MatchingRace_6 = [
     ],
     [   // 第2レース
         [],
+        [15,1001,1001,1001,1001,1001,1001,1001,1001],
         [
             {
                 "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
@@ -537,7 +456,7 @@ const Races = [MatchingRace_1, MatchingRace_2, MatchingRace_3, MatchingRace_4, M
 /* メイン処理 */
 /*================================================*/
 MatchingRace = MatchingRace_1;
-SetBeforeRuns(Members);
+// SetBeforeRuns(Members);
 
 // アコーディオン処理の登録
 // SetEventAccordion(el_MainContent);
@@ -556,9 +475,9 @@ const el_RaceMatching = document.getElementById('RaceMatching').getElementsByTag
 for(let i = 0; i < el_RaceMatching.length; i++) {
     el_RaceMatching[i].addEventListener("click", ()=>{
         AddEvent_SelectTab(el_RaceMatching, i)
-        ActiveKindIdx = i;
+        ActiveRacedIdx = i;
         MatchingRace = Races[i]
-        SetBeforeRuns(Members);
+        // SetBeforeRuns(Members);
         WriteInfo();
     });
 }
@@ -1768,3 +1687,4 @@ function SetLineInfo(target, val, color, width) {
     target.setAttribute('stroke', color);
     target.setAttribute('stroke-width', width);
 }
+

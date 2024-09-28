@@ -12,8 +12,9 @@ const ar_FrameMap = GetFrameMapImg_RelativePath(relPath_Img);   // 枠番画像
 const el_RaceTabs = GetElementListTag('RaceTabs');
 const el_RaceScoresKind = document.getElementById('RaceScoresKind').getElementsByTagName('li');
 
-let ActiveTabIdx = 0;
-let ActiveKindIdx = 0;
+let ActiveRacedIdx = 0; // 選択中の戦情報
+let ActiveTabIdx = 0;   // 選択中レースのインデックス
+let ActiveKindIdx = 0;  // 選択中の表示情報(0:結果, 1:出馬表)
 
 /*================================================*/
 /* メイン処理 */
@@ -36,7 +37,7 @@ for(let i = 0; i < el_RaceScoresKind.length; i++) {
 }
 
 // 第1レースが未出走の場合は出馬表を初期表示とする
-if(MatchingRace[ActiveTabIdx][ActiveKindIdx].length == 0){
+if(MatchingRace[ActiveTabIdx][WRITE_INFO_TYPE_TABS].length == 0){
     ActiveKindIdx = WRITE_INFO_TYPE_KIND;
     AddEvent_SelectTab(el_RaceScoresKind, ActiveKindIdx)
 }
@@ -70,40 +71,21 @@ function AddEvent_SelectTab(el, idx){
 
 function WriteInfo() {
     const nowTime = new Date().getTime() / 1000.0;
-    let strtTime = MatchingRace[ActiveTabIdx][2].startTime.substr(0,2)*60 + MatchingRace[ActiveTabIdx][2].startTime.substr(3,5) - 5;
-    const raceTime = new Date("20"+MatchingRace[ActiveTabIdx][2].raceDay.year, MatchingRace[ActiveTabIdx][2].raceDay.month-1, MatchingRace[ActiveTabIdx][2].raceDay.day, Math.trunc(strtTime/60), strtTime-Math.trunc(strtTime/60)).getTime() / 1000.0;
+    let strtTime = DB_RaceInfo[RaceGroupeID-1].Races[ActiveTabIdx].RaceDate;
+    const raceTime = new Date(strtTime.Year, strtTime.Month-1, strtTime.Day, strtTime.Hour, strtTime.Min-5).getTime() / 1000.0;
 
-    // if(raceTime > nowTime) {
-    if(false) {
-        // 5分前までは未公開にする
-        SetRaceInfo([[],[],{},]);
-        switch(ActiveKindIdx){
-            case WRITE_INFO_TYPE_TABS:
-                WriteResult();
-                SetRaceResult([[],[],{},]);
-                break;
-    
-            case WRITE_INFO_TYPE_KIND:
-                WriteRunner();
-                SetRaceRunner([[],[],{},]);
-                break;
-    
-            default:
-                break;
-        }
-    }
-    else if( ActiveTabIdx < MatchingRace.length){
-        SetRaceInfo(MatchingRace[ActiveTabIdx]);
+    if( raceTime <= nowTime && ActiveTabIdx < MatchingRace.length){
+        SetRaceInfo();
     
         switch(ActiveKindIdx){
             case WRITE_INFO_TYPE_TABS:
                 WriteResult();
-                SetRaceResult(MatchingRace[ActiveTabIdx]);
+                SetRaceResult();
                 break;
     
             case WRITE_INFO_TYPE_KIND:
                 WriteRunner();
-                SetRaceRunner(MatchingRace[ActiveTabIdx]);
+                SetRaceRunner();
                 break;
     
             default:
@@ -111,16 +93,18 @@ function WriteInfo() {
         }
     }
     else {
-        SetRaceInfo([[],[],{},]);
+        // 5分前までは未公開にする
+
+        SetRaceInfo(false);
         switch(ActiveKindIdx){
             case WRITE_INFO_TYPE_TABS:
                 WriteResult();
-                SetRaceResult([[],[],{},]);
+                SetRaceResult();
                 break;
     
             case WRITE_INFO_TYPE_KIND:
                 WriteRunner();
-                SetRaceRunner([[],[],{},]);
+                SetRaceRunner([[],[],{},], {});
                 break;
     
             default:
@@ -189,42 +173,50 @@ function WriteResult() {
     ele.innerHTML = text;
 }
 
-function SetRaceResult (data) {
-    const result = data[0];
-    const member = data[1];
+function SetRaceResult () {
+    const result = MatchingRace[ActiveTabIdx][0];
+    const member = MatchingRace[ActiveTabIdx][1];
 
     // レース結果がある場合のみデータを登録
     if(result.length > 0 && result.length == member.length) {
         const template = document.getElementById('ResultTemplate');
+
+        // 順位順に情報を挿入
         for(let idx = 0; idx < member.length; idx++) {
-            if(idx < result.length) {
-                const clone = template.content.cloneNode(true);
-                const currRes = result[idx] - 1;
-                const id = member[currRes].MemberID;
+            const clone = template.content.cloneNode(true);
+            
+            const resultID = result[idx];   // 着順でウマ番を取得
+            const memberID = member[resultID-1];    // ウマ番から出走者情報のIDを取得
 
-                clone.querySelector('.result_table_runk').textContent            = idx + 1;
-                clone.querySelector('.result_table_number').textContent          = result[idx];
-                clone.querySelector('.result_table_name').textContent            = member[currRes].Name;
-                clone.querySelector('.result_table_training_rank').textContent   = member[currRes].Runk[0];
-                clone.querySelector('.result_table_training_point').textContent  = member[currRes].Runk[1];
-                clone.querySelector('.result_table_trainer').textContent         = id>0?Members[id-1].Name[0]:member[currRes].Trainer;
-                clone.querySelector('.result_table_goal_time').textContent       = member[currRes].GoalTime;
-                clone.querySelector('.result_table_goal_def').textContent        = member[currRes].GoalTimeDef;
-                clone.querySelector('.result_table_corner_pass').textContent     = member[currRes].CornerPass;
-                clone.querySelector('.result_table_furlong_time').textContent    = member[currRes].FurlongTime;
-                clone.querySelector('.result_table_favorite').textContent        = member[currRes].Favorite;
+            // メンバーIDのオフセットを参照して出走者情報を取得する
+            const target = GetTargetRunnerFromMemberID(memberID);
+            
+            // メンバーの出走記録からレース情報を取得
+            const RaceRes = GetTargetRaceInfoFromMemberID(target);
+            
+            clone.querySelector('.result_table_runk').textContent            = idx + 1;
+            clone.querySelector('.result_table_number').textContent          = result[idx];
+            clone.querySelector('.result_table_name').textContent            = RaceRes.Name>0?Characters[Math.trunc(RaceRes.Name/100-1)].Name[0]:RaceRes.Name;
+            clone.querySelector('.result_table_training_rank').textContent   = RaceRes.Runk[0];
+            clone.querySelector('.result_table_training_point').textContent  = RaceRes.Runk[1];
+            clone.querySelector('.result_table_trainer').textContent         = target.Name[0];;
+            clone.querySelector('.result_table_goal_time').textContent       = RaceRes.GoalTime==0?"":Math.trunc(RaceRes.GoalTime/600)+":"+("00" + Math.trunc((RaceRes.GoalTime%600)/10)).slice(-2) +"."+RaceRes.GoalTime%10;
+            clone.querySelector('.result_table_goal_def').textContent        = RaceRes.GoalDef;
+            clone.querySelector('.result_table_corner_pass').textContent     = RaceRes.CornerPass;
+            clone.querySelector('.result_table_furlong_time').textContent    = RaceRes.FurlongTime;
+            clone.querySelector('.result_table_favorite').textContent        = RaceRes.Favorite;
 
-                document.getElementById('ResultTable').tBodies[0].appendChild(clone);
-                const row = document.getElementById('ResultTable').tBodies[0].getElementsByClassName('result_table_rows')[idx];
-                if((idx + 1) % 2 == 0) {
-                    row.style.backgroundColor = "#f0f0f0";
-                }
-                else {
-                    row.style.backgroundColor = "#ffffff";
-                }
-
-                row.getElementsByClassName('result_table_frame')[0].appendChild(SetFrameImg(result.length, currRes));
+            document.getElementById('ResultTable').tBodies[0].appendChild(clone);
+            const row = document.getElementById('ResultTable').tBodies[0].getElementsByClassName('result_table_rows')[idx];
+            if((idx + 1) % 2 == 0) {
+                row.style.backgroundColor = "#f0f0f0";
             }
+            else {
+                row.style.backgroundColor = "#ffffff";
+            }
+
+            // 枠番画像を挿入
+            row.getElementsByClassName('result_table_frame')[0].appendChild(SetFrameImg(result.length, resultID-1));
         }
     }
     else {
@@ -272,51 +264,102 @@ function WriteRunner() {
     ele.innerHTML = text;
 }
 
-function SetRaceRunner (data) {
-    const member = data[1];
-    const raceInfo = data[2];
+function SetRaceRunner () {
+    const member = MatchingRace[ActiveTabIdx][1];
+    const race = DB_RaceInfo[RaceGroupeID-1];
 
+    // メンバー情報がある場合のみデータを登録
     if(member.length > 0){
         const template = document.getElementById('RunnerTemplate');
+        const raceInfo = race.Races[ActiveTabIdx];
+
+        // ウマ番順に情報を挿入
         for(let idx = 0; idx < member.length; idx++) {
             const clone = template.content.cloneNode(true);
-            const id = member[idx].MemberID;
+
+            // メンバーIDのオフセットを参照して出走者情報を取得する
+            const id = member[idx];
+            const target = GetTargetRunnerFromMemberID(id);
+
+            // メンバーの出走記録からレース情報を取得
+            const RaceRes = GetTargetRaceInfoFromMemberID(target);
 
             clone.querySelector('.runner_table_number').textContent          = idx + 1;
-            clone.querySelector('.runner_table_name').textContent            = member[idx].Name;
-            clone.querySelector('.runner_table_trainer').textContent         = id>0?Members[id-1].Name[0]:member[idx].Trainer;;
-            clone.querySelector('.runner_table_parent1').textContent         = member[idx].parents[0];
-            clone.querySelector('.runner_table_parent2').textContent         = member[idx].parents[1];
-            clone.querySelector('.runner_table_training_runk').textContent   = member[idx].Runk[0];
-            clone.querySelector('.runner_table_training_point').textContent  = member[idx].Runk[1];
+            clone.querySelector('.runner_table_name').textContent            = RaceRes.Name>0?Characters[Math.trunc(RaceRes.Name/100-1)].Name[0]:RaceRes.Name;
+            clone.querySelector('.runner_table_trainer').textContent         = target.Name[0];
+            clone.querySelector('.runner_table_parent1').textContent         = RaceRes.Parents[0];
+            clone.querySelector('.runner_table_parent2').textContent         = RaceRes.Parents[1];
+            clone.querySelector('.runner_table_training_runk').textContent   = RaceRes.Runk[0];
+            clone.querySelector('.runner_table_training_point').textContent  = RaceRes.Runk[1];
 
             // 前走の表示設定
-            for(let idx2 = 0; idx2 < member[idx].beforeRuns.length; idx2++) {
+            let befRunCnt = 0;
+            for(let idx2 = 0; idx2 < target.result.length; idx2++) {
                 let targetTxtBase = '.runner_table';
-                if(idx2 == 0) targetTxtBase = targetTxtBase+'_before';
-                else if(idx2 == 1) targetTxtBase = targetTxtBase+'_2before';
-                else if(idx2 == 2) targetTxtBase = targetTxtBase+'_3before';
-                else if(idx2 == 3) targetTxtBase = targetTxtBase+'_4before';
+                if(befRunCnt == 0) targetTxtBase += '_before';
+                else if(befRunCnt == 1) targetTxtBase += '_2before';
+                else if(befRunCnt == 2) targetTxtBase += '_3before';
+                else if(befRunCnt == 3) targetTxtBase += '_4before';
                 else continue;
 
-                const befData = member[idx].beforeRuns[idx2];
+                const befData = target.result[idx2];
+                // レースグループが対象よりも高いならば前走ではないのでスキップ
+                if(befData.RaceGrpID > RaceGroupeID){
+                    continue;
+                }
+                // レースグループが同値かつ対象よりレースIDが同値以上ならば前走ではないのでスキップ
+                if(befData.RaceGrpID == RaceGroupeID && befData.RaceID-1 >= ActiveTabIdx){
+                    continue;
+                }
 
-                clone.querySelector(targetTxtBase+'_date').textContent              = "20"+befData.Date.year+"/"+befData.Date.month+"/"+befData.Date.day;
-                clone.querySelector(targetTxtBase+'_prace').textContent             = befData.Place;
-                clone.querySelector(targetTxtBase+'_race_name').textContent         = befData.Title;
+                befRunCnt++;
+                const befRace = DB_RaceInfo[befData.RaceGrpID-1];
+
+                clone.querySelector(targetTxtBase+'_date').textContent              = befRace.Races[befData.RaceID-1].RaceDate.Year+"/"+befRace.Races[befData.RaceID-1].RaceDate.Month+"/"+befRace.Races[befData.RaceID-1].RaceDate.Day;
+                clone.querySelector(targetTxtBase+'_prace').textContent             = befRace.Races[befData.RaceID-1].RaceInfo.Place;
+                clone.querySelector(targetTxtBase+'_race_name').textContent         = befRace.Races[befData.RaceID-1].AbbreviationName;
                 clone.querySelector(targetTxtBase+'_result').textContent            = befData.Goal;
                 clone.querySelector(targetTxtBase+'_result_unit').textContent       = "着";
-                clone.querySelector(targetTxtBase+'_number').textContent            = befData.MembersCnt + "頭 " + ("00" + befData.Number).slice(-2) + "番";
+                clone.querySelector(targetTxtBase+'_number').textContent            = befRace.Races[befData.RaceID-1].RaceInfo.MembersCnt + "頭 " + ("00" + befData.Number).slice(-2) + "番";
                 clone.querySelector(targetTxtBase+'_favorite').textContent          = befData.Favorite + " 番人気";
-                clone.querySelector(targetTxtBase+'_trainer').textContent           = befData.Name;
+                clone.querySelector(targetTxtBase+'_trainer').textContent           = befData.Name>0?Characters[Math.trunc(befData.Name/100-1)].Name[0]:befData.Name;
                 clone.querySelector(targetTxtBase+'_training_runk').textContent     = befData.Runk[1] + "(" + befData.Runk[0] + ")";
                 clone.querySelector(targetTxtBase+'_training_couse').textContent    = "-";
-                clone.querySelector(targetTxtBase+'_course').textContent            = befData.CourseLength + "00 " + befData.Feald;
-                clone.querySelector(targetTxtBase+'_goal_time').textContent         = befData.GoalTime;
-                clone.querySelector(targetTxtBase+'_condition').textContent         = befData.Condition;
+                clone.querySelector(targetTxtBase+'_course').textContent            = befRace.Races[befData.RaceID-1].RaceInfo.Length + " " + befRace.Races[befData.RaceID-1].RaceInfo.Field;
+                clone.querySelector(targetTxtBase+'_goal_time').textContent         = Math.trunc(befData.GoalTime/600)+":"+Math.trunc((befData.GoalTime%600)/10)+"."+befData.GoalTime%10;;
+                clone.querySelector(targetTxtBase+'_condition').textContent         = befRace.Races[befData.RaceID-1].RaceInfo.Condition;
                 clone.querySelector(targetTxtBase+'_corner_pass').textContent       = befData.Corner;
                 clone.querySelector(targetTxtBase+'_furlong_time').textContent      = "3F" + befData.FurlongTime;
-                clone.querySelector(targetTxtBase+'_top_runner').textContent        = befData.Top + " (" + befData.TopDef + ")";
+                
+                if(befData.GoalTime == 0) {
+                    clone.querySelector(targetTxtBase+'_top_runner').textContent = "-";
+                }
+                else if(befData.Goal == 1) {
+                    let name;
+                    let defTime;
+                    defTime = befRace.Races[befData.RaceID-1].Winner.Next.Time - befData.GoalTime;
+                    if( defTime == NaN) defTime = "-";
+                    if(befData.Name>0) {
+                        name = Characters[Math.trunc(befRace.Races[befData.RaceID-1].Winner.Top.Name/100-1)].Name[0];
+                    }
+                    else {
+                        name = befData.Name
+                    }
+                    clone.querySelector(targetTxtBase+'_top_runner').textContent = name + " (" + defTime/10 + ")";
+                }
+                else {
+                    let name;
+                    let defTime;
+                    defTime = befData.GoalTime - befRace.Races[befData.RaceID-1].Winner.Top.Time;
+                    if( defTime == NaN) defTime = "-";
+                    if(befData.Name>0) {
+                        name = Characters[Math.trunc(befRace.Races[befData.RaceID-1].Winner.Next.Name/100-1)].Name[0];
+                    }
+                    else {
+                        name = befData.Name
+                    }
+                    clone.querySelector(targetTxtBase+'_top_runner').textContent = name + " (" + defTime/10 + ")";
+                }
             }
 
             // 行を見やすいように1行ごとに色を変える
@@ -328,42 +371,52 @@ function SetRaceRunner (data) {
             else {
                 row.style.backgroundColor = "#ffffff";
             }
-
-            for(let idx2 = 0; idx2 < member[idx].beforeRuns.length; idx2++) {
-                if(member[idx].beforeRuns[idx2].Goal == 1) {
-                    
-                }
-            }
-
+            
             // 背景色の変更
-            const befsMax = 4;
+            let befsCnt = 0;
             const befs = row.getElementsByClassName('runner_table_befores');
-            for(let idx2 = 0; idx2 < befsMax; idx2++){
-                if(idx2 < member[idx].beforeRuns.length) {
-                    // 上位順位の背景は変更する
-                    if(member[idx].beforeRuns[idx2].Goal == 1) {
-                        befs[idx2].style.backgroundColor = "#ffd7d7";
-                    }
-                    else if(member[idx].beforeRuns[idx2].Goal == 2) {
-                        befs[idx2].style.backgroundColor = "#dee6ef";
-                    }
-                    else if(member[idx].beforeRuns[idx2].Goal == 3) {
-                        befs[idx2].style.backgroundColor = "#dde8cb";
-                    }
-                    else {
-                        /* NOP */
-                    }
+            for(let idx2 = 0; idx2 < target.result.length; idx2++){
+                if (befsCnt >= 4) {
+                    break;
+                }
+
+                const befData = target.result[idx2];
+                // レースグループが対象よりも高いならば前走ではないのでスキップ
+                if(befData.RaceGrpID > RaceGroupeID){
+                    continue;
+                }
+                // レースグループが同値かつ対象よりレースIDが同値以上ならば前走ではないのでスキップ
+                if(befData.RaceGrpID == RaceGroupeID && befData.RaceID-1 >= ActiveTabIdx){
+                    continue;
+                }
+
+                // 上位順位の背景は変更する
+                if(befData.Goal == 1) {
+                    befs[befsCnt].style.backgroundColor = "#ffd7d7";
+                }
+                else if(befData.Goal == 2) {
+                    befs[befsCnt].style.backgroundColor = "#dee6ef";
+                }
+                else if(befData.Goal == 3) {
+                    befs[befsCnt].style.backgroundColor = "#dde8cb";
                 }
                 else {
-                    // 前走の未入力欄を網掛けにする
+                    /* NOP */
+                }
+                befsCnt++;
+            }
+            if(befsCnt < 4) {
+                // 前走の未入力欄を網掛けにする
+                for(let idx2 = befsCnt; idx2 < 4; idx2++) {
                     befs[idx2].style.backgroundColor = "#d0d0d0";
+                    befsCnt++;
                 }
             }
 
             row.getElementsByClassName('runner_table_frame')[0].appendChild(SetFrameImg(member.length, idx));
 
             const nowTime = new Date().getTime() / 1000.0;
-            const raceTime = new Date("20"+raceInfo.raceDay.year, raceInfo.raceDay.month-1, raceInfo.raceDay.day, raceInfo.startTime.substr(0,2), raceInfo.startTime.substr(3,5)).getTime() / 1000.0;
+            const raceTime = new Date(raceInfo.RaceDate.Year, raceInfo.RaceDate.month-1, raceInfo.RaceDate.Day, raceInfo.RaceDate.Hour, raceInfo.RaceDate.Min).getTime() / 1000.0;
 
             if(raceTime > nowTime) {
                 row.getElementsByClassName('runner_table_number')[0].textContent = "";
@@ -385,6 +438,8 @@ function SetRaceRunner (data) {
     }
 }
 
+// fullCnt: 出走人数
+// idx: 対象のウマ番
 function SetFrameImg(fullCnt, idx) {
     const frame = document.createElement('img');
 
@@ -406,6 +461,65 @@ function SetFrameImg(fullCnt, idx) {
     return frame;
 }
 
+function GetTargetRunnerFromMemberID(id) {
+    let ret;
+    if(MembersIDOffset[0] < id && id <= MembersIDOffset[1]) {
+        // すっごメンバーの情報
+        ret = Members[ id-1 ];
+    }
+    else if(MembersIDOffset[1] < id && id <= MembersIDOffset[2]) {
+        // りんりんメンバーの情報
+        ret = Rinrin_Members[ id-MembersIDOffset[1]-1 ];
+    }
+    else if(MembersIDOffset[MembersIDOffset.length-1] < id) {
+        // モブの情報(モブは常に最後に登録される)
+        ret = CPU_Members[ id-MembersIDOffset[MembersIDOffset.length-1]-1 ];
+    }
+    else {
+        ret = new MemberResultObj();
+    }
+
+    return ret;
+}
+
+function GetTargetRaceInfoFromMemberID(target, grpID, ID) {
+    let ret;
+    let groupeID;
+    let raceID;
+
+    if(target == undefined) {
+        ret = new RaceResultObj();
+    }
+    else {
+        if(grpID == undefined) {
+            groupeID = RaceGroupeID;
+        }
+        else {
+            groupeID = grpID
+        }
+
+        if(ID == undefined) {
+            raceID = (ActiveRacedIdx*3) + ActiveTabIdx;
+        }
+        else {
+            raceID = ID
+        }
+
+        for(let i = 0; i < target.result.length; i++) {
+            res = target.result[i]
+            if(res.RaceGrpID == groupeID && res.RaceID-1 == raceID) {
+                ret = res;
+                break;
+            }
+            else {
+                ret = new RaceResultObj();
+            }
+        };
+    }
+
+    return ret;
+}
+
 function WriteRaceInfo() {
     let text = `
         <div id="RaceInfo">
@@ -425,23 +539,34 @@ function WriteRaceInfo() {
 
     return text;
 }
-function SetRaceInfo(data) {
-    const raceInfo = data[2];
+function SetRaceInfo(flag) {
+    let raceInfo;
+
+    if(flag == false){
+        // データを未記入にする場合
+        raceInfo = new RaceInfomationObj();
+    }
+    else {
+        raceInfo = DB_RaceInfo[RaceGroupeID-1].Races[(ActiveRacedIdx*3) + ActiveTabIdx];
+    }
+
     const template = document.getElementById('RaceInfoTemplate');
     const clone = template.content.cloneNode(true);
 
     if(Object.keys(raceInfo).length > 0){
-        clone.querySelector('.title').textContent       = raceInfo.raceTitle;
-        clone.querySelector('.date').textContent        = "20" + raceInfo.raceDay.year + "年" + raceInfo.raceDay.month + "月" + raceInfo.raceDay.day + "日(" + raceInfo.raceDay.date + ")";
-        clone.querySelector('.startTime').textContent   = "発走時間：" + raceInfo.startTime;
-        clone.querySelector('.season').textContent      = "季節：" + raceInfo.season;
-        clone.querySelector('.time_zone').textContent   = "時間帯：" + raceInfo.timeZone;
-        clone.querySelector('.weather').textContent     = "天候：" + raceInfo.weather;
-        clone.querySelector('.field').textContent       = raceInfo.field + "：" + raceInfo.condition;
-        clone.querySelector('.course').textContent      = "コース：" + raceInfo.course.length + "00m (" + raceInfo.course.place + " " + raceInfo.course.rotate + ")";
+        clone.querySelector('.title').textContent       = raceInfo.SubTitle;
+        clone.querySelector('.raceName').textContent    = raceInfo.RaceName;
+        clone.querySelector('.date').textContent        = raceInfo.RaceDate.Year + "年" + raceInfo.RaceDate.Month + "月" + raceInfo.RaceDate.Day + "日(" + raceInfo.RaceDate.Date + ")";
+        clone.querySelector('.startTime').textContent   = "発走時間：" + raceInfo.RaceDate.Hour + ":" + raceInfo.RaceDate.Min;
+        clone.querySelector('.season').textContent      = "季節：" + raceInfo.RaceInfo.Season;
+        clone.querySelector('.time_zone').textContent   = "時間帯：" + raceInfo.RaceInfo.TimeZone;
+        clone.querySelector('.weather').textContent     = "天候：" + raceInfo.RaceInfo.Weather;
+        clone.querySelector('.field').textContent       = raceInfo.RaceInfo.Field + "：" + raceInfo.RaceInfo.Condition;
+        clone.querySelector('.course').textContent      = "コース：" + raceInfo.RaceInfo.Length + "m (" + raceInfo.RaceInfo.Place + " " + raceInfo.RaceInfo.Rotate + ")";
     }
     else {
         clone.querySelector('.title').textContent       = "-";
+        clone.querySelector('.raceName').textContent    = "-";
         clone.querySelector('.date').textContent        = "1970年1月1日(Thu)";
         clone.querySelector('.startTime').textContent   = "発走時間：00:00";
         clone.querySelector('.season').textContent      = "季節：春";
@@ -496,6 +621,4 @@ function ViewInfomation(event){
     }
     
     console.log("idx:"+i);
-    console.log(targetTableRow[i].querySelector(".result_table_number").innerHTML);
-    console.log(targetTableRow[i].querySelector(".result_table_name").innerHTML);
 }

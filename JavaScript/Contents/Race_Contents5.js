@@ -1,3 +1,4 @@
+const RaceGroupeID = 5;
 const MatchingRace = [
     // レース出走情報　レース順
     [   // 第1レース

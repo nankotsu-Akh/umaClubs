@@ -25,22 +25,61 @@ function SetRaceResult () {
         
         clone.querySelector('.member_name').textContent = memb.Name[0];
         memb.result.forEach(race => {
+            const raceInfo = DB_RaceInfo[race.RaceGrpID-1].Races[race.RaceID-1];
             const cln_Race = ele_race.content.cloneNode(true);
-            cln_Race.querySelector('.race_result_before_date').textContent              = "20"+race.Date.year+"/"+race.Date.month+"/"+race.Date.day;
-            cln_Race.querySelector('.race_result_before_prace').textContent             = race.Place;
-            cln_Race.querySelector('.race_result_before_race_name').textContent         = race.Title;
+
+            cln_Race.querySelector('.race_result_before_date').textContent              = raceInfo.RaceDate.Year+"/"+raceInfo.RaceDate.Month+"/"+raceInfo.RaceDate.Day;
+            cln_Race.querySelector('.race_result_before_prace').textContent             = raceInfo.RaceInfo.Place;
+            cln_Race.querySelector('.race_result_before_race_name').textContent         = raceInfo.AbbreviationName;
             cln_Race.querySelector('.race_result_before_result').textContent            = race.Goal;
             cln_Race.querySelector('.race_result_before_result_unit').textContent       = "着";
-            cln_Race.querySelector('.race_result_before_number').textContent            = race.MembersCnt + "頭" + race.Number + "番";
+            cln_Race.querySelector('.race_result_before_number').textContent            = raceInfo.RaceInfo.MembersCnt + "頭" + ("00"+race.Number).slice(-2) + "番";
             cln_Race.querySelector('.race_result_before_favorite').textContent          = race.Favorite + "番人気";
-            cln_Race.querySelector('.race_result_before_trainer').textContent           = race.Name;
-            cln_Race.querySelector('.race_result_before_training_runk').textContent     = race.Runk;
+            cln_Race.querySelector('.race_result_before_trainer').textContent           = race.Name>0?Characters[Math.trunc(race.Name/100-1)].Name[0]:race.Name;
+            cln_Race.querySelector('.race_result_before_training_runk').textContent     = race.Runk[0]+"("+race.Runk[1]+")";
             cln_Race.querySelector('.race_result_before_training_couse').textContent    = "";
-            cln_Race.querySelector('.race_result_before_course').textContent            = race.CourseLength + "00" + race.Feald;
-            cln_Race.querySelector('.race_result_before_goal_time').textContent         = race.GoalTime;
-            cln_Race.querySelector('.race_result_before_condition').textContent         = race.Condition;
-            cln_Race.querySelector('.race_result_before_furlong_time').textContent      = race.FurlongTime;
-            cln_Race.querySelector('.race_result_before_top_runner').textContent        = race.Top+"("+race.TopDef+")";
+            cln_Race.querySelector('.race_result_before_course').textContent            = raceInfo.RaceInfo.Length + raceInfo.RaceInfo.Field;
+            cln_Race.querySelector('.race_result_before_goal_time').textContent         = race.GoalTime==0?"-":Math.trunc(race.GoalTime/600)+":"+("00" + Math.trunc((race.GoalTime%600)/10)).slice(-2) +"."+race.GoalTime%10;
+            cln_Race.querySelector('.race_result_before_condition').textContent         = raceInfo.RaceInfo.Condition;
+            cln_Race.querySelector('.race_result_before_furlong_time').textContent      = "3F"+race.FurlongTime;
+
+            let defTime;
+            if(race.Goal == 1) {
+                let name;
+                
+                if(raceInfo.Winner.Next.Time == 0) {
+                    cln_Race.querySelector('.race_result_before_top_runner').textContent        = raceInfo.Winner.Top.Name+"(-)";
+                }
+                else {
+                    defTime = raceInfo.Winner.Next.Time - race.GoalTime;
+                    if( defTime < 0) defTime = "-";
+                    if(raceInfo.Winner.Next.Name>0) {
+                        name = Characters[Math.trunc(raceInfo.Winner.Next.Name/100-1)].Name[0];
+                    }
+                    else {
+                        name = race.Name
+                    }
+                }
+
+                cln_Race.querySelector('.race_result_before_top_runner').textContent = name + " (" + defTime/10 + ")";
+            }
+            else {
+                if(raceInfo.Winner.Top.Time == 0) {
+                    cln_Race.querySelector('.race_result_before_top_runner').textContent        = raceInfo.Winner.Top.Name+"(-)";
+                }
+                else {
+                    let name;
+                    defTime = race.GoalTime - raceInfo.Winner.Top.Time;
+                    if( defTime < 0) defTime = "-";
+                    if(raceInfo.Winner.Top.Name>0) {
+                        name = Characters[Math.trunc(raceInfo.Winner.Top.Name/100-1)].Name[0];
+                    }
+                    else {
+                        name = race.Name
+                    }
+                }
+                cln_Race.querySelector('.race_result_before_top_runner').textContent = raceInfo.Winner.Top.Name + " (" + defTime/10 + ")";
+            }
             
             const el_corners = document.createElement('div');
             el_corners.className = "corner_pass_items";
