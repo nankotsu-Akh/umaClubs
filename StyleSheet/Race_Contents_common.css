@@ -230,372 +230,138 @@ table {
 .runner_table_ranks {
     width: 85px;
 }
-.runner_table_befores {
+.befores {
     min-width: 155px;
 }
 
 /* 出馬表 - 前走 */
-.runner_table_rows .runner_table_befores {
+.runner_table_rows .befores {
     position: relative;
     /* background-color: #d0d0d0; */
 }
-.runner_table_befores div {
+.befores {
+    width: 160px;
+    height: 170px;
+    position: relative;
+    padding: 0;
+    /* border: solid 1px black; */
+}
+.befores div {
     position: absolute;
 }
 
 /* 出馬表 - 1走前 */
-.runner_table_before_date,
-.runner_table_before_race_name,
-.runner_table_before_result,
-.runner_table_before_trainer,
-.runner_table_before_top_runner,
-.runner_table_before_course,
-.runner_table_before_condition,
-.runner_table_before_corner_pass {
+.race_result_before_date,
+.race_result_before_race_name,
+.race_result_before_result,
+.race_result_before_trainer,
+.race_result_before_top_runner,
+.race_result_before_course,
+.race_result_before_condition,
+.race_result_before_corner_pass {
     left: 3px;
 } 
-.runner_table_before_prace,
-.runner_table_before_number,
-.runner_table_before_favorite,
-.runner_table_before_training_runk,
-.runner_table_before_goal_time,
-.runner_table_before_top_runner_def,
-.runner_table_before_furlong_time {
+.race_result_before_prace,
+.race_result_before_number,
+.race_result_before_favorite,
+.race_result_before_training_runk,
+.race_result_before_goal_time,
+.race_result_before_top_runner_def,
+.race_result_before_furlong_time {
     right: 3px;
 }
 
-.runner_table_before_date,
-.runner_table_before_prace {
+.race_result_before_date,
+.race_result_before_prace {
     top: 3px;
     font-size: 8pt;
     color: #919191;
 }
-.runner_table_before_race_name {
+.race_result_before_race_name {
     top: 18px;
     font-size: 12pt;
 }
-.runner_table_before_result {
+.race_result_before_result {
     top: 38px;
     font-size: 18pt;
     font-weight: bold;
 }
-.runner_table_before_result_unit {
+.race_result_before_result_unit {
     top: 53px;
     left: 35px;
     font-size: 8pt;
 }
-.runner_table_before_number {
+.race_result_before_number {
     top: 41px;
     font-size: 8pt;
     color: #919191;
 }
-.runner_table_before_favorite {
+.race_result_before_favorite {
     top: 53px;
     font-size: 8pt;
     color: #919191;
 }
-.runner_table_before_trainer {
+.race_result_before_trainer {
     top: 67px;
     font-size: 12pt;
 }
-.runner_table_before_training_runk {
+.race_result_before_training_runk {
     top: 82px;
     font-size: 9pt;
 }
-.runner_table_before_course {
+.race_result_before_course {
     top: 95px;
     font-size: 12pt;
 }
-.runner_table_before_goal_time {
+.race_result_before_goal_time {
     top: 95px;
     font-size: 12pt;
 }
-.runner_table_before_condition {
+.race_result_before_condition {
     top: 115px;
     font-size: 10pt;
 }
-.runner_table_before_corner_pass,
-.runner_table_before_furlong_time {
+.race_result_before_corner_pass {
+    bottom: 20px;
+    width: 100px;
+    height: 20px;
+    font-size: 9pt;
+}
+.corner_pass_items {
+    width: 100px;
+    height: 20px;
+    display: flex;
+}
+.corner_pass_items div {
+    width: 25px;
+    height: 15px;
+    text-align: center;
+    background-color: #d3d3d3;
+    position: relative;
+    border: solid 1px black;
+}
+.race_result_before_furlong_time {
     bottom: 20px;
     font-size: 9pt;
 }
-.runner_table_before_top_runner,
-.runner_table_before_top_runner_def {
+.race_result_before_top_runner,
+.race_result_before_top_runner_def {
     bottom: 3pt;
     font-size: 8pt;
     color: #919191;
 }
-.runner_table_before_top_runner_def {
+.race_result_before_top_runner_def {
     left: 20px;
 }
-.runner_table_before_training_couse {
+.race_result_before_training_couse {
     display: none;
 }
 
-/* 出馬表 - 2走前 */
-.runner_table_2before_date,
-.runner_table_2before_race_name,
-.runner_table_2before_result,
-.runner_table_2before_trainer,
-.runner_table_2before_top_runner,
-.runner_table_2before_course,
-.runner_table_2before_condition,
-.runner_table_2before_corner_pass {
-    left: 3px;
-} 
-.runner_table_2before_prace,
-.runner_table_2before_number,
-.runner_table_2before_favorite,
-.runner_table_2before_training_runk,
-.runner_table_2before_goal_time,
-.runner_table_2before_top_runner_def,
-.runner_table_2before_furlong_time {
-    right: 3px;
-}
-
-.runner_table_2before_date,
-.runner_table_2before_prace {
-    top: 3px;
-    font-size: 8pt;
-    color: #919191;
-}
-.runner_table_2before_race_name {
-    top: 18px;
-    font-size: 12pt;
-}
-.runner_table_2before_result {
-    top: 38px;
-    font-size: 18pt;
-    font-weight: bold;
-}
-.runner_table_2before_result_unit {
-    top: 53px;
-    left: 35px;
-    font-size: 8pt;
-}
-.runner_table_2before_number {
-    top: 41px;
-    font-size: 8pt;
-    color: #919191;
-}
-.runner_table_2before_favorite {
-    top: 53px;
-    font-size: 8pt;
-    color: #919191;
-}
-.runner_table_2before_trainer {
-    top: 67px;
-    font-size: 12pt;
-}
-.runner_table_2before_training_runk {
-    top: 82px;
-    font-size: 9pt;
-}
-.runner_table_2before_course {
-    top: 95px;
-    font-size: 12pt;
-}
-.runner_table_2before_goal_time {
-    top: 95px;
-    font-size: 12pt;
-}
-.runner_table_2before_condition {
-    top: 115px;
-    font-size: 10pt;
-}
-.runner_table_2before_corner_pass,
-.runner_table_2before_furlong_time {
-    bottom: 20px;
-    font-size: 9pt;
-}
-.runner_table_2before_top_runner,
-.runner_table_2before_top_runner_def {
-    bottom: 3pt;
-    font-size: 8pt;
-    color: #919191;
-}
-.runner_table_2before_top_runner_def {
-    left: 20px;
-}
-.runner_table_2before_training_couse {
-    display: none;
-}
-
-
-/* 出馬表 - 3走前 */
-.runner_table_3before_date,
-.runner_table_3before_race_name,
-.runner_table_3before_result,
-.runner_table_3before_trainer,
-.runner_table_3before_top_runner,
-.runner_table_3before_course,
-.runner_table_3before_condition,
-.runner_table_3before_corner_pass {
-    left: 3px;
-} 
-.runner_table_3before_prace,
-.runner_table_3before_number,
-.runner_table_3before_favorite,
-.runner_table_3before_training_runk,
-.runner_table_3before_goal_time,
-.runner_table_3before_top_runner_def,
-.runner_table_3before_furlong_time {
-    right: 3px;
-}
-
-.runner_table_3before_date,
-.runner_table_3before_prace {
-    top: 3px;
-    font-size: 8pt;
-    color: #919191;
-}
-.runner_table_3before_race_name {
-    top: 18px;
-    font-size: 12pt;
-}
-.runner_table_3before_result {
-    top: 38px;
-    font-size: 18pt;
-    font-weight: bold;
-}
-.runner_table_3before_result_unit {
-    top: 53px;
-    left: 35px;
-    font-size: 8pt;
-}
-.runner_table_3before_number {
-    top: 41px;
-    font-size: 8pt;
-    color: #919191;
-}
-.runner_table_3before_favorite {
-    top: 53px;
-    font-size: 8pt;
-    color: #919191;
-}
-.runner_table_3before_trainer {
-    top: 67px;
-    font-size: 12pt;
-}
-.runner_table_3before_training_runk {
-    top: 82px;
-    font-size: 9pt;
-}
-.runner_table_3before_course {
-    top: 95px;
-    font-size: 12pt;
-}
-.runner_table_3before_goal_time {
-    top: 95px;
-    font-size: 12pt;
-}
-.runner_table_3before_condition {
-    top: 115px;
-    font-size: 10pt;
-}
-.runner_table_3before_corner_pass,
-.runner_table_3before_furlong_time {
-    bottom: 20px;
-    font-size: 9pt;
-}
-.runner_table_3before_top_runner,
-.runner_table_3before_top_runner_def {
-    bottom: 3pt;
-    font-size: 8pt;
-    color: #919191;
-}
-.runner_table_3before_top_runner_def {
-    left: 20px;
-}
-.runner_table_3before_training_couse {
-    display: none;
-}
-
-/* 出馬表 - 4走前 */
-.runner_table_4before_date,
-.runner_table_4before_race_name,
-.runner_table_4before_result,
-.runner_table_4before_trainer,
-.runner_table_4before_top_runner,
-.runner_table_4before_course,
-.runner_table_4before_condition,
-.runner_table_4before_corner_pass {
-    left: 3px;
-} 
-.runner_table_4before_prace,
-.runner_table_4before_number,
-.runner_table_4before_favorite,
-.runner_table_4before_training_runk,
-.runner_table_4before_goal_time,
-.runner_table_4before_top_runner_def,
-.runner_table_4before_furlong_time {
-    right: 3px;
-}
-
-.runner_table_4before_date,
-.runner_table_4before_prace {
-    top: 3px;
-    font-size: 8pt;
-    color: #919191;
-}
-.runner_table_4before_race_name {
-    top: 18px;
-    font-size: 12pt;
-}
-.runner_table_4before_result {
-    top: 38px;
-    font-size: 18pt;
-    font-weight: bold;
-}
-.runner_table_4before_result_unit {
-    top: 53px;
-    left: 35px;
-    font-size: 8pt;
-}
-.runner_table_4before_number {
-    top: 41px;
-    font-size: 8pt;
-    color: #919191;
-}
-.runner_table_4before_favorite {
-    top: 53px;
-    font-size: 8pt;
-    color: #919191;
-}
-.runner_table_4before_trainer {
-    top: 67px;
-    font-size: 12pt;
-}
-.runner_table_4before_training_runk {
-    top: 82px;
-    font-size: 9pt;
-}
-.runner_table_4before_course {
-    top: 95px;
-    font-size: 12pt;
-}
-.runner_table_4before_goal_time {
-    top: 95px;
-    font-size: 12pt;
-}
-.runner_table_4before_condition {
-    top: 115px;
-    font-size: 10pt;
-}
-.runner_table_4before_corner_pass,
-.runner_table_4before_furlong_time {
-    bottom: 20px;
-    font-size: 9pt;
-}
-.runner_table_4before_top_runner,
-.runner_table_4before_top_runner_def {
-    bottom: 3pt;
-    font-size: 8pt;
-    color: #919191;
-}
-.runner_table_4before_top_runner_def {
-    left: 20px;
-}
-.runner_table_4before_training_couse {
-    display: none;
+.befores .race_result_none {
+    /* padding: 85px 0; */
+    margin: 0 auto;
+    /* width: 160px;
+    height: 170px; */
+    text-align: center;
+    position: relative;
 }
