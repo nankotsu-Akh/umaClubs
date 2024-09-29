@@ -201,7 +201,6 @@ function GetElementListTag(tagID) {
 }
 
 function ViewInfomation(event){
-/*
     const target = event.target;
     const targetParent = target.parentNode;
     const  targetTableRow = targetParent.parentNode.querySelectorAll("tr");
@@ -234,6 +233,4 @@ function ViewInfomation(event){
 
 function WriteInfomation(targetInfo){
     console.log(targetInfo);
-*/
-    console.log("test");
 }
