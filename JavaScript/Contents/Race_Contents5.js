@@ -150,7 +150,7 @@ const MatchingRace = [
                 "beforeRuns":[],
             },
             {
-                "Name":"サイレンススズカ", "Strategy":"逃げ", "Runk":["UD8", 33370], "MemberID":19, "GoalTime":"-", "GoalTimeDef":"1/2", "CornerPass":[0], "FurlongTime":"00.0", "Favorite":1, "parents":["-", "-"],
+                "Name":"サイレンススズカ", "Strategy":"逃げ", "Runk":["UE8", 3370], "MemberID":19, "GoalTime":"-", "GoalTimeDef":"1/2", "CornerPass":[0], "FurlongTime":"00.0", "Favorite":1, "parents":["-", "-"],
                 "beforeRuns":[],
             },
         ],
