@@ -159,6 +159,7 @@ const Members = [
         "Name": ["ヴァニラ", "Vanilla"],
         "TrainerID":0, 
         "result": [
+            new RaceResultObj(5, 1, 2, 6, 5, "スマートファルコン", ["UE4", 31469], "逃げ", "", 0, [], 0, "1", 0),
             new RaceResultObj(3, 6, 18, 11, 17, "マチカネフクキタル", ["-", 0], "差し", "", 0, [], 0, "大差", 0),
             new RaceResultObj(1, 1, 16, 3, 18, "マチカネフクキタル", ["-", 0], "差し", "", 1330, [15,15,17,17], 0, 27)
         ]
@@ -201,6 +202,7 @@ const Members = [
         "Name": ["れじすた", "Resiter"],
         "result":[
             new RaceResultObj(6, 1, 7, 3, 5, "ジェンティルドンナ", ["UD3", 36218], "先行", "絶好調", 0, [], 0, "3/4"),
+            new RaceResultObj(5, 3, 1, 1, 3, "アストンマーチャン", ["UE4", 31469], "逃げ", "", 671, [], 0, "-", 0),
             new RaceResultObj(3, 5, 1, 7, 1, "アドマイヤベガ", ["-", 0], "", "", 1306, [], 0, "-", 0),
             new RaceResultObj(2, 3, 9, 16, 6, "アドマイヤベガ", ["-", 0], "", "", 920, [13,15,15], 0, "クビ", 7),
             new RaceResultObj(2, 1, 4, 11, 1, "アドマイヤベガ", ["-", 0], "", "", 910, [15,14,13], 0, "ハナ", 8),
@@ -211,6 +213,7 @@ const Members = [
         "ID":5,
         "Name": ["REON", "REON"],
         "result":[
+            new RaceResultObj(5, 3, 4, 7, 2, "カツラギエース", ["UE6", 32503], "逃げ", "", 0, [], 0, "1/2", 0),
             new RaceResultObj(
                 3, 6, 4, 1, 8, "ミスターシービー", ["-", 0], "", "", 0, [], 0, 0,
                 new RaceResultStatusObj(
@@ -229,6 +232,7 @@ const Members = [
         "ID":6,
         "Name": ["みやび", "Miyabi"],
         "result":[
+            new RaceResultObj(5, 1, 1, 5, 1, "タイキシャトル", ["UD6", 38442], "先行", "", 988, [], 0, "-", 0),
             new RaceResultObj(
                 4, 2, 1, 2, 1, "タイキシャトル", ["UF7", 32813], "先行", "好調", 0, [], 0, "-", 0, [], 
                 new RaceResultStatusObj(
@@ -249,39 +253,13 @@ const Members = [
         "ID":7,
         "Name": ["ハイダラ", "Haidara"],
         "result":[
-            {
-                "RaceGrpID":4,
-                "RaceID":4,
-                "Goal":"",
-                "Number":"4",
-                "Favorite":"2",
-                "Name":"メジロラモーヌ",
-                "Runk":["UE", 29379],
-                "Strategy":"先行",
-                "Motivation":"普通",
-                "GoalTime":"",
-                "Corner":[],
-                "FurlongTime":"",
-                "TopDef":"",
-                "Status":{
-                    "Param":{
-                        "Speed":1704,
-                        "Stamina":664,
-                        "Power":1229,
-                        "Guts":1314,
-                        "Intelligent":1248,
-                    },
-                    "Aptitude":{
-                        "Feald":"A",
-                        "Length":"S",
-                        "Strategy":"A",
-                    },
-                    "Skills":[
-                        "愛と煌けよただ溶けよ", "根幹距離◎", "良バ場◎", "冬ウマ娘◎", "弧線のプロフェッサー", "コーナー加速〇", "直線巧者", "アガってきた！", "スピードスター", "短距離直線〇",
-                        "短距離コーナー〇", "先行コーナー〇", "お先に失礼っ！", "鍔迫り合い", "軽い足取り", "攻めの姿勢",
-                    ],
-                }
-            },
+            new RaceResultObj(4, 4, 0, 4, 0, "メジロラモーヌ", ["UE", 29379], "先行", "普通", 0, [], 0, "", 0, ["", ""],
+                new RaceResultStatusObj({"Speed":1704,"Stamina":664,"Power":1229,"Guts":1314,"Intelligent":1248},
+                    {"Feald":"A","Length":"S","Strategy":"A"},
+                    ["愛と煌けよただ溶けよ", "根幹距離◎", "良バ場◎", "冬ウマ娘◎", "弧線のプロフェッサー", "コーナー加速〇", "直線巧者", "アガってきた！",
+                    "スピードスター", "短距離直線〇","短距離コーナー〇", "先行コーナー〇", "お先に失礼っ！", "鍔迫り合い", "軽い足取り", "攻めの姿勢"],
+                )
+            ),
             new RaceResultObj(3, 6, 5, 16, 13, "メジロパーマー", ["-", 0], "", "", 0, [], 0, "3/2", 0),
             new RaceResultObj(2, 3, 16, 10, 14, "メジロパーマー", ["-", 0], "", "", 931, [4,4,10], 0, "1", 18),
             new RaceResultObj(2, 1, 6, 4, 9, "メジロパーマー", ["-", 0], "", "", 913, [1,1,2], 0, "3/4", 11),
@@ -315,53 +293,14 @@ const Members = [
         "Name": ["おマチ", "Omachi"],
         "result":[
             new RaceResultObj(6, 1, 1, 6, 2, "ジェンティルドンナ", ["UD", 34904], "先行", "絶好調", 1484, [], 0),
-            {
-                "RaceGrpID":4,
-                "RaceID":4,
-                "Date":{"year":24, "month":2, "day":12},
-                "Place":"中山",
-                "Title":"第3回すっご杯トリオトーナメント1回戦第1試合第3レース",
-                "RaceName":"有馬記念",
-                "RaceGrade":"G1",
-                "Goal":"",
-                "MembersCnt":"9",
-                "Number":"",
-                "Favorite":"",
-                "Name":"メイショウドトウ",
-                "Runk":["UE", 29024],
-                "Strategy":"先行",
-                "Motivation":"",
-                "CourseLength":"25",
-                "Season":"冬",
-                "TimeZone":"昼",
-                "Weather":"晴",
-                "Feald":"芝",
-                "Condition":"良",
-                "Rotate":"右",
-                "GoalTime":"",
-                "Corner":[],
-                "FurlongTime":"",
-                "Top":"ナリタタイシン",
-                "TopDef":"",
-                "Status":{
-                    "Param":{
-                        "Speed":1632,
-                        "Stamina":1201,
-                        "Power":1110,
-                        "Guts":913,
-                        "Intelligent":1225,
-                    },
-                    "Aptitude":{
-                        "Feald":"A",
-                        "Length":"S",
-                        "Strategy":"A",
-                    },
-                    "Skills":[
-                        "Spooky-Scary-Happy", "勝ち鬨ワッショイ！", "弧線のプロフェッサー", "魂の導き手", "直線巧者", "直線回復", "ペースアップ", "末脚", "深呼吸", "内弁慶",
-                        "長距離コーナー〇", "先行のコツ〇", "お先に失礼っ！", "心に灯す闘志", "アンストッパブル", "怪物", "込み上げる熱", "最高峰の夢"
-                    ],
-                }
-            },
+            new RaceResultObj(4, 3, 2, 2, 1, "メイショウドトウ", ["UE", 29024], "先行", "不調", 0, [], 0, "5/2", 0,
+                new RaceResultStatusObj(
+                    {"Speed":1632,"Stamina":1201,"Power":1110,"Guts":913,"Intelligent":1225},
+                    {"Feald":"A","Length":"S","Strategy":"A"},
+                    ["Spooky-Scary-Happy", "勝ち鬨ワッショイ！", "弧線のプロフェッサー", "魂の導き手", "直線巧者", "直線回復", "ペースアップ", "末脚", "深呼吸",
+                    "内弁慶", "長距離コーナー〇", "先行のコツ〇", "お先に失礼っ！", "心に灯す闘志", "アンストッパブル", "怪物", "込み上げる熱", "最高峰の夢"],
+                )
+            ),
             new RaceResultObj(3, 4, 5, 7, 0, "メイショウドトウ", ["-", 0], "", "", 0, [], 0, "5/2", 0)
         ]
     },
@@ -369,6 +308,7 @@ const Members = [
         "ID":11,
         "Name": ["とあ", "Toa"],
         "result":[
+            new RaceResultObj(5, 1, 3, 2, 3, "コパノリッキー", ["UD", 34598], "差し", "", 0, [], 0, "ハナ", 0),
             new RaceResultObj(3, 2, 1, 2, 1, "コパノリッキー", ["-", 0], "", "", 1209, [], 0, "-", 0),
             new RaceResultObj(2, 3, 14, 15, 8, "コパノリッキー", ["-", 0], "", "", 929, [9,12,14], 0, "5/2", 16),
             new RaceResultObj(2, 2, 4, 16, 5, "コパノリッキー", ["-", 0], "", "", 925, [5,5,4], 0, 9),
@@ -380,6 +320,7 @@ const Members = [
         "Name": ["なんこつ", "Nankotsu"],
         "result":[
             new RaceResultObj(6, 1, 8, 8, 6, 11801, ["UE5", 31667], "追込", "絶好調", 0, [], 0, "1/2", 0, ["ヒシミラクル", "メジロドーベル"]),
+            new RaceResultObj(5, 2, 4, 1, 5, 3201, ["UE4", 31420], "先行", "", 0, [], 0, "1/2", 0),
             new RaceResultObj(3, 6, 15, 4, 16, 3201, ["-", 0], "", "", 0, [], 0, "1", 0),
             new RaceResultObj(2, 3, 15, 12, 16, 3201, ["-", 0], "", "", 929, [6,9,12], 0, "ハナ", 16),
             new RaceResultObj(2, 1, 8, 6, 10, 3201, ["-", 0], "", "", 917, [8,7,7], 0, "3/2", 15),
@@ -431,53 +372,14 @@ const Members = [
         "Name": ["ノーデ", "Node"],
         "result":[
             new RaceResultObj(6, 1, 3, 12, 8, "ドリームジャーニー", ["UD", 34745], "追込", "絶好調", 0, [], 0, "3/4"),
-            {
-                "RaceGrpID":4,
-                "RaceID":4,
-                "Date":{"year":24, "month":2, "day":12},
-                "Place":"中山",
-                "Title":"第3回すっご杯トリオトーナメント1回戦第1試合第3レース",
-                "RaceName":"有馬記念",
-                "RaceGrade":"G1",
-                "Goal":"",
-                "MembersCnt":"9",
-                "Number":"",
-                "Favorite":"2",
-                "Name":"ナリタタイシン",
-                "Runk":["UE", 29053],
-                "Strategy":"追込",
-                "Motivation":"好調",
-                "CourseLength":"25",
-                "Season":"冬",
-                "TimeZone":"昼",
-                "Weather":"晴",
-                "Feald":"芝",
-                "Condition":"良",
-                "Rotate":"右",
-                "GoalTime":"",
-                "Corner":[],
-                "FurlongTime":"",
-                "Top":"メイショウドトウ",
-                "TopDef":"",
-                "Status":{
-                    "Param":{
-                        "Speed":1645,
-                        "Stamina":1224,
-                        "Power":1273,
-                        "Guts":1014,
-                        "Intelligent":960,
-                    },
-                    "Aptitude":{
-                        "Feald":"A",
-                        "Length":"S",
-                        "Strategy":"A",
-                    },
-                    "Skills":[
-                        "Nemesis", "レッツアナボリック！", "あっぱれ大盤振る舞い！", "コーナー巧者〇", "コーナー回復〇", "直線巧者", "アガってきた！", "末脚", "鬼気森然", "駆り立てる想い",
-                        "長距離コーナー◎", "追込直線〇", "ウマ好み", "一匹狼", "ロックオン", "昂る鼓動", "ネバーギブアップ", "最高峰の夢"
-                    ],
-                }
-            },
+            new RaceResultObj(4, 3, 1, 3, 2, "ナリタタイシン", ["UE", 29053], "追込", "好調", 1477, [], 0, "-", 0,
+                new RaceResultStatusObj(
+                    {"Speed":1645,"Stamina":1224,"Power":1273,"Guts":1014,"Intelligent":960},
+                    {"Feald":"A","Length":"S","Strategy":"A"},
+                    ["Nemesis", "レッツアナボリック！", "あっぱれ大盤振る舞い！", "コーナー巧者〇", "コーナー回復〇", "直線巧者", "アガってきた！", "末脚", "鬼気森然",
+                    "駆り立てる想い", "長距離コーナー◎", "追込直線〇", "ウマ好み", "一匹狼", "ロックオン", "昂る鼓動", "ネバーギブアップ", "最高峰の夢"],
+                )
+            ),
             new RaceResultObj(2, 3, 10, 6, 13, "ナリタタイシン", ["-", 0], "", "", 922, [12,13,11], 0, "1", 9),
             new RaceResultObj(2, 2, 5, 1, 7, "ナリタタイシン", ["-", 0], "", "", 925, [14,13,9], 0, "アタマ", 9),
             new RaceResultObj(1, 1, 6, 11, 10, "ナリタタイシン", ["-", 0], "", "", 1312, [13,13,12,6], 0, "アタマ", 7)
@@ -503,100 +405,15 @@ const Members = [
         "ID":19,
         "Name": ["takkun", "takkun"],
         "result":[
-            {
-                "RaceGrpID":4,
-                "RaceID":4,
-                "Date":{"year":24, "month":2, "day":12},
-                "Place":"",
-                "Title":"第3回すっご杯トリオトーナメント1回戦第2試合第1レース",
-                "RaceName":"スプリンターズステークス",
-                "RaceGrade":"G1",
-                "Goal":"",
-                "MembersCnt":"9",
-                "Number":"",
-                "Favorite":"",
-                "Name":"サイレンススズカ",
-                "Runk":["UE3", 30677],
-                "Strategy":"逃げ",
-                "Motivation":"",
-                "CourseLength":"",
-                "Season":"秋",
-                "TimeZone":"昼",
-                "Weather":"晴",
-                "Feald":"芝",
-                "Condition":"良",
-                "Rotate":"",
-                "GoalTime":"",
-                "Corner":[],
-                "FurlongTime":"",
-                "Top":"",
-                "TopDef":"",
-                "Status":{
-                    "Param":{
-                        "Speed":1601,
-                        "Stamina":1231,
-                        "Power":1234,
-                        "Guts":1125,
-                        "Intelligent":1197,
-                    },
-                    "Aptitude":{
-                        "Feald":"S",
-                        "Length":"A",
-                        "Strategy":"S",
-                    },
-                    "Skills":[
-                        "先頭の景色は譲らない...！", "アングリングxスキーミング", "大逃げ", "弧線のプロフェッサー", "コーナー回復〇", "直線巧者", "最大集中", "末脚", "先駆け", "急ぎ足",
-                        "異次元の逃亡者", "スプリントギア", "差しためらい", "善後策", "逃げのコツ〇", "盤石の構え", "お先に失礼っ！", "軽い足取り", "ネバーギブアップ", "急発進",
-                    ],
-                }
-            },
-            {
-                "RaceGrpID":4,
-                "RaceID":4,
-                "Date":{"year":24, "month":2, "day":12},
-                "Place":"中山",
-                "Title":"第3回すっご杯トリオトーナメント1回戦第2試合第1レース",
-                "RaceName":"スプリンターズステークス",
-                "RaceGrade":"G1",
-                "Goal":"",
-                "MembersCnt":"9",
-                "Number":"",
-                "Favorite":"2",
-                "Name":"サイレンススズカ",
-                "Runk":["UE", 29053],
-                "Strategy":"追込",
-                "Motivation":"好調",
-                "CourseLength":"25",
-                "Season":"冬",
-                "TimeZone":"昼",
-                "Weather":"晴",
-                "Feald":"芝",
-                "Condition":"良",
-                "Rotate":"右",
-                "GoalTime":"",
-                "Corner":[],
-                "FurlongTime":"",
-                "Top":"メイショウドトウ",
-                "TopDef":"",
-                "Status":{
-                    "Param":{
-                        "Speed":1645,
-                        "Stamina":1224,
-                        "Power":1273,
-                        "Guts":1014,
-                        "Intelligent":960,
-                    },
-                    "Aptitude":{
-                        "Feald":"A",
-                        "Length":"S",
-                        "Strategy":"A",
-                    },
-                    "Skills":[
-                        "Nemesis", "レッツアナボリック！", "あっぱれ大盤振る舞い！", "コーナー巧者〇", "コーナー回復〇", "直線巧者", "アガってきた！", "末脚", "鬼気森然", "駆り立てる想い",
-                        "長距離コーナー◎", "追込直線〇", "ウマ好み", "一匹狼", "ロックオン", "昂る鼓動", "ネバーギブアップ", "最高峰の夢"
-                    ],
-                }
-            },
+            new RaceResultObj(5, 3, 6, 9, 1, "サイレンススズカ", ["UD8", 33370], "逃げ", "", 0, [], 0, "1/2", 0),
+            new RaceResultObj(4, 4, 0, 1, 0, "サイレンススズカ", ["UE3", 30677], "逃げ", "", 0, [], 0, "", 0, ["", ""],
+                new RaceResultStatusObj(
+                    {"Speed":1601,"Stamina":1231,"Power":1234,"Guts":1125,"Intelligent":1197},
+                    {"Feald":"S","Length":"A","Strategy":"S"},
+                    ["先頭の景色は譲らない...！", "アングリングxスキーミング", "大逃げ", "弧線のプロフェッサー", "コーナー回復〇", "直線巧者", "最大集中", "末脚", "先駆け", "急ぎ足",
+                    "異次元の逃亡者", "スプリントギア", "差しためらい", "善後策", "逃げのコツ〇", "盤石の構え", "お先に失礼っ！", "軽い足取り", "ネバーギブアップ", "急発進",],
+                )
+            ),
             new RaceResultObj(3, 6, 14, 7, 7, 201, ["-", 0], "", "", 0, [], 0, "6", 0),
             new RaceResultObj(3, 1, 4, 2, 2, 201, ["-", 0], "", "", 0, [], 0, "1", 0),
             new RaceResultObj(2, 3, 13, 14, 2, 201, ["-", 0], "", "", 925, [1,2,6], 0, "1/2", 12),
@@ -617,6 +434,7 @@ const Members = [
         "ID":21,
         "Name": ["シャカトレ", "Shakatore"],
         "result":[
+            new RaceResultObj(5, 2, 1, 5, 2, "エアシャカール", ["UD", 34627], "追込", "", 1310, [], 0, "-", 0),
             new RaceResultObj(3, 3, 1, 11, 0, "エアシャカール", ["-", 0], "", "", 0, [], 0, "-", 0),
             new RaceResultObj(2, 3, 11, 13, 7, "エアシャカール", ["-", 0], "", "", 923, [15,14,16], 0, "1/2", 10),
             new RaceResultObj(2, 1, 2, 5, 5, "エアシャカール", ["-", 0], "", "", 908, [12,11,10], 0, "7/2", 6)
@@ -626,6 +444,7 @@ const Members = [
         "ID":22,
         "Name": ["マサ", "Masa"],
         "result":[
+            new RaceResultObj(5, 2, 3, 4, 1, "オグリキャップ", ["UD1", 35216], "追込", "", 0, [], 0, "1/2", 0),
             new RaceResultObj(3, 1, 3, 7, 3, "オグリキャップ", ["-", 0], "", "", 0, [], 0, "3/2", 0)
         ]
     },
@@ -691,6 +510,7 @@ const Rinrin_Members = [
         "Name": ["鈴八", "Rinpatch"],
         "TrainerID":0, 
         "result": [
+            new RaceResultObj(5, 3, 5, 3, 5, "ヒシアケボノ", ["UE8", 33288], "先行", "", 0, [], 0, "5", 0),
             new RaceResultObj(3, 6, 13, 12, 15, "ゴールドシップ", ["-", 0], "", "", 0, [], 0, "5", 0)
         ]
     },
@@ -707,6 +527,7 @@ const Rinrin_Members = [
         "Name": ["れおん", "Leon"],
         "TrainerID":0,
         "result": [
+            new RaceResultObj(5, 2, 5, 8, 6, "オグリキャップ", ["UE5", 31931], "追込", "", 0, [], 0, "3", 0),
             new RaceResultObj(3, 6, 6, 6, 11, "ミスターシービー", ["-", 0], "", "", 0, [], 0, "1/2", 0),
             new RaceResultObj(3, 1, 6, 9, 7, "アストンマーチャン", ["-", 0], "", "", 0, [], 0, "7/2", 0),
         ]
@@ -724,6 +545,7 @@ const Rinrin_Members = [
         "Name": ["あすく", "Asuku"],
         "TrainerID":0,
         "result": [
+            new RaceResultObj(5, 1, 5, 7, 4, "コパノリッキー", ["UE9", 39896], "先行", "", 0, [], 0, "2", 0),
             new RaceResultObj(3, 2, 3, 9, 2, "コパノリッキー", ["-", 0], "", "", 0, [], 0, "", 0)
         ]
     },
@@ -741,6 +563,7 @@ const Rinrin_Members = [
         "Name": ["はご", "Hago"],
         "TrainerID":0,
         "result": [
+            new RaceResultObj(5, 1, 4, 9, 2, "トランセンド", ["UD1", 35172], "逃げ", "", 0, [], 0, "アタマ", 0),
             new RaceResultObj(3, 2, 2, 12, 6, "シンコウウィンディ", ["-", 0], "", "", 0, [], 0, "", 0)
         ]
     },
@@ -749,6 +572,7 @@ const Rinrin_Members = [
         "Name": ["みざくら", "Mizakura"],
         "TrainerID":0,
         "result": [
+            new RaceResultObj(5, 3, 2, 5, 6, "バンブーメモリー", ["UD8", 33733], "差し", "", 0, [], 0, "1/2", 0),
             new RaceResultObj(3, 3, 6, 2, 0, "アグネスタキオン", ["-", 0], "", "", 0, [], 0, "6", 0)
         ]
     },
@@ -789,6 +613,7 @@ const Rinrin_Members = [
         "Name": ["八雲", "Yakumo"],
         "TrainerID":0,
         "result": [
+            new RaceResultObj(5, 3, 3, 2, 4, "アストンマーチャン", ["UE6", 32263], "逃げ", "", 0, [], 0, "アタマ", 0),
             new RaceResultObj(3, 4, 6, 10, 5, "エアシャカール", ["-", 0], "", "", 0, [], 0, "5/4", 0)
         ]
     },
@@ -806,6 +631,7 @@ const Rinrin_Members = [
         "Name": ["ボンレス兄貴", "BonressBro"],
         "TrainerID":0,
         "result": [
+            new RaceResultObj(5, 1, 6, 8, 6, "ハルウララ", ["UE6", 32549], "差し", "", 0, [], 0, "クビ", 0),
             new RaceResultObj(3, 5, 5, 5, 0, "トウカイテイオー", ["-", 0], "", "", 0, [], 0, "4", 0)
         ]
     },
@@ -814,6 +640,7 @@ const Rinrin_Members = [
         "Name": ["セシル", "Seshiru"],
         "TrainerID":0,
         "result": [
+            new RaceResultObj(5, 2, 2, 7, 4, "ネオユニヴァース", ["UE9", 34160], "差し", "", 0, [], 0, "3/2", 0),
             new RaceResultObj(3, 5, 2, 6, 2, "ゴールドシップ", ["-", 0], "", "", 0, [], 0, "3/4", 0)
         ]
     },
@@ -822,6 +649,7 @@ const Rinrin_Members = [
         "Name": ["でんげん", "Dengen"],
         "TrainerID":0,
         "result": [
+            new RaceResultObj(5, 2, 6, 2, 3, 3201, ["UD1", 35167], "差し", "", 0, [], 0, "2", 0),
             new RaceResultObj(3, 6, 12, 5, 4, "ヒシミラクル", ["-", 0], "", "", 0, [], 0, "ハナ", 0)
         ]
     },
@@ -935,6 +763,7 @@ const CPU_Members = [
         "ID":12,
         "Name": ["", ""],
         "result":[
+            new RaceResultObj(4, 4, 0, 3, 0, "オリジナルシャイン"),
             new RaceResultObj(2, 2, 11, 15, 11, "オリジナルシャイン", ["-", 0], "", "", 935, [8,7,8], 0, "3/4", 0)
         ]
     },
@@ -1202,6 +1031,180 @@ const CPU_Members = [
         "Name": ["", ""],
         "result":[
             new RaceResultObj(4, 2, 7, 9, 5, "アジャイルタレント", ["A+", 0], "追込", "絶好調", 0, [], 0, "アタマ", 0)
+        ]
+    },
+    {
+        "ID":50,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(4, 3, 8, 1, 9, "ミニマリーゴールド", ["A+", 0], "先行", "不調", 0, [], 0, "1", 0)
+        ]
+    },
+    {
+        "ID":51,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(4, 3, 5, 4, 8, "サドンアタック", ["A+", 0], "逃げ", "絶不調", 0, [], 0, "クビ", 0)
+        ]
+    },
+    {
+        "ID":52,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(4, 3, 9, 5, 6, "ゴージャスバルフェ", ["A+", 0], "逃げ", "好調", 0, [], 0, "1/2", 0)
+        ]
+    },
+    {
+        "ID":53,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(4, 3, 6, 6, 3, "ステイシャーリーン", ["A+", 0], "先行", "絶好調", 0, [], 0, "1", 0)
+        ]
+    },
+    {
+        "ID":54,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(4, 3, 7, 7, 7, "ワンインチオブラブ", ["A+", 0], "差し", "好調", 0, [], 0, "5/4", 0)
+        ]
+    },
+    {
+        "ID":55,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(4, 3, 4, 8, 5, "イノセントグリモア", ["A+", 0], "逃げ", "絶好調", 0, [], 0, "3/2", 0)
+        ]
+    },
+    {
+        "ID":56,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(4, 3, 3, 9, 4, "デュオスクトゥム", ["A+", 0], "追込", "普通", 0, [], 0, "大差", 0)
+        ]
+    },
+
+
+
+    {
+        "ID":57,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(4, 4, 0, 2, 0, "ジュエルジルコン")
+        ]
+    },
+    {
+        "ID":58,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(4, 4, 0, 5, 0, "グリードホロウ")
+        ]
+    },
+    {
+        "ID":59,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(4, 4, 0, 5, 0, "イズカリ")
+        ]
+    },
+    {
+        "ID":60,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(4, 4, 0, 5, 0, "シンスフィールド")
+        ]
+    },
+    {
+        "ID":61,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(4, 4, 0, 5, 0, "リボンヴィルレー")
+        ]
+    },
+    {
+        "ID":62,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(4, 4, 0, 5, 0, "ピウエラリズム")
+        ]
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+        "ID":50,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(5, 1, 8, 1, 8, "ソワソワ", ["S", 0], "先行", "", 0, [], 0, "1/2", 0)
+        ]    
+    },    
+
+    {
+        "ID":51,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(5, 1, 9, 3, 9, "ミニコスモス", ["S", 0], "逃げ", "", 0, [], 0, "3/2", 0)
+        ]
+    },
+    {
+        "ID":52,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(5, 1, 7, 4, 7, "コインシデンス", ["S", 0], "逃げ", "", 0, [], 0, "大差", 0)
+        ]
+    },
+    {
+        "ID":53,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(5, 2, 9, 3, 9, "サニーウェザー", ["A+", 0], "逃げ", "", 0, [], 0, "クビ", 0)
+        ]
+    },
+    {
+        "ID":54,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(5, 2, 7, 6, 8, "サムガーデン", ["S", 0], "先行", "", 0, [], 0, "大差", 0)
+        ]
+    },
+    {
+        "ID":55,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(5, 2, 8, 9, 7, "プカプカ", ["S", 0], "追込", "", 0, [], 0, "3/2", 0)
+        ]
+    },
+    {
+        "ID":56,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(5, 3, 8, 4, 7, "オグレッセ", ["A+", 0], "逃げ", "", 0, [], 0, "", 0)
+        ]
+    },
+    {
+        "ID":57,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(5, 3, 9, 6, 9, "ジェバト", ["A+", 0], "差し", "", 0, [], 0, "1/2", 0)
+        ]
+    },
+    {
+        "ID":58,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(5, 3, 7, 8, 8, "クラリネットリズム", ["A+", 0], "", "", 0, [], 0, "", 0)
         ]
     },
 ]

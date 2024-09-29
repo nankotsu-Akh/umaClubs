@@ -740,45 +740,47 @@ const DB_RaceInfo = [
             },
         ]
     },
-    {
-        "RaceGroupeID":5,
-        "RaceCnt":6,
-        "Numbering":"第2回",
-        "RaceTitle":"すっ　ごりんりん対抗戦",
-        "Races":[
-            {
-                "RaceID":1,
-                "SubTitle":"第1レース ダート",
-                "AbbreviationName":"サークル対抗戦2 ダート",
-                "terms":"サークル間",
-                "RaceName":"全日本ジュニア優駿",
-                "RaceGrade":"G1",
-                "RaceDate":{
-                    "Year":2024,
-                    "Month":2,
-                    "Day":12,
-                    "Date":"月曜",
-                    "Hour":"",
-                    "Min":"",
-                },
-                "RaceInfo":{
-                    "Place":"川崎",
-                    "Season":"冬",
-                    "TimeZone":"夜",
-                    "Field":"ダ",
-                    "Length":1600,
-                    "Rotate":"左",
-                    "Weather":"晴",
-                    "Condition":"良",
-                    "MembersCnt":9,
-                },
-                "Winner":{
-                    "Top":{"Name":"タイキシャトル", "Time":"1:38.8"},
-                    "Next":{"Name":"スマートファルコン", "Time":0},
-                }
-            },
+    new RaceGropeInfomationObj(
+        5, 6, "第2回", "すっ　ごりんりん対抗戦",
+        [
+            new RaceInfomationObj(
+                1,"第1レース ダート","サークル対抗戦2 ダート","サークル間","全日本ジュニア優駿","G1",
+                {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
+                new RaceInfoObj("川崎","冬","夜","ダ",1600,"左","晴","良",9),
+                {"Top":{"Name":"タイキシャトル", "Time":988},"Next":{"Name":"スマートファルコン", "Time":0}}
+            ),
+            new RaceInfomationObj(
+                2,"第2レース 中距離","サークル対抗戦2 中距離","サークル間","エリザベス女王杯","G1",
+                {"Year":24,"Month":2, "Day":12, "Date":"月曜","Hour":"","Min":""},
+                new RaceInfoObj("京都","秋","昼","芝",2200,"右・外","晴","良",9),
+                {"Top":{"Name":"エアシャカール", "Time":1310},"Next":{"Name":"ネオユニヴァース", "Time":0}}
+            ),
+            new RaceInfomationObj(
+                3,"第3レース 短距離","サークル対抗戦2 短距離","サークル間","スプリンターズステークス","G1",
+                {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
+                new RaceInfoObj("中山","秋","昼","芝",1200,"右・外","晴","良",9),
+                {"Top":{"Name":"アストンマーチャン", "Time":671},"Next":{"Name":"バンブーメモリー", "Time":0}}
+            ),
+            new RaceInfomationObj(
+                4,"第4レース 長距離","サークル対抗戦2 長距離","サークル間","天皇賞・春","G1",
+                {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
+                new RaceInfoObj("京都","春","昼","芝",3200,"右・外","晴","良",9),
+                {"Top":{"Name":"サクラローレル", "Time":1930},"Next":{"Name":"メジロブライト", "Time":0}}
+            ),
+            new RaceInfomationObj(
+                5,"第5レース マイル","サークル対抗戦2 マイル","サークル間","朝日杯フューチュリティステークス","G1",
+                {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
+                new RaceInfoObj("阪神","冬","昼","芝",1600,"右・外","晴","良",9),
+                {"Top":{"Name":"ヴィブロス", "Time":902},"Next":{"Name":"ダイタクヘリオス", "Time":0}}
+            ),
+            new RaceInfomationObj(
+                6,"第6レース EX","サークル対抗戦2 EX","サークル間","阪神ジュベナイルフィリーズ","G1",
+                {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
+                new RaceInfoObj("阪神","冬","昼","芝",1600,"右・外","晴","良",18),
+                {"Top":{"Name":"ラインクラフト", "Time":915},"Next":{"Name":"ダイイチルビー", "Time":0}}
+            ),
         ]
-    },
+    ),
     {
         "RaceGroupeID":6,
         "RaceCnt":6,
