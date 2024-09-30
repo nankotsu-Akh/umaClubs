@@ -6,6 +6,7 @@ const MatchingRace = [
     ],
     [   // 第2レース
         [4,8,9,12,10,6,3,1,11,2,5,7],
+        [],
         [
             {
                 "Name":"コパノリッキー", "Strategy":"先行", "Runk":["UD5", 37610], "MemberID":17, "GoalTime":"", "GoalTimeDef":"2", "CornerPass":[], "FurlongTime":"", "Favorite":4, "parents":["", ""], "Motivation":"絶好調",
@@ -125,6 +126,7 @@ const MatchingRace = [
     ],
     [   // 第4レース
         [10,8,2,6,3,12,7,9,1,11,4,5],
+        [],
         [
             {
                 "Name":"ハープリズム", "Strategy":"先行",  "Runk":["S", ""], "MemberID":"", "GoalTime":"", "GoalTimeDef":"10", "CornerPass":[], "FurlongTime":"", "Favorite":10, "parents":["", ""], "Motivation":"絶好調",
@@ -190,6 +192,7 @@ const MatchingRace = [
     ],
     [   // 第5レース
         [12,6,9,4,2,8,5,7,11,3,1,10],
+        [],
         [
             {
                 "Name":"バトルオブエラ", "Strategy":"逃げ",  "Runk":["S", ""], "MemberID":"", "GoalTime":"", "GoalTimeDef":"クビ", "CornerPass":[], "FurlongTime":"", "Favorite":9, "parents":["", ""], "Motivation":"絶好調",
@@ -255,6 +258,7 @@ const MatchingRace = [
     ],
     [   // 第6レース
         [1,12,9,3,2,8,10,4,6,11,7,5],
+        [],
         [
             {
                 "Name":"イナリワン", "Strategy":"追込", "Runk":["UD7", 39033], "MemberID":28, "GoalTime":"1:37.0", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":8, "parents":["", ""], "Motivation":"絶好調",
