@@ -174,229 +174,51 @@ const DB_RaceInfo = [
             ),
         ]
     ),
-    {
-        "RaceGroupeID":4,
-        "RaceCnt":18,
-        "Numbering":"第3回",
-        "RaceTitle":"すっ　ご杯トリオトーナメント",
-        "Races":[
-            {
-                "RaceID":1,
-                "SubTitle":"第1試合 第1レース",
-                "AbbreviationName":"トリオ杯 予選1 1レース",
-                "terms":"サークル内",
-                "RaceName":"NHKマイルカップ",
-                "RaceGrade":"G1",
-                "RaceDate":{
-                    "Year":2024,
-                    "Month":2,
-                    "Day":12,
-                    "Date":"月曜",
-                    "Hour":"22",
-                    "Min":"00",
-                },
-                "RaceInfo":{
-                    "Place":"東京",
-                    "Season":"春",
-                    "TimeZone":"昼",
-                    "Field":"芝",
-                    "Length":1600,
-                    "Rotate":"左",
-                    "Weather":"晴",
-                    "Condition":"良",
-                    "MembersCnt":9,
-                },
-                "Winner":{
-                    "Top":{"Name":"ダイタクヘリオス", "Time":"1:30.1"},
-                    "Next":{"Name":"エアグルーヴ", "Time":0},
-                }
-            },
-            {
-                "RaceID":2,
-                "SubTitle":"第1試合 第2レース",
-                "AbbreviationName":"トリオ杯 予選1 2レース",
-                "terms":"サークル内",
-                "RaceName":"東京優駿 日本ダービー",
-                "RaceGrade":"G1",
-                "RaceDate":{
-                    "Year":2024,
-                    "Month":2,
-                    "Day":12,
-                    "Date":"月曜",
-                    "Hour":"22",
-                    "Min":"10",
-                },
-                "RaceInfo":{
-                    "Place":"東京",
-                    "Season":"春",
-                    "TimeZone":"昼",
-                    "Field":"芝",
-                    "Length":2400,
-                    "Rotate":"左",
-                    "Weather":"晴",
-                    "Condition":"良",
-                    "MembersCnt":9,
-                },
-                "Winner":{
-                    "Top":{"Name":"タイキシャトル", "Time":0},
-                    "Next":{"Name":"タニノギムレット", "Time":0},
-                }
-            },
-            {
-                "RaceID":3,
-                "SubTitle":"第1試合 第3レース",
-                "AbbreviationName":"トリオ杯 予選1 3レース",
-                "terms":"サークル内",
-                "RaceName":"有馬記念",
-                "RaceGrade":"G1",
-                "RaceDate":{
-                    "Year":2024,
-                    "Month":2,
-                    "Day":12,
-                    "Date":"月曜",
-                    "Hour":"22",
-                    "Min":"20",
-                },
-                "RaceInfo":{
-                    "Place":"中山",
-                    "Season":"冬",
-                    "TimeZone":"昼",
-                    "Field":"芝",
-                    "Length":2500,
-                    "Rotate":"右・外",
-                    "Weather":"晴",
-                    "Condition":"良",
-                    "MembersCnt":9,
-                },
-                "Winner":{
-                    "Top":{"Name":"ナリタタイシン", "Time":"2:27.7"},
-                    "Next":{"Name":"メイショウドトウ", "Time":0},
-                }
-            },
-            {
-                "RaceID":4,
-                "SubTitle":"第2試合 第1レース",
-                "AbbreviationName":"トリオ杯 予選2 1レース",
-                "terms":"サークル内",
-                "RaceName":"スプリンターズステークス",
-                "RaceGrade":"G1",
-                "RaceDate":{
-                    "Year":2024,
-                    "Month":2,
-                    "Day":12,
-                    "Date":"月曜",
-                    "Hour":"",
-                    "Min":"",
-                },
-                "RaceInfo":{
-                    "Place":"",
-                    "Season":"",
-                    "TimeZone":"昼",
-                    "Field":"芝",
-                    "Length":0,
-                    "Rotate":"",
-                    "Weather":"晴",
-                    "Condition":"良",
-                    "MembersCnt":9,
-                },
-                "Winner":{
-                    "Top":{"Name":"", "Time":0},
-                    "Next":{"Name":"", "Time":0},
-                }
-            },
-            {
-                "RaceID":5,
-                "SubTitle":"第2試合 第2レース",
-                "AbbreviationName":"トリオ杯 予選2 2レース",
-                "terms":"サークル内",
-                "RaceName":"有馬記念",
-                "RaceGrade":"G1",
-                "RaceDate":{
-                    "Year":2024,
-                    "Month":2,
-                    "Day":12,
-                    "Date":"月曜",
-                    "Hour":"",
-                    "Min":"",
-                },
-                "RaceInfo":{
-                    "Place":"中山",
-                    "Season":"冬",
-                    "TimeZone":"昼",
-                    "Field":"芝",
-                    "Length":2500,
-                    "Rotate":"右・外",
-                    "Weather":"晴",
-                    "Condition":"良",
-                    "MembersCnt":9,
-                },
-                "Winner":{
-                    "Top":{"Name":"", "Time":0},
-                    "Next":{"Name":"", "Time":0},
-                }
-            },
-            {
-                "RaceID":6,
-                "SubTitle":"第2試合 第3レース",
-                "AbbreviationName":"トリオ杯 予選2 3レース",
-                "terms":"サークル内",
-                "RaceName":"朝日杯フューチュリティステークス",
-                "RaceGrade":"G1",
-                "RaceDate":{
-                    "Year":2024,
-                    "Month":2,
-                    "Day":12,
-                    "Date":"月曜",
-                    "Hour":"",
-                    "Min":"",
-                },
-                "RaceInfo":{
-                    "Place":"",
-                    "Season":"冬",
-                    "TimeZone":"昼",
-                    "Field":"芝",
-                    "Length":0,
-                    "Rotate":"",
-                    "Weather":"晴",
-                    "Condition":"良",
-                    "MembersCnt":9,
-                },
-                "Winner":{
-                    "Top":{"Name":"", "Time":0},
-                    "Next":{"Name":"", "Time":0},
-                }
-            },
-            {
-                "RaceID":7,
-                "SubTitle":"第3試合 第1レース",
-                "AbbreviationName":"トリオ杯 予選3 1レース",
-                "terms":"サークル内",
-                "RaceName":"大阪杯",
-                "RaceGrade":"G1",
-                "RaceDate":{
-                    "Year":2024,
-                    "Month":2,
-                    "Day":12,
-                    "Date":"月曜",
-                    "Hour":"",
-                    "Min":"",
-                },
-                "RaceInfo":{
-                    "Place":"",
-                    "Season":"",
-                    "TimeZone":"昼",
-                    "Field":"芝",
-                    "Length":0,
-                    "Rotate":"",
-                    "Weather":"晴",
-                    "Condition":"良",
-                    "MembersCnt":9,
-                },
-                "Winner":{
-                    "Top":{"Name":"", "Time":0},
-                    "Next":{"Name":"", "Time":0},
-                }
-            },
+    new RaceGropeInfomationObj(
+        4, 18,"第3回", "すっ　ご杯トリオトーナメント",
+        [
+            new RaceInfomationObj(
+                1,"第1試合 第1レース","トリオ杯 予選1 1レース","サークル内","NHKマイルカップ","G1",
+                {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"22","Min":"00"},
+                new RaceInfoObj("東京","春","昼","芝",1600,"左","晴","良",9),
+                {"Top":{"Name":"ダイタクヘリオス", "Time":"1:30.1"},"Next":{"Name":"エアグルーヴ", "Time":0}}
+            ),
+            new RaceInfomationObj(
+                2,"第1試合 第2レース","トリオ杯 予選1 2レース","サークル内","東京優駿 日本ダービー","G1",
+                {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"22","Min":"10"},
+                new RaceInfoObj("東京","春","昼","芝",2400,"左","晴","良",9),
+                {"Top":{"Name":"タイキシャトル", "Time":0},"Next":{"Name":"タニノギムレット", "Time":0}}
+            ),
+            new RaceInfomationObj(
+                3,"第1試合 第3レース","トリオ杯 予選1 3レース","サークル内","有馬記念","G1",
+                {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"22","Min":"20"},
+                new RaceInfoObj("中山","冬","昼","芝",2500,"右・外","晴","良",9),
+                {"Top":{"Name":"ナリタタイシン", "Time":"2:27.7"},"Next":{"Name":"メイショウドトウ", "Time":0}}
+            ),
+            new RaceInfomationObj(
+                4,"第2試合 第1レース","トリオ杯 予選2 1レース","サークル内","スプリンターズステークス","G1",
+                {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
+                new RaceInfoObj("中山","秋","昼","芝",1200,"右・外","晴","良",9),
+                {"Top":{"Name":"メジロラモーヌ", "Time":674},"Next":{"Name":"サイレンススズカ", "Time":0}}
+            ),
+            new RaceInfomationObj(
+                5,"第2試合 第2レース","トリオ杯 予選2 2レース","サークル内","有馬記念","G1",
+                {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
+                new RaceInfoObj("中山","冬","昼","芝",2500,"右・外","晴","良",9),
+                {"Top":{"Name":"ファインモーション", "Time":1484},"Next":{"Name":"ミスターシービー", "Time":0}}
+            ),
+            new RaceInfomationObj(
+                6,"第2試合 第3レース","トリオ杯 予選2 3レース","サークル内","朝日杯フューチュリティステークス","G1",
+                {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
+                new RaceInfoObj("阪神","冬","昼","芝",1600,"右・外","晴","良",9),
+                {"Top":{"Name":"エルコンドルパサー(2)", "Time":900},"Next":{"Name":"ツインターボ", "Time":0}}
+            ),
+            new RaceInfomationObj(
+                7,"第3試合 第1レース","トリオ杯 予選3 1レース","サークル内","大阪杯","G1",
+                {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
+                new RaceInfoObj("阪神","春","昼","芝",2000,"右・内","晴","良",9),
+                {"Top":{"Name":"アグネスタキオン", "Time":1174},"Next":{"Name":"メジロラモーヌ", "Time":0}}
+            ),
             {
                 "RaceID":8,
                 "SubTitle":"第3試合 第2レース",
