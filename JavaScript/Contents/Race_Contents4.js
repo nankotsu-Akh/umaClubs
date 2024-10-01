@@ -5,145 +5,39 @@ let MatchingRace;
 
 // レース出走情報　第1試合
 const MatchingRace_1 = [
-    [   // 第1レース
+    [
         [6,7,1,9,3,4,8,5,2],
         [1039,1008,1004,1040,1041,8,2,1042,1043]
     ],
-    [   // 第2レース
+    [
         [2,7,3,1,8,5,9,6,4],
         [1044,6,1045,1025,1046,1047,14,1048,1049]
     ],
-    [   // 第3レース
+    [
         [3,2,9,8,4,6,7,1,5],
         [1050,10,16,1051,1052,1053,1054,1055,1056],
     ],
 ]
 // レース出走情報　第2試合
 const MatchingRace_2 = [
-    // レース出走情報　レース順
-    [   // 第1レース
-        [],
-        [19,1057,1012,7,1058,1059,1060,1061,1062],
-        [
-            {
-                "Name":"サイレンススズカ", "Strategy":"逃げ", "Runk":["UE3", 30677], "MemberID":"", "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":1, "parents":["", ""], "Motivation": "不調",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"ジュエルジルコン", "Strategy":"差し", "Runk":["A+", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":8, "parents":["", ""], "Motivation": "絶不調",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"オリジナルシャイン", "Strategy":"差し", "Runk":["A+", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":7, "parents":["", ""], "Motivation": "絶不調",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"メジロラモーヌ", "Strategy":"先行", "Runk":["UE", 29379], "MemberID":7, "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":2, "parents":["", ""], "Motivation": "普通",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"グリードホロウ", "Strategy":"差し", "Runk":["A+", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":3, "parents":["", ""], "Motivation": "絶好調",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"イズカリ", "Strategy":"先行", "Runk":["A+", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":4, "parents":["", ""], "Motivation": "好調",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"シンスフィールド", "Strategy":"逃げ", "Runk":["A+", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":5, "parents":["", ""], "Motivation": "不調",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"リボンヴィルレー", "Strategy":"追込", "Runk":["A+", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":6, "parents":["", ""], "Motivation": "好調",
-                "beforeRuns":[]
-            },
-            {
-                "Name":"ピウエラリズム", "Strategy":"追込", "Runk":["A+", ], "MemberID":"", "GoalTime":"", "GoalTimeDef":"", "CornerPass":[], "FurlongTime":"", "Favorite":9, "parents":["", ""], "Motivation": "絶不調",
-                "beforeRuns":[]
-            },
-        ],
-        {
-            "grade": "-",
-            "raceTitle": "スプリンターズステークス",
-            "raceDay": { "year": "00", "month": 0, "day": 0, "date": "-", },
-            "startTime": "-:-",
-            "season": "-",
-            "timeZone": "-",
-            "weather": "-",
-            "field": "-",
-            "condition": "-",
-            "course": {"length": 0, "place": "-", "rotate": "-", },
-        },
+    [
+        [4,1,5,6,8,7,3,9,2],
+        [19,1057,1012,7,1058,1059,1060,1061,1062]
     ],
-    [   // 第1レース
-        [],
-        [],
-        [
-            {
-                "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
-                "beforeRuns":[]
-            },
-        ],
-        {
-            "grade": "-",
-            "raceTitle": "有馬記念",
-            "raceDay": { "year": "00", "month": 0, "day": 0, "date": "-", },
-            "startTime": "-:-",
-            "season": "-",
-            "timeZone": "-",
-            "weather": "-",
-            "field": "-",
-            "condition": "-",
-            "course": {"length": 0, "place": "-", "rotate": "-", },
-        },
+    [
+        [2,1,6,4,3,8,7,9,5],
+        [5,17,1063,1064,1065,1066,1067,1068,1069]
     ],
-    [   // 第2レース
-        [],
-        [],
-        [
-            {
-                "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
-                "beforeRuns":[]
-            },
-        ],
-        {
-            "grade": "-",
-            "raceTitle": "朝日杯フューチュリティステークス",
-            "raceDay": { "year": "00", "month": 0, "day": 0, "date": "-", },
-            "startTime": "-:-",
-            "season": "-",
-            "timeZone": "-",
-            "weather": "-",
-            "field": "-",
-            "condition": "-",
-            "course": {"length": 0, "place": "-", "rotate": "-", },
-        },
+    [
+        [3,6,2,1,4,7,5,8,9],
+        [1070,1071,3,1072,1048,20,1073,1074,1075]
     ],
 ]
 // レース出走情報　第3試合
 const MatchingRace_3 = [
-    // レース出走情報　レース順
-    [   // 第1レース
-        [],
-        [],
-        [
-            {
-                "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
-                "beforeRuns":[]
-            },
-        ],
-        {
-            "grade": "-",
-            "raceTitle": "大阪杯",
-            "raceDay": { "year": "00", "month": 0, "day": 0, "date": "-", },
-            "startTime": "-:-",
-            "season": "-",
-            "timeZone": "-",
-            "weather": "-",
-            "field": "-",
-            "condition": "-",
-            "course": {"length": 0, "place": "-", "rotate": "-", },
-        },
+    [
+        [9,3,6,8,2,1,7,5,4],
+        [1076,1077,11,1078,1079,1080,1081,1082,27]
     ],
     [   // 第1レース
         [],
