@@ -797,3 +797,5 @@ const DB_RaceInfo = [
         ]
     },
 ]
+
+console.log("Input Race Data complete");
