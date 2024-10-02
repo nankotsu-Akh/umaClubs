@@ -222,13 +222,13 @@ const DB_RaceInfo = [
             new RaceInfomationObj(
                 8,"第3試合 第2レース","トリオ杯 予選3 2レース","サークル内","NHKマイルカップ","G1",
                 {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
-                new RaceInfoObj("","","昼","芝",0,"","晴","良",9),
-                {"Top":{"Name":"", "Time":0},"Next":{"Name":"", "Time":0}}
+                new RaceInfoObj("東京","春","昼","芝",1600,"左","晴","良",9),
+                {"Top":{"Name":"バンブーメモリー", "Time":915},"Next":{"Name":"キングヘイロー", "Time":0}}
             ),
             new RaceInfomationObj(
                 9,"第3試合 第3レース","トリオ杯 予選3 3レース","サークル内","天皇賞・春","G1",
                 {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
-                new RaceInfoObj("","","昼","芝",0,"","晴","良",9),
+                new RaceInfoObj("京都","春","昼","芝",3200,"右・外","晴","良",9),
                 {"Top":{"Name":"", "Time":0},"Next":{"Name":"", "Time":0}}
             ),
             new RaceInfomationObj(
