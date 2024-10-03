@@ -3,119 +3,15 @@ const MatchingRace = [
     // レース出走情報　レース順
     [   // 第1レース
         [5,6,2,9,7,8,4,1,3],
-        [
-            {
-                "Name":"ソワソワ", "Strategy":"先行",  "Runk":["S", "-"], "MemberID":"", "GoalTime":"-", "GoalTimeDef":"1/2", "CornerPass":[0], "FurlongTime":"-", "Favorite":8, "parents":["-", "-"],
-                "beforeRuns":[],
-            },
-            {
-                "Name":"コパノリッキー", "Strategy":"差し",  "Runk":["UD", 34598], "MemberID":11, "GoalTime":"-", "GoalTimeDef":"ハナ", "CornerPass":[0], "FurlongTime":"-", "Favorite":3, "parents":["-", "-"],
-                "beforeRuns":[],
-            },
-            {
-                "Name":"ミニコスモス", "Strategy":"逃げ",  "Runk":["S", "-"], "MemberID":"", "GoalTime":"-", "GoalTimeDef":"3/2", "CornerPass":[0], "FurlongTime":"-", "Favorite":9, "parents":["-", "-"],
-                "beforeRuns":[],
-            },
-            {
-                "Name":"コインシデンス", "Strategy":"逃げ",  "Runk":["S", "-"], "MemberID":"", "GoalTime":"-", "GoalTimeDef":"大差", "CornerPass":[0], "FurlongTime":"-", "Favorite":7, "parents":["-", "-"],
-                "beforeRuns":[],
-            },
-            {
-                "Name":"タイキシャトル", "Strategy":"先行", "Runk":["UD6", 38442], "MemberID":6, "GoalTime":"1:38.8", "GoalTimeDef":"-", "CornerPass":[0], "FurlongTime":"-", "Favorite":1, "parents":["-", "-"],
-                "beforeRuns":[],
-            },
-            {
-                "Name":"スマートファルコン", "Strategy":"逃げ", "Runk":["UE4", 31469], "MemberID":1, "GoalTime":"-", "GoalTimeDef":"1", "CornerPass":[0], "FurlongTime":"-", "Favorite":5, "parents":["-", "-"],
-                "beforeRuns":[],
-            },
-            {
-                "Name":"コパノリッキー", "Strategy":"先行", "Runk":["UE9", 339896], "MemberID":"", "Trainer":"あすくちゅら", "TrainerID":0, "GoalTime":"-", "GoalTimeDef":"2", "CornerPass":[0], "FurlongTime":"-", "Favorite":4, "parents":["-", "-"],
-                "beforeRuns":[],
-            },
-            {
-                "Name":"ハルウララ", "Strategy":"差し",  "Runk":["UE6", 32549], "MemberID":"", "Trainer":"ボンレス兄貴", "TrainerID":0, "GoalTime":"-", "GoalTimeDef":"クビ", "CornerPass":[0], "FurlongTime":"-", "Favorite":6, "parents":["-", "-"],
-                "beforeRuns":[],
-            },
-            {
-                "Name":"トランセンド",  "Strategy":"逃げ", "Runk":["UD1", 35172], "MemberID":"", "Trainer":"はご", "TrainerID":0, "GoalTime":"-", "GoalTimeDef":"アタマ", "CornerPass":[0], "FurlongTime":"-", "Favorite":2,  "parents":["-", "-"],
-                "beforeRuns":[],
-            },
-        ],
-        {
-            "raceTitle":"全日本ジュニア優駿",
-            "raceDay":{"year":24,"month":2, "day":12, "date":"月曜"},
-            "startTime":"-:-",
-            "season":"冬",
-            "timeZone":"夜",
-            "weather":"晴",
-            "field":"ダ",
-            "condition":"良",
-            "course":{
-                "length":16,
-                "place":"川崎",
-                "rotate":"左",
-                "ex":"",
-            }
-        }
+        [1050,11,1051,1052,6,1,105,115,107]
     ],
     [   // 第2レース
         [5,7,4,1,8,2,6,9,3],
-        [
-            {
-                "Name":"アグネスタキオン", "Strategy":"先行",  "Runk":["UE4", 31420], "MemberID":12, "GoalTime":"-", "GoalTimeDef":"1/2", "CornerPass":[0], "FurlongTime":"00.0", "Favorite":5, "parents":["-", "-"],
-                "beforeRuns":[]
-            },
-            {
-                "Name":"メジロドーベル", "Strategy":"差し",  "Runk":["UD1", 35167], "MemberID":"", "Trainer":"でんげん", "TrainerID":0, "GoalTime":"-", "GoalTimeDef":"2", "CornerPass":[0], "FurlongTime":"00.0", "Favorite":3, "parents":["-", "-"],
-                "beforeRuns":[],
-            },
-            {
-                "Name":"サニーウェザー", "Strategy":"逃げ",  "Runk":["A+", "-"], "MemberID":"", "Trainer":"-", "TrainerID":0, "GoalTime":"-", "GoalTimeDef":"クビ", "CornerPass":[0], "FurlongTime":"00.0", "Favorite":9, "parents":["-", "-"],
-                "beforeRuns":[],
-            },
-            {
-                "Name":"オグリキャップ", "Strategy":"追込",  "Runk":["UD1", 35216], "MemberID":22, "GoalTime":"-", "GoalTimeDef":"1/2", "CornerPass":[0], "FurlongTime":"00.0", "Favorite":1, "parents":["-", "-"],
-                "beforeRuns":[],
-            },
-            {
-                "Name":"エアシャカール", "Strategy":"追込", "Runk":["UD", 34627], "MemberID":21, "GoalTime":"2:11.0", "GoalTimeDef":"-", "CornerPass":[0], "FurlongTime":"00.0", "Favorite":2, "parents":["-", "-"],
-                "beforeRuns":[],
-            },
-            {
-                "Name":"サムガーデン", "Strategy":"先行", "Runk":["S", "-"], "MemberID":"", "Trainer":"-", "TrainerID":0, "GoalTime":"-", "GoalTimeDef":"大差", "CornerPass":[0], "FurlongTime":"00.0", "Favorite":8, "parents":["-", "-"],
-                "beforeRuns":[],
-            },
-            {
-                "Name":"ネオユニヴァース", "Strategy":"差し", "Runk":["UE9", 34160], "MemberID":"", "Trainer":"セシル", "TrainerID":0, "GoalTime":"-", "GoalTimeDef":"3/2", "CornerPass":[0], "FurlongTime":"00.0", "Favorite":4, "parents":["-", "-"],
-                "beforeRuns":[],
-            },
-            {
-                "Name":"オグリキャップ", "Strategy":"追込",  "Runk":["UE5", 31931], "MemberID":"", "Trainer":"れおん", "TrainerID":0, "GoalTime":"-", "GoalTimeDef":"3", "CornerPass":[0], "FurlongTime":"00.0", "Favorite":6, "parents":["-", "-"],
-                "beforeRuns":[],
-            },
-            {
-                "Name":"プカプカ", "Strategy":"追込", "Runk":["S", "-"], "MemberID":"", "Trainer":"-", "TrainerID":0, "GoalTime":"-", "GoalTimeDef":"3/2", "CornerPass":[0], "FurlongTime":"00.0", "Favorite":7, "parents":["-", "-"],
-                "beforeRuns":[],
-            },
-        ],
-        {
-            "raceTitle":"エリザベス女王杯",
-            "raceDay":{"year":24,"month":2, "day":12, "date":"月曜"},
-            "startTime":"-:-",
-            "season":"秋",
-            "timeZone":"昼",
-            "weather":"晴",
-            "field":"芝",
-            "condition":"良",
-            "course":{
-                "length":22,
-                "place":"京都",
-                "rotate":"右・外",
-            }
-        }
+        [12,117,1053,22,21,1054,116,103,1055]
     ],
     [   // 第3レース
         [1,5,2,7,3,9,8,4,6],
+        [4,113,101,1056,108,1057,5,1058,19],
         [
             {
                 "Name":"アストンマーチャン", "Strategy":"逃げ",  "Runk":["UE4", 31469], "MemberID":4, "GoalTime":"1:07.1", "GoalTimeDef":"-", "CornerPass":[0], "FurlongTime":"00.0", "Favorite":3, "parents":["-", "-"],
@@ -150,7 +46,7 @@ const MatchingRace = [
                 "beforeRuns":[],
             },
             {
-                "Name":"サイレンススズカ", "Strategy":"逃げ", "Runk":["UE8", 3370], "MemberID":19, "GoalTime":"-", "GoalTimeDef":"1/2", "CornerPass":[0], "FurlongTime":"00.0", "Favorite":1, "parents":["-", "-"],
+                "Name":"サイレンススズカ", "Strategy":"逃げ", "Runk":["UE8", 33370], "MemberID":19, "GoalTime":"-", "GoalTimeDef":"1/2", "CornerPass":[0], "FurlongTime":"00.0", "Favorite":1, "parents":["-", "-"],
                 "beforeRuns":[],
             },
         ],
@@ -172,6 +68,7 @@ const MatchingRace = [
     ],
     [   // 第4レース
         [5,7,3,2,1,8,4,6,9],
+        [119,16,28,1001,27,1001,112,114,1001],
         [
             {
                 "Name":"ナリタトップロード", "Strategy":"先行",  "Runk":["UE8", 33752], "MemberID":"", "Trainer":"たけざぁ", "TrainerID":0, "GoalTime":"-", "GoalTimeDef":"7", "CornerPass":[0], "FurlongTime":"00.0", "Favorite":4, "parents":["-", "-"],
@@ -228,6 +125,7 @@ const MatchingRace = [
     ],
     [   // 第5  レース
         [7,9,1,3,5,6,2,4,8],
+        [2,1001,120,1001,106,17,111,1001,8],
         [
             {
                 "Name":"エアグルーヴ", "Strategy":"先行",  "Runk":["UD1", 35547], "MemberID":2, "GoalTime":"-", "GoalTimeDef":"アタマ", "CornerPass":[0], "FurlongTime":"00.0", "Favorite":4, "parents":["-", "-"],
@@ -284,6 +182,7 @@ const MatchingRace = [
     ],
     [   // 第6  レース
         [11,6,8,9,10,17,18,7,15,16,4,12,1,14,3,5,2,13],
+        [103,121,120,21,20,113,23,8,19,117,11,14,106,17,6,15,115,107],
         [
             {
                 "Name":"オグリキャップ", "Strategy":"追込",  "Runk":["", ], "MemberID":"", "Trainer":"れおん", "TrainerID":0, "GoalTime":"-", "GoalTimeDef":"3/4", "CornerPass":[0], "FurlongTime":"00.0", "Favorite":13, "parents":["-", "-"],
@@ -375,5 +274,3 @@ const MatchingRace = [
         }
     ],
 ]
-
-SetBeforeRuns(Members);

@@ -44,8 +44,8 @@ const MatchingRace_3 = [
         [1083,13,21,1084,1050,1085,1080,1086,1087]
     ],
     [
-        [],
-        [23,15]
+        [8,7,3,2,4,1,6,9,5],
+        [1088,1004,1089,1090,1091,1092,23,15,1093]
     ],
 ]
 // レース出走情報　第4試合
@@ -53,25 +53,7 @@ const MatchingRace_4 = [
     // レース出走情報　レース順
     [   // 第1レース
         [],
-        [],
-        [
-            {
-                "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
-                "beforeRuns":[]
-            },
-        ],
-        {
-            "grade": "-",
-            "raceTitle": "高松宮",
-            "raceDay": { "year": "00", "month": 0, "day": 0, "date": "-", },
-            "startTime": "-:-",
-            "season": "-",
-            "timeZone": "-",
-            "weather": "-",
-            "field": "-",
-            "condition": "-",
-            "course": {"length": 0, "place": "-", "rotate": "-", },
-        },
+        [6,7]
     ],
     [   // 第1レース
         [],
@@ -423,368 +405,199 @@ function CreateTournamentImg(teams, result) {
     const viewWidth = 95;
     const picSize = 73;
 
+    /* チーム名 */
+    for(let i = 0; i < teams.length; i++) {
+        let x1, y1;
+
+        const team = document.createElementNS('http://www.w3.org/2000/svg','text');
+        const name = document.createTextNode(teams[i]);
+        team.appendChild(name)
+        if(i%2 == 0 && i<teams.length-1) {  // 奇数組と偶数組で処理を分ける。7チームは例外で偶数と同一処理
+            x1 = baseHorMargin + viewWidth/2 + picSize*(i*2);
+        }
+        else {
+            x1 = baseHorMargin - viewWidth/2 + picSize*((i*2)+1);
+        }
+        
+        y1 = baseVerMargin + 20 + varLineLength*4; 
+        team.setAttribute('x', x1);
+        team.setAttribute('y', y1);
+        team.setAttribute('writing-mode', 'tb');
+        team.setAttribute('font-size', '17pt');
+        team.setAttribute('font-weight', 'bold');
+        team.setAttribute('glyph-orientation-horizontal', 0);
+        svgImg.appendChild(team);
+    }
+    
     let totalFightCnt = 0;
-
-    let x1, x2, y1, y2;
-    let lineColor,  lineWidth;
-    
-    /* ========== チーム1 ========== */
-    /* チーム名 */
-    const team1 = document.createElementNS('http://www.w3.org/2000/svg','text');
-    const name1 = document.createTextNode(teams[0]);
-    team1.appendChild(name1)
-    x1 = baseHorMargin + viewWidth/2;
-    y1 = baseVerMargin + 20 + varLineLength*4; 
-    team1.setAttribute('x', x1);
-    team1.setAttribute('y', y1);
-    team1.setAttribute('writing-mode', 'tb');
-    team1.setAttribute('font-size', '17pt');
-    team1.setAttribute('font-weight', 'bold');
-    team1.setAttribute('glyph-orientation-horizontal', 0);
-    svgImg.appendChild(team1);
     /* 縦線 */
-    const line1_ver = document.createElementNS('http://www.w3.org/2000/svg','line');
-    x1 = baseHorMargin + viewWidth/2;
-    y1 = baseVerMargin + 20 + varLineLength*3; 
-    x2 = x1;
-    y2 = y1 + varLineLength;
-    lineColor = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "red" : "black") : "black"
-    lineWidth = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "5" : "3") : "3"
-    SetLineInfo(line1_ver, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line1_ver);
+    for(let i = 0; i < 12; i++){
+        let x1, x2, y1, y2;
+        let lineColor,  lineWidth;
+        let resultFlag;
+        
+        const line_ver = document.createElementNS('http://www.w3.org/2000/svg','line');
+        if(i%2 == 0) {
+            x1 = baseHorMargin + viewWidth/2;
+            resultFlag = result[Math.trunc(i/3)][1];
+        }
+        else {
+            x1 = baseHorMargin + viewWidth/2 + 1;
+            resultFlag = !result[Math.trunc(i/3)][1];
+        }
+
+        if(totalFightCnt > 4){}
+        else if(totalFightCnt > 2){
+            x1 += horLineLength + picSize * ((i-6)*2);
+            y1 = baseVerMargin + 20 + varLineLength*2; 
+        }
+        else {
+            x1 +=  + picSize * (i*2);
+            y1 = baseVerMargin + 20 + varLineLength*3; 
+        }
+        
+        lineColor = result[Math.trunc(i/3)][0] ? (resultFlag ? "red" : "black") : "black"
+        lineWidth = result[Math.trunc(i/3)][0] ? (resultFlag ? "5" : "3") : "3"
+        
+        SetLineInfo(line_ver, [x1, y1, x1, y1 + varLineLength], lineColor, lineWidth);
+        svgImg.appendChild(line_ver);
+
+        if((i+1)%2 == 0) {
+            totalFightCnt++;
+        }
+    }
+    // const line10_ver = document.createElementNS('http://www.w3.org/2000/svg','line');
+    // x1 = baseHorMargin + picSize*13 - viewWidth/2;
+    // y1 = baseVerMargin + 20 + varLineLength*2; 
+    // x2 = x1;
+    // y2 = y1 + varLineLength*2;
+    // lineColor = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "red" : "black") : "black"
+    // lineWidth = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "5" : "3") : "3"
+    // SetLineInfo(line10_ver, [x1, y1, x2, y2], lineColor, lineWidth);
+    // svgImg.appendChild(line10_ver);
+
+
+
+
     /* 横線 */
-    const line1_hor = document.createElementNS('http://www.w3.org/2000/svg','line');
-    x1 = baseHorMargin + viewWidth/2;
-    y1 = baseVerMargin + 20 + varLineLength*3; 
-    x2 = x1 + horLineLength;
-    y2 = y1;
-    lineColor = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "red" : "black") : "black"
-    lineWidth = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "5" : "3") : "3"
-    SetLineInfo(line1_hor, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line1_hor);
+    totalFightCnt = 0;
+    for(let i = 0; i < 6; i++){
+        let x1, x2, y1, y2;
+        let lineColor,  lineWidth;
+        let resultFlag;
+
+        const line_hor = document.createElementNS('http://www.w3.org/2000/svg','line');
+        if(i%2 == 0) {
+            x1 = baseHorMargin + viewWidth/2 + picSize*(i*2);
+            x2 = x1 + horLineLength;
+            resultFlag = result[totalFightCnt][1];
+        }
+        else {
+            x1 = baseHorMargin + viewWidth/2 + picSize*(i*2)+1;
+            x2 = x1 - horLineLength;
+            resultFlag = !result[totalFightCnt][1];
+        }
+
+        y1 = baseVerMargin + 20 + varLineLength*3; 
+        y2 = y1;
+        lineColor = result[totalFightCnt][0] ? (resultFlag ? "red" : "black") : "black"
+        lineWidth = result[totalFightCnt][0] ? (resultFlag ? "5" : "3") : "3"
+
+        SetLineInfo(line_hor, [x1, y1, x2, y2], lineColor, lineWidth);
+        svgImg.appendChild(line_hor);
+        
+        if((i+1)%2 == 0) {
+            totalFightCnt++;
+        }
+    }
     
-    /* ========== チーム2 ========== */
-    /* チーム名 */
-    const team2 = document.createElementNS('http://www.w3.org/2000/svg','text');
-    const name2 = document.createTextNode(teams[1]);
-    team2.appendChild(name2)
-    x1 = baseHorMargin + picSize*3 - viewWidth/2;
-    y1 = baseVerMargin + 20 + varLineLength*4;
-    team2.setAttribute('x', x1);
-    team2.setAttribute('y', y1);
-    team2.setAttribute('writing-mode', 'tb');
-    team2.setAttribute('font-size', '17pt');
-    team2.setAttribute('font-weight', 'bold');
-    team2.setAttribute('glyph-orientation-horizontal', 0);
-    svgImg.appendChild(team2);
-    /* 縦線 */
-    const line2_ver = document.createElementNS('http://www.w3.org/2000/svg','line');
-    x1 = baseHorMargin + picSize*3 - viewWidth/2;
-    y1 = baseVerMargin + 20 + varLineLength*3; 
-    x2 = x1;
-    y2 = y1 + varLineLength;
-    lineColor = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "red" : "black") : "black"
-    lineWidth = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "5" : "3") : "3"
-    SetLineInfo(line2_ver, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line2_ver);
-    /* 横線 */
-    const line2_hor = document.createElementNS('http://www.w3.org/2000/svg','line');
-    // x1 = baseHorMargin + horLineLength*2 + viewWidth/2;
-    // y1 = baseVerMargin + 20 + varLineLength*3; 
-    x2 = x1 - horLineLength;
-    y2 = y1;
-    lineColor = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "red" : "black") : "black"
-    lineWidth = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "5" : "3") : "3"
-    SetLineInfo(line2_hor, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line2_hor);
 
-    totalFightCnt = 1
+    // const line7_hor = document.createElementNS('http://www.w3.org/2000/svg','line');
+    // x2 = x1 + horLineLength + picSize + 10;
+    // y2 = y1;
+    // lineColor = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "red" : "black") : "black"
+    // lineWidth = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "5" : "3") : "3"
+    // SetLineInfo(line7_hor, [x1, y1, x2, y2], lineColor, lineWidth);
+    // svgImg.appendChild(line7_hor);
+
+    // const line8_hor = document.createElementNS('http://www.w3.org/2000/svg','line');
+    // x2 = x1 - horLineLength - picSize - 10;
+    // y2 = y1;
+    // lineColor = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "red" : "black") : "black"
+    // lineWidth = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "5" : "3") : "3"
+    // SetLineInfo(line8_hor, [x1, y1, x2, y2], lineColor, lineWidth);
+    // svgImg.appendChild(line8_hor);
     
-    /* ========== チーム3 ========== */
-    /* チーム名 */
-    const team3 = document.createElementNS('http://www.w3.org/2000/svg','text');
-    const name3 = document.createTextNode(teams[2]);
-    team3.appendChild(name3)
-    x1 = baseHorMargin + picSize*4 + viewWidth/2;
-    y1 = baseVerMargin + 20 + varLineLength*4;
-    team3.setAttribute('x', x1);
-    team3.setAttribute('y', y1);
-    team3.setAttribute('writing-mode', 'tb');
-    team3.setAttribute('font-size', '17pt');
-    team3.setAttribute('font-weight', 'bold');
-    team3.setAttribute('glyph-orientation-horizontal', 0);
-    svgImg.appendChild(team3);
-    /* 縦線 */
-    const line3_ver = document.createElementNS('http://www.w3.org/2000/svg','line');
-    x1 = baseHorMargin + picSize*4 + viewWidth/2;
-    y1 = baseVerMargin + 20 + varLineLength*3; 
-    x2 = x1;
-    y2 = y1 + varLineLength;
-    lineColor = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "red" : "black") : "black"
-    lineWidth = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "5" : "3") : "3"
-    SetLineInfo(line3_ver, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line3_ver);
-    /* 横線 */
-    const line3_hor = document.createElementNS('http://www.w3.org/2000/svg','line');
-    // x1 = baseHorMargin + horLineLength*4 + viewWidth/2;
-    // y1 = baseVerMargin + 20 + varLineLength*3; 
-    x2 = x1 + horLineLength;
-    y2 = y1;
-    lineColor = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "red" : "black") : "black"
-    lineWidth = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "5" : "3") : "3"
-    SetLineInfo(line3_hor, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line3_hor);
+    // totalFightCnt = 4;
+
+
+    // const line9_hor = document.createElementNS('http://www.w3.org/2000/svg','line');
+    // x2 = x1 + horLineLength + picSize/2 + 5;
+    // y2 = y1;
+    // lineColor = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "red" : "black") : "black"
+    // lineWidth = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "5" : "3") : "3"
+    // SetLineInfo(line9_hor, [x1, y1, x2, y2], lineColor, lineWidth);
+    // svgImg.appendChild(line9_hor);
+
+
+    // const line10_hor = document.createElementNS('http://www.w3.org/2000/svg','line');
+    // x2 = x1 - horLineLength - picSize/2 - 5;
+    // y2 = y1;
+    // lineColor = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "red" : "black") : "black"
+    // lineWidth = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "5" : "3") : "3"
+    // SetLineInfo(line10_hor, [x1, y1, x2, y2], lineColor, lineWidth);
+    // svgImg.appendChild(line10_hor);
+
+    // totalFightCnt = 5;
+
+
+    // /****** 3回戦 ******/
+    // const line11_ver = document.createElementNS('http://www.w3.org/2000/svg','line');
+    // x1 = baseHorMargin + picSize*2 + horLineLength + viewWidth/2;
+    // y1 = baseVerMargin + 20 + varLineLength; 
+    // x2 = x1;
+    // y2 = y1 + varLineLength;
+    // lineColor = result[totalFightCnt - 2][0] ? "red" : "black";
+    // lineWidth = result[totalFightCnt - 2][0] ? "5" : "3";
+    // SetLineInfo(line11_ver, [x1, y1, x2, y2], lineColor, lineWidth);
+    // svgImg.appendChild(line11_ver);
     
-    /* ========== チーム4 ========== */
-    /* チーム名 */
-    const team4 = document.createElementNS('http://www.w3.org/2000/svg','text');
-    const name4 = document.createTextNode(teams[3]);
-    team4.appendChild(name4)
-    x1 = baseHorMargin + picSize*7 - viewWidth/2;
-    y1 = baseVerMargin + 20 + varLineLength*4;
-    team4.setAttribute('x', x1);
-    team4.setAttribute('y', y1);
-    team4.setAttribute('writing-mode', 'tb');
-    team4.setAttribute('font-size', '17pt');
-    team4.setAttribute('font-weight', 'bold');
-    team4.setAttribute('glyph-orientation-horizontal', 0);
-    svgImg.appendChild(team4);
-    /* 縦線 */
-    const line4_ver = document.createElementNS('http://www.w3.org/2000/svg','line');
-    x1 = baseHorMargin + picSize*7 - viewWidth/2;
-    y1 = baseVerMargin + 20 + varLineLength*3; 
-    x2 = x1;
-    y2 = y1 + varLineLength;
-    lineColor = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "red" : "black") : "black"
-    lineWidth = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "5" : "3") : "3"
-    SetLineInfo(line4_ver, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line4_ver);
-    /* 横線 */
-    const line4_hor = document.createElementNS('http://www.w3.org/2000/svg','line');
-    // x1 = baseHorMargin + horLineLength*6 + viewWidth/2;
-    // y1 = baseVerMargin + 20 + varLineLength*3; 
-    x2 = x1 - horLineLength;
-    y2 = y1;
-    lineColor = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "red" : "black") : "black"
-    lineWidth = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "5" : "3") : "3"
-    SetLineInfo(line4_hor, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line4_hor);
+    // const line11_hor = document.createElementNS('http://www.w3.org/2000/svg','line');
+    // x2 = x1 + horLineLength*4;
+    // y2 = y1;
+    // lineColor = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "red" : "black") : "black"
+    // lineWidth = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "5" : "3") : "3"
+    // SetLineInfo(line11_hor, [x1, y1, x2, y2], lineColor, lineWidth);
+    // svgImg.appendChild(line11_hor);
 
-    totalFightCnt = 2
+    // const line12_ver = document.createElementNS('http://www.w3.org/2000/svg','line');
+    // x1 = baseHorMargin + picSize*9 + horLineLength + viewWidth/2 + 30;
+    // y1 = baseVerMargin + 20 + varLineLength; 
+    // x2 = x1;
+    // y2 = y1 + varLineLength;
+    // lineColor = result[totalFightCnt - 1][0] ? "red" : "black";
+    // lineWidth = result[totalFightCnt - 1][0] ? "5" : "3";
+    // SetLineInfo(line12_ver, [x1, y1, x2, y2], lineColor, lineWidth);
+    // svgImg.appendChild(line12_ver);
 
-    /* ========== チーム5 ========== */
-    /* チーム名 */
-    const team5 = document.createElementNS('http://www.w3.org/2000/svg','text');
-    const name5 = document.createTextNode(teams[4]);
-    team5.appendChild(name5)
-    x1 = baseHorMargin + picSize*8 + viewWidth/2;
-    y1 = baseVerMargin + 20 + varLineLength*4;
-    team5.setAttribute('x', x1);
-    team5.setAttribute('y', y1);
-    team5.setAttribute('writing-mode', 'tb');
-    team5.setAttribute('font-size', '17pt');
-    team5.setAttribute('font-weight', 'bold');
-    team5.setAttribute('glyph-orientation-horizontal', 0);
-    svgImg.appendChild(team5);
-    /* 縦線 */
-    const line5_ver = document.createElementNS('http://www.w3.org/2000/svg','line');
-    x1 = baseHorMargin + picSize*8 + viewWidth/2;
-    y1 = baseVerMargin + 20 + varLineLength*3; 
-    x2 = x1;
-    y2 = y1 + varLineLength;
-    lineColor = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "red" : "black") : "black"
-    lineWidth = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "5" : "3") : "3"
-    SetLineInfo(line5_ver, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line5_ver);
-    /* 横線 */
-    const line5_hor = document.createElementNS('http://www.w3.org/2000/svg','line');
-    // x1 = baseHorMargin + horLineLength*8 + viewWidth/2;
-    // y1 = baseVerMargin + 20 + varLineLength*3; 
-    x2 = x1 + horLineLength;
-    y2 = y1;
-    lineColor = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "red" : "black") : "black"
-    lineWidth = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "5" : "3") : "3"
-    SetLineInfo(line5_hor, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line5_hor);
-    
-    /* ========== チーム6 ========== */
-    /* チーム名 */
-    const team6 = document.createElementNS('http://www.w3.org/2000/svg','text');
-    const name6 = document.createTextNode(teams[5]);
-    team6.appendChild(name6)
-    x1 = baseHorMargin + picSize*11 - viewWidth/2;
-    y1 = baseVerMargin + 20 + varLineLength*4;
-    team6.setAttribute('x', x1);
-    team6.setAttribute('y', y1);
-    team6.setAttribute('writing-mode', 'tb');
-    team6.setAttribute('font-size', '17pt');
-    team6.setAttribute('font-weight', 'bold');
-    team6.setAttribute('glyph-orientation-horizontal', 0);
-    svgImg.appendChild(team6);
-    /* 縦線 */
-    const line6_ver = document.createElementNS('http://www.w3.org/2000/svg','line');
-    x1 = baseHorMargin + picSize*11 - viewWidth/2;
-    y1 = baseVerMargin + 20 + varLineLength*3; 
-    x2 = x1;
-    y2 = y1 + varLineLength;
-    lineColor = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "red" : "black") : "black"
-    lineWidth = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "5" : "3") : "3"
-    SetLineInfo(line6_ver, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line6_ver);
-    /* 横線 */
-    const line6_hor = document.createElementNS('http://www.w3.org/2000/svg','line');
-    // x1 = baseHorMargin + horLineLength*10 + viewWidth/2;
-    // y1 = baseVerMargin + 20 + varLineLength*3; 
-    x2 = x1 - horLineLength;
-    y2 = y1;
-    lineColor = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "red" : "black") : "black"
-    lineWidth = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "5" : "3") : "3"
-    SetLineInfo(line6_hor, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line6_hor);
-    
-    /* ========== チーム7 ========== */
-    /* チーム名 */
-    const team7 = document.createElementNS('http://www.w3.org/2000/svg','text');
-    const name7 = document.createTextNode(teams[6]);
-    team7.appendChild(name7)
-    x1 = baseHorMargin + picSize*13 - viewWidth/2;
-    y1 = baseVerMargin + 20 + varLineLength*4;
-    team7.setAttribute('x', x1);
-    team7.setAttribute('y', y1);
-    team7.setAttribute('writing-mode', 'tb');
-    team7.setAttribute('font-size', '17pt');
-    team7.setAttribute('font-weight', 'bold');
-    team7.setAttribute('glyph-orientation-horizontal', 0);
-    svgImg.appendChild(team7);
+    // const line12_hor = document.createElementNS('http://www.w3.org/2000/svg','line');
+    // x2 = x1 - horLineLength - picSize*3 - 40;
+    // y2 = y1;
+    // lineColor = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "red" : "black") : "black"
+    // lineWidth = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "5" : "3") : "3"
+    // SetLineInfo(line12_hor, [x1, y1, x2, y2], lineColor, lineWidth);
+    // svgImg.appendChild(line12_hor);
 
-    totalFightCnt = 3;
-
-    
-    /****** 2回戦 ******/
-    const line7_ver = document.createElementNS('http://www.w3.org/2000/svg','line');
-    x1 = baseHorMargin + horLineLength + viewWidth/2;
-    y1 = baseVerMargin + 20 + varLineLength*2; 
-    x2 = x1;
-    y2 = y1 + varLineLength;
-    lineColor = result[totalFightCnt - 3][0] ? "red" : "black";
-    lineWidth = result[totalFightCnt - 3][0] ? "5" : "3";
-    SetLineInfo(line7_ver, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line7_ver);
-
-    const line7_hor = document.createElementNS('http://www.w3.org/2000/svg','line');
-    x2 = x1 + horLineLength + picSize + 10;
-    y2 = y1;
-    lineColor = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "red" : "black") : "black"
-    lineWidth = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "5" : "3") : "3"
-    SetLineInfo(line7_hor, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line7_hor);
-
-    const line8_ver = document.createElementNS('http://www.w3.org/2000/svg','line');
-    x1 = baseHorMargin + picSize*4 + horLineLength + viewWidth/2;
-    y1 = baseVerMargin + 20 + varLineLength*2; 
-    x2 = x1;
-    y2 = y1 + varLineLength;
-    lineColor = result[totalFightCnt - 2][0] ? "red" : "black";
-    lineWidth = result[totalFightCnt - 2][0] ? "5" : "3";
-    SetLineInfo(line8_ver, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line8_ver);
-    
-    const line8_hor = document.createElementNS('http://www.w3.org/2000/svg','line');
-    x2 = x1 - horLineLength - picSize - 10;
-    y2 = y1;
-    lineColor = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "red" : "black") : "black"
-    lineWidth = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "5" : "3") : "3"
-    SetLineInfo(line8_hor, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line8_hor);
-    
-    totalFightCnt = 4;
-
-    const line9_ver = document.createElementNS('http://www.w3.org/2000/svg','line');
-    x1 = baseHorMargin + picSize*8 + horLineLength + viewWidth/2;
-    y1 = baseVerMargin + 20 + varLineLength*2; 
-    x2 = x1;
-    y2 = y1 + varLineLength;
-    lineColor = result[totalFightCnt - 2][0] ? "red" : "black";
-    lineWidth = result[totalFightCnt - 2][0] ? "5" : "3";
-    SetLineInfo(line9_ver, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line9_ver);
-
-    const line9_hor = document.createElementNS('http://www.w3.org/2000/svg','line');
-    x2 = x1 + horLineLength + picSize/2 + 5;
-    y2 = y1;
-    lineColor = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "red" : "black") : "black"
-    lineWidth = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "5" : "3") : "3"
-    SetLineInfo(line9_hor, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line9_hor);
-
-    const line10_ver = document.createElementNS('http://www.w3.org/2000/svg','line');
-    x1 = baseHorMargin + picSize*13 - viewWidth/2;
-    y1 = baseVerMargin + 20 + varLineLength*2; 
-    x2 = x1;
-    y2 = y1 + varLineLength*2;
-    lineColor = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "red" : "black") : "black"
-    lineWidth = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "5" : "3") : "3"
-    SetLineInfo(line10_ver, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line10_ver);
-
-    const line10_hor = document.createElementNS('http://www.w3.org/2000/svg','line');
-    x2 = x1 - horLineLength - picSize/2 - 5;
-    y2 = y1;
-    lineColor = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "red" : "black") : "black"
-    lineWidth = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "5" : "3") : "3"
-    SetLineInfo(line10_hor, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line10_hor);
-
-    totalFightCnt = 5;
-
-
-    /****** 3回戦 ******/
-    const line11_ver = document.createElementNS('http://www.w3.org/2000/svg','line');
-    x1 = baseHorMargin + picSize*2 + horLineLength + viewWidth/2;
-    y1 = baseVerMargin + 20 + varLineLength; 
-    x2 = x1;
-    y2 = y1 + varLineLength;
-    lineColor = result[totalFightCnt - 2][0] ? "red" : "black";
-    lineWidth = result[totalFightCnt - 2][0] ? "5" : "3";
-    SetLineInfo(line11_ver, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line11_ver);
-    
-    const line11_hor = document.createElementNS('http://www.w3.org/2000/svg','line');
-    x2 = x1 + horLineLength*4;
-    y2 = y1;
-    lineColor = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "red" : "black") : "black"
-    lineWidth = result[totalFightCnt][0] ? (result[totalFightCnt][1] ? "5" : "3") : "3"
-    SetLineInfo(line11_hor, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line11_hor);
-
-    const line12_ver = document.createElementNS('http://www.w3.org/2000/svg','line');
-    x1 = baseHorMargin + picSize*9 + horLineLength + viewWidth/2 + 30;
-    y1 = baseVerMargin + 20 + varLineLength; 
-    x2 = x1;
-    y2 = y1 + varLineLength;
-    lineColor = result[totalFightCnt - 1][0] ? "red" : "black";
-    lineWidth = result[totalFightCnt - 1][0] ? "5" : "3";
-    SetLineInfo(line12_ver, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line12_ver);
-
-    const line12_hor = document.createElementNS('http://www.w3.org/2000/svg','line');
-    x2 = x1 - horLineLength - picSize*3 - 40;
-    y2 = y1;
-    lineColor = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "red" : "black") : "black"
-    lineWidth = result[totalFightCnt][0] ? (!result[totalFightCnt][1] ? "5" : "3") : "3"
-    SetLineInfo(line12_hor, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line12_hor);
-
-    /* 決勝 */
-    const line13_ver = document.createElementNS('http://www.w3.org/2000/svg','line');
-    x1 = baseHorMargin + horLineLength*7 + viewWidth/2;
-    y1 = baseVerMargin + 20; 
-    x2 = x1;
-    y2 = y1 + varLineLength;
-    lineColor = result[totalFightCnt][0] ? "red" : "black";
-    lineWidth = result[totalFightCnt][0] ? "5" : "3";
-    SetLineInfo(line13_ver, [x1, y1, x2, y2], lineColor, lineWidth);
-    svgImg.appendChild(line13_ver);
+    // /* 決勝 */
+    // const line13_ver = document.createElementNS('http://www.w3.org/2000/svg','line');
+    // x1 = baseHorMargin + horLineLength*7 + viewWidth/2;
+    // y1 = baseVerMargin + 20; 
+    // x2 = x1;
+    // y2 = y1 + varLineLength;
+    // lineColor = result[totalFightCnt][0] ? "red" : "black";
+    // lineWidth = result[totalFightCnt][0] ? "5" : "3";
+    // SetLineInfo(line13_ver, [x1, y1, x2, y2], lineColor, lineWidth);
+    // svgImg.appendChild(line13_ver);
 
     // 優勝チーム名表示
     if(result[totalFightCnt][0]) {

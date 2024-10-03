@@ -229,12 +229,12 @@ const DB_RaceInfo = [
                 9,"第3試合 第3レース","トリオ杯 予選3 3レース","サークル内","天皇賞・春","G1",
                 {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
                 new RaceInfoObj("京都","春","昼","芝",3200,"右・外","晴","良",9),
-                {"Top":{"Name":"", "Time":0},"Next":{"Name":"", "Time":0}}
+                {"Top":{"Name":"ゼンノロブロイ", "Time":1923},"Next":{"Name":"マルゼンスキー", "Time":0}}
             ),
             new RaceInfomationObj(
                 10,"第4試合 第1レース","トリオ杯 準決勝1 1レース","サークル内","高松宮記念","G1",
                 {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
-                new RaceInfoObj("","","昼","芝",0,"","晴","良",9),
+                new RaceInfoObj("中京","春","昼","芝",1200,"左","晴","良",9),
                 {"Top":{"Name":"", "Time":0},"Next":{"Name":"", "Time":0}}
             ),
             new RaceInfomationObj(

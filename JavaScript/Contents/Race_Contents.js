@@ -171,7 +171,8 @@ function GetTargetRaceInfoFromMemberID(target, grpID, ID) {
         }
 
         // 対象のレース出走情報から該当するデータを検索
-        for(let i = 0; i < target.result.length; i++) {
+        let i;
+        for(i = 0; i < target.result.length; i++) {
             res = target.result[i]
             if(res.RaceGrpID == groupeID && res.RaceID-1 == raceID) {
                 ret = res;
@@ -181,6 +182,10 @@ function GetTargetRaceInfoFromMemberID(target, grpID, ID) {
                 ret = new RaceResultObj();
             }
         };
+
+        if(i >= target.result.length) {
+            ret = new RaceResultObj();
+        }
     }
 
     return ret;
@@ -233,4 +238,5 @@ function ViewInfomation(event){
 
 function WriteInfomation(targetInfo){
     console.log(targetInfo);
+    // console.log("test");
 }
