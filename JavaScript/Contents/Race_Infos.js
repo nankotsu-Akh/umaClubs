@@ -175,7 +175,7 @@ const DB_RaceInfo = [
         ]
     ),
     new RaceGropeInfomationObj(
-        4, 18,"第3回", "すっ　ご杯トリオトーナメント",
+        4, 18,"", "すっ　ご杯トリオトーナメント",
         [
             new RaceInfomationObj(
                 1,"第1試合 第1レース","トリオ杯 予選1 1レース","サークル内","NHKマイルカップ","G1",

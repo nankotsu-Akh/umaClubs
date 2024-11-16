@@ -21,7 +21,13 @@ function SetRaceInfo(flag) {
     let raceInfo = {};
     
     if(flag != false) {
-        raceInfo = DB_RaceInfo[RaceGroupeID-1].Races[(ActiveRacedIdx*3) + ActiveTabIdx];
+        if(DB_RaceInfo.length >= RaceGroupeID) {
+            const info = DB_RaceInfo[RaceGroupeID-1];
+            
+            if(info.Race.length >= (ActiveRacedIdx*3) + ActiveTabIdx){
+                raceInfo = info.Races[(ActiveRacedIdx*3) + ActiveTabIdx];
+            }
+        }
     }
 
     const template = document.getElementById('RaceInfoTemplate');
@@ -40,11 +46,11 @@ function SetRaceInfo(flag) {
             clone.querySelector('.course').textContent      = "コース：" + raceInfo.RaceInfo.Length + "m (" + raceInfo.RaceInfo.Place + " " + raceInfo.RaceInfo.Rotate + ")";
         }
         catch (err) {
-            SetDefaultDatas(clone);
+            SetDefaultRaceInfoDatas(clone);
         }
     }
     else {
-        SetDefaultDatas(clone);
+        SetDefaultRaceInfoDatas(clone);
     }
     
     // コンテナに要素が入っている場合は削除する
@@ -57,7 +63,7 @@ function SetRaceInfo(flag) {
     document.getElementById('RaceInfos').appendChild(clone);
 }
 
-function SetDefaultDatas(clone) {
+function SetDefaultRaceInfoDatas(clone) {
     clone.querySelector('.title').textContent       = "-";
     clone.querySelector('.raceName').textContent    = "-";
     clone.querySelector('.date').textContent        = "1970年1月1日(Thu)";

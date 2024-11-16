@@ -157,26 +157,57 @@ const Members = [
     {
         "ID":1,
         "Name": ["ヴァニラ", "Vanilla"],
-        "TrainerID":0, 
+        "info":{
+            "TrainerID":0, 
+            "TrainerTitle":"小さな頑張り屋",
+            "Comment":"仕事何でもやる！",
+            "RentChar":{"name":"マチカネフクキタル2", "Runk":["",0], "Strategy":"", "Parents":["", ""], "Param":{"Speed":0, "Stamina":0, "Power":0, "Guts":0, "Intelligent":0},
+                "Aptitude":{"Feald":"", "Length":"", "Strategy":""}, "Skills":[], "Support":[], "Scenario":0, "CultivateDate":{"Year":0, "Month":0, "Day":0, "Hour":0, "Min":0},
+                "CultivateRace":[{"name":"", "Goal":0}],/* "Factor":[]*/
+            },
+            "RentCard":{"name":"", "Runk":["",0], "Strategy":"", "Parents":["", ""], "Param":{"Speed":0, "Stamina":0, "Power":0, "Guts":0, "Intelligent":0},
+                "Aptitude":{"Feald":"", "Length":"", "Strategy":""}, "Skills":[], "Support":[], "Scenario":0, "CultivateDate":{"Year":0, "Month":0, "Day":0, "Hour":0, "Min":0},
+                "CultivateRace":[{"name":"", "Goal":0}],/* "Factor":[]*/
+            },
+            "Directory":{
+                "Lv": 92,
+                "Exp":3773393,
+                "Char":[
+                    {"name":"ヤマニンゼファー", "Runk":["UD4",37158], "Strategy":"先行", "Parents":["タイキシャトル", "ニシノフラワー"],
+                    "Param":{"Speed":0, "Stamina":0, "Power":0, "Guts":0, "Intelligent":0}, "Aptitude":{"Feald":"", "Length":"", "Strategy":""}, "Skills":[],
+                    "Support":[], "Scenario":8, "CultivateDate":{"Year":24, "Month":9, "Day":24, "Hour":-1, "Min":-1}, "CultivateRace":[{"name":"URAファイナルズ決勝", "Goal":1}]
+                    /* "Factor":[]*/}
+                ]
+            },
+            "progress":{
+                "Training":{"Count":261, "GoodEnd":23, "VestPoint":37158},
+                "Trophy":{"G1":35,"G2":26,"G3":21,"EX":93},
+                "Team":{"Class":3,"VestScore":1254060,"WinCount":584},
+                "Releases":{},"FunPoint":87930650,"Gallery":{},
+            },
+            "TeamComposition":{
+                "Short":[],"Mille":[],"Middle":[],"Long":[],"Dart":[]
+            }
+        },
         "result": [
-            new RaceResultObj(5, 1, 2, 6, 5, "スマートファルコン", ["UE4", 31469], "逃げ", "", 0, [], 0, "1", 0),
-            new RaceResultObj(3, 6, 18, 11, 17, "マチカネフクキタル", ["-", 0], "差し", "", 0, [], 0, "大差", 0),
-            new RaceResultObj(1, 1, 16, 3, 18, "マチカネフクキタル", ["-", 0], "差し", "", 1330, [15,15,17,17], 0, 27)
+            new RaceResultObj(5, 1, 2, 6, 5, 4602, ["UE4", 31469], "逃げ", "", 0, [], 0, "1", 0),
+            new RaceResultObj(3, 6, 18, 11, 17, 5601, ["-", 0], "差し", "", 0, [], 0, "大差", 0),
+            new RaceResultObj(1, 1, 16, 3, 18, 5601, ["-", 0], "差し", "", 1330, [15,15,17,17], 0, 27)
         ]
     },
     {
         "ID":2,
         "Name": ["むにえる", "Meuniere"],
         "result":[
-            new RaceResultObj(4, 1, 2, 7, 2, "エアグルーヴ(2)", ["UE2", 0], "先行", "好調", 0, [], 0, "3", 0, [],
+            new RaceResultObj(4, 1, 2, 7, 2, 1802, ["UE2", 0], "先行", "好調", 0, [], 0, "3", 0, [],
                 new RaceResultStatusObj({"Speed":1585,"Stamina":744,"Power":1344,"Guts":1208,"Intelligent":1304}, {"Feald":"S", "Length":"S", "Strategy":"A"},
                     ["薫風、永遠なる瞬間を", "ヴィクトリーショット！", "つぼみ、ほころぶ時", "右回り〇", "秋ウマ娘〇", "集中力", "アガってきた！", "尻尾上がり", "向こう見ず", "優位形成",
                     "ハイボルテージ", "最高峰の夢", "弧線のプロフェッサー", "上弦のソムリエール", "女帝の矜持", "先行コーナー〇", "お先に失礼っ！", "下り坂巧者"])
             ),
-            new RaceResultObj(3, 3, 2, 7, 0, "テイエムオペラオー", ["-", 0], "", "", 0, [], 0, "7/2", 0),
-            new RaceResultObj(2, 3, 3, 8, 3, "エアグルーヴ", ["-", 0], "", "", 917, [11,10,9], 0, "3/2", 4),
-            new RaceResultObj(2, 1, 1, 14, 6, "エアグルーヴ", ["-", 0], "", "", 902, [6,2,1], 0, "-", 6),
-            new RaceResultObj(1, 1, 1, 16, 2, "テイエムオペラオー", ["-", 0], "", "", 1305, [7,6,3,3], 0, "-", 4)
+            new RaceResultObj(3, 3, 2, 7, 0, 1502, ["-", 0], "", "", 0, [], 0, "7/2", 0),
+            new RaceResultObj(2, 3, 3, 8, 3, 1802, ["-", 0], "", "", 917, [11,10,9], 0, "3/2", 4),
+            new RaceResultObj(2, 1, 1, 14, 6, 1802, ["-", 0], "", "", 902, [6,2,1], 0, "-", 6),
+            new RaceResultObj(1, 1, 1, 16, 2, 1502, ["-", 0], "", "", 1305, [7,6,3,3], 0, "-", 4)
         ]
     },
     {
@@ -243,7 +274,7 @@ const Members = [
         "result":[
             new RaceResultObj(5, 1, 1, 5, 1, "タイキシャトル", ["UD6", 38442], "先行", "", 988, [], 0, "-", 0),
             new RaceResultObj(
-                4, 10, 0, 0, 0, "タイキシャトル", ["UF2", 30173], "先行", "好調", 0, [], 0, "-", 0, [], 
+                4, 10, 1, 9, 1, "タイキシャトル", ["UE2", 30173], "先行", "普通", 674, [], 0, "-", 0, [], 
                 new RaceResultStatusObj(
                     {"Speed":1628,"Stamina":771,"Power":1362,"Guts":1252,"Intelligent":1236},
                     {"Feald":"S","Length":"S","Strategy":"A"},
@@ -271,7 +302,7 @@ const Members = [
         "ID":7,
         "Name": ["ハイダラ", "Haidara"],
         "result":[
-            new RaceResultObj(4, 10, 0, 0, 0, "メジロラモーヌ", ["UE", 29379], "先行", "普通", 0, [], 0, "-", 0, ["", ""],
+            new RaceResultObj(4, 10, 2, 5, 2, "メジロラモーヌ", ["UE", 29379], "先行", "好調", 0, [], 0, "5/2", 0, ["", ""],
                 new RaceResultStatusObj({"Speed":1704,"Stamina":664,"Power":1229,"Guts":1314,"Intelligent":1248},
                     {"Feald":"A","Length":"S","Strategy":"A"},
                     ["愛と煌けよただ溶けよ", "根幹距離◎", "良バ場◎", "冬ウマ娘◎", "弧線のプロフェッサー", "コーナー加速〇", "直線巧者", "アガってきた！",
@@ -589,6 +620,16 @@ const Members = [
     {
         "ID":30,
         "Name": ["ヒナ", "Hina"],
+        "result":[]
+    },
+    {
+        "ID":31,
+        "Name": ["オにーさマン", "BroMan"],
+        "result":[]
+    },
+    {
+        "ID":30,
+        "Name": ["うーましぶ", "Umashib"],
         "result":[]
     },
 ];
@@ -972,6 +1013,7 @@ const CPU_Members = [
         "ID":27,
         "Name": ["", ""],
         "result":[
+            new RaceResultObj(4, 10, 8, 6, 5, "レベレント", ["-", 0], "先行", "好調", 0, [], 0, "1/2", 0),
             new RaceResultObj(3, 3, 7, 12, 0, "レベレント", ["-", 0], "", "", 0, [], 0, "大差", 0)
         ]
     },
@@ -1186,6 +1228,7 @@ const CPU_Members = [
         "ID":57,
         "Name": ["", ""],
         "result":[
+            new RaceResultObj(4, 10, 9, 7, 3, "ジュエルジルコン", ["A+", 0], "追込み", "絶好調", 0, [], 0, "3/4", 0),
             new RaceResultObj(4, 4, 9, 2, 8, "ジュエルジルコン", ["A+", 0], "差し", "絶不調", 0, [], 0, "アタマ", 0)
         ]
     },
@@ -1263,6 +1306,7 @@ const CPU_Members = [
         "ID":68,
         "Name": ["", ""],
         "result":[
+            new RaceResultObj(4, 10, 5, 3, 8, "リードエッセイ", ["A+", 0], "先行", "絶不調", 0, [], 0, "3/4", 0),
             new RaceResultObj(4, 5, 6, 8, 4, "リードエッセイ", ["A+", 0], "逃げ", "絶好調", 0, [], 0, "1/2", 0)
         ]
     },
@@ -1291,6 +1335,7 @@ const CPU_Members = [
         "ID":72,
         "Name": ["", ""],
         "result":[
+            new RaceResultObj(4, 10, 7, 1, 7, "フリルドチェリー", ["A+", 0], "逃げ", "絶不調", 0, [], 0, "1/2", 0),
             new RaceResultObj(4, 6, 5, 4, 3, "フリルドチェリー", ["S", 0], "追込", "好調", 0, [], 0, "3/2", 0)
         ]
     },
@@ -1440,6 +1485,27 @@ const CPU_Members = [
         "Name": ["", ""],
         "result":[
             new RaceResultObj(4, 9, 8, 9, 9, "マッキラ", ["A+", 0], "逃げ", "絶不調", 0, [], 0, "5/4", 0)
+        ]
+    },
+    {
+        "ID":94,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(4, 10, 2, 2, 4, "キンダーシャッツ", ["A+", 0], "差し", "絶好調", 0, [], 0, "3/4", 0)
+        ]
+    },
+    {
+        "ID":95,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(4, 10, 3, 4, 9, "イミディエイト", ["A+", 0], "差し", "不調", 0, [], 0, "4", 0)
+        ]
+    },
+    {
+        "ID":96,
+        "Name": ["", ""],
+        "result":[
+            new RaceResultObj(4, 10, 6, 8, 6, "アイタンリ", ["A+", 0], "逃げ", "絶好調", 0, [], 0, "クビ", 0)
         ]
     },
 
