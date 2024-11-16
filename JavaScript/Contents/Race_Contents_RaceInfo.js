@@ -24,7 +24,7 @@ function SetRaceInfo(flag) {
         if(DB_RaceInfo.length >= RaceGroupeID) {
             const info = DB_RaceInfo[RaceGroupeID-1];
             
-            if(info.Race.length >= (ActiveRacedIdx*3) + ActiveTabIdx){
+            if(info.Races.length >= (ActiveRacedIdx*3) + ActiveTabIdx){
                 raceInfo = info.Races[(ActiveRacedIdx*3) + ActiveTabIdx];
             }
         }
