@@ -118,7 +118,8 @@ const Characters = [
             new CharacterSizeParmObj(81,56,81,{L:0,R:0})),
         [
             new CharactersKindInfoObj(1,"スペシャルドリーマー","通常スぺ",{Year:2021,Month:2,Day:24,Date:""},"シューティングスター","https://xn--gck1f423k.xn--1bvt37a.tools/cards/100101"),
-            new CharactersKindInfoObj(2,"ほっぴん♪ビタミンハート","水着スぺ",{Year:2021,Month:7,Day:29,Date:""},"シューティングスター","https://xn--gck1f423k.xn--1bvt37a.tools/cards/100102")
+            new CharactersKindInfoObj(2,"ほっぴん♪ビタミンハート","水着スぺ",{Year:2021,Month:7,Day:29,Date:""},"","https://xn--gck1f423k.xn--1bvt37a.tools/cards/100102"),
+            new CharactersKindInfoObj(3,"","総大将スぺ",{Year:0,Month:0,Day:0,Date:""},"","https://xn--gck1f423k.xn--1bvt37a.tools/cards/100103")
         ]
     ),
     new CharactersObj(2,["サイレンススズカ", ""],"","",[],WebSitePablicLink,"",{},[
@@ -138,7 +139,10 @@ const Characters = [
     new CharactersObj(7,["ゴールドシップ", ""]),
     new CharactersObj(8,["ウォッカ", ""]),
     new CharactersObj(9,["ダイワスカーレット", ""]),
-    new CharactersObj(10,["タイキシャトル", ""]),
+    new CharactersObj(10,["タイキシャトル", ""],"","",[],WebSitePablicLink,"",{},[
+        new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
+        new CharactersKindInfoObj(2,"","",{Year:0,Month:0,Day:0,Date:""},"",""),
+    ]),
     new CharactersObj(11,["グラスワンダー", ""]),
     new CharactersObj(12,["ヒシアマゾン", ""]),
     new CharactersObj(13,["メジロマックイーン", ""]),
@@ -160,7 +164,10 @@ const Characters = [
         new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
         new CharactersKindInfoObj(2,"","",{Year:0,Month:0,Day:0,Date:""},"",""),
     ]),
-    new CharactersObj(20,["セイウンスカイ", ""]),
+    new CharactersObj(20,["セイウンスカイ", ""],"","",[],WebSitePablicLink,"",{},[
+        new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
+        new CharactersKindInfoObj(2,"","",{Year:0,Month:0,Day:0,Date:""},"",""),
+    ]),
     new CharactersObj(21,["タマモクロス", ""]),
     new CharactersObj(22,["ファインモーション", ""],"","",[],WebSitePablicLink,"",{},[
         new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
@@ -184,6 +191,7 @@ const Characters = [
     new CharactersObj(32,["アグネスタキオン", ""],"","",[],WebSitePablicLink,"",{},[
         new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
         new CharactersKindInfoObj(2,"","",{Year:0,Month:0,Day:0,Date:""},"",""),
+        new CharactersKindInfoObj(3,"","",{Year:0,Month:0,Day:0,Date:""},"",""),
     ]),
     new CharactersObj(33,["アドマイヤベガ", ""],"","",[],WebSitePablicLink,"",{},[
         new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
@@ -205,7 +213,10 @@ const Characters = [
         new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
         new CharactersKindInfoObj(2,"","",{Year:0,Month:0,Day:0,Date:""},"",""),
     ]),
-    new CharactersObj(45,["スーパークリーク", ""]),
+    new CharactersObj(45,["スーパークリーク", ""],"","",[],WebSitePablicLink,"",{},[
+        new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
+        new CharactersKindInfoObj(2,"","",{Year:0,Month:0,Day:0,Date:""},"",""),
+    ]),
     new CharactersObj(46,["スマートファルコン", ""],"","",[],WebSitePablicLink,"",{},[
         new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
         new CharactersKindInfoObj(2,"","",{Year:0,Month:0,Day:0,Date:""},"",""),
@@ -234,7 +245,7 @@ const Characters = [
     ]),
     new CharactersObj(54,["ビコーペガサス", ""]),
     new CharactersObj(55,["マーベラスサンデー", ""]),
-    new CharactersObj(56,["マチカネフクキタル", ""],"","",[],WebSitePablicLink,"",{},[
+    new CharactersObj(56,["フクキタル", ""],"","",[],WebSitePablicLink,"",{},[
         new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
         new CharactersKindInfoObj(2,"","",{Year:0,Month:0,Day:0,Date:""},"",""),
     ]),
@@ -255,6 +266,7 @@ const Characters = [
     new CharactersObj(63,["イクノディクタス", ""]),
     new CharactersObj(64,["メジロパーマー", ""],"","",[],WebSitePablicLink,"",{},[
         new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
+        new CharactersKindInfoObj(2,"","",{Year:0,Month:0,Day:0,Date:""},"",""),
     ]),
     new CharactersObj(65,["ダイタクヘリオス", ""],"","",[],WebSitePablicLink,"",{},[
         new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
@@ -272,18 +284,25 @@ const Characters = [
         new CharactersKindInfoObj(2,"","",{Year:0,Month:0,Day:0,Date:""},"",""),
     ]),
     new CharactersObj(73,["ツルマルツヨシ", ""]),
-    new CharactersObj(74,["メジロブライト", ""]),
+    new CharactersObj(74,["メジロブライト", ""],"","",[],WebSitePablicLink,"",{},[
+        new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
+        new CharactersKindInfoObj(2,"","",{Year:0,Month:0,Day:0,Date:""},"",""),
+    ]),
     new CharactersObj(75,["デアリングタクト", ""]),
     new CharactersObj(76,["サクラローレル", ""],"","",[],WebSitePablicLink,"",{},[
         new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
     ]),
-    new CharactersObj(77,["ナリタトップロード", ""]),
+    new CharactersObj(77,["ナリタトップロード", ""],"","",[],WebSitePablicLink,"",{},[
+        new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
+    ]),
     new CharactersObj(78,["ヤマニンゼファー", ""]),
     new CharactersObj(79,["フリオーソ", ""]),
     new CharactersObj(80,["トランセンド", ""]),
     new CharactersObj(81,["エスポワールシチー", ""]),
     new CharactersObj(82,["ノースフライト", ""]),
-    new CharactersObj(83,["シンボリクリスエス", ""]),
+    new CharactersObj(83,["シンボリクリスエス", ""],"","",[],WebSitePablicLink,"",{},[
+        new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
+    ]),
     new CharactersObj(84,["タニノギムレット", ""],"","",[],WebSitePablicLink,"",{},[
         new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
     ]),
@@ -312,7 +331,9 @@ const Characters = [
         new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
     ]),
     new CharactersObj(101,["サムソンビッグ", ""]),
-    new CharactersObj(102,["サウンズオブアース", ""]),
+    new CharactersObj(102,["サウンズオブアース", ""],"","",[],WebSitePablicLink,"",{},[
+        new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
+    ]),
     new CharactersObj(103,["ロイスアンドロイス", ""]),
     new CharactersObj(104,["カツラギエース", ""],"","",[],WebSitePablicLink,"",{},[
         new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),

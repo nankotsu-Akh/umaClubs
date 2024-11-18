@@ -235,12 +235,12 @@ const DB_RaceInfo = [
                 10,"第4試合 第1レース","トリオ杯 準決勝1 1レース","サークル内","高松宮記念","G1",
                 {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
                 new RaceInfoObj("中京","春","昼","芝",1200,"左","晴","良",9),
-                {"Top":{"Name":"", "Time":0},"Next":{"Name":"", "Time":0}}
+                {"Top":{"Name":1001, "Time":674},"Next":{"Name":8601, "Time":0}}
             ),
             new RaceInfomationObj(
                 11,"第4試合 第2レース","トリオ杯 準決勝1 2レース","サークル内","阪神ジュベナイルフィリーズ","G1",
                 {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
-                new RaceInfoObj("","","昼","芝",0,"","晴","良",9),
+                new RaceInfoObj("阪神","冬","昼","芝",1600,"右・外","晴","良",9),
                 {"Top":{"Name":"", "Time":0},"Next":{"Name":"", "Time":0}}
             ),
             new RaceInfomationObj(
@@ -521,6 +521,29 @@ const DB_RaceInfo = [
             },
         ]
     },
+    new RaceGropeInfomationObj(
+        7, 3, "第3回", "すっ　ご杯",
+        [
+            new RaceInfomationObj(
+                1,"第1レース","すっ ご杯3 1R","サークル内","有馬記念","G1",
+                {"Year":2024,"Month":11,"Day":18,"Date":"月曜","Hour":"","Min":""},
+                new RaceInfoObj("中山","冬","昼","芝",2500,"右","晴","良",15),
+                {"Top":{"Name":5602, "Time":1485},"Next":{"Name":7402, "Time":0}}
+            ),
+            new RaceInfomationObj(
+                2,"第2レース","すっ ご杯3 2R","サークル内","有馬記念","G1",
+                {"Year":2024,"Month":11,"Day":18,"Date":"月曜","Hour":"","Min":""},
+                new RaceInfoObj("中山","冬","昼","芝",2500,"右","晴","良",15),
+                {"Top":{"Name":6402, "Time":1484},"Next":{"Name":7402, "Time":0}}
+            ),
+            new RaceInfomationObj(
+                3,"第3レース","すっ ご杯3 3R","サークル内","有馬記念","G1",
+                {"Year":2024,"Month":11,"Day":18,"Date":"月曜","Hour":"","Min":""},
+                new RaceInfoObj("中山","冬","昼","芝",2500,"右","晴","良",15),
+                {"Top":{"Name":6402, "Time":1492},"Next":{"Name":7402, "Time":0}}
+            ),
+        ]
+    ),
 ]
 
 console.log("Input Race Data complete");

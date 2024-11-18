@@ -135,7 +135,13 @@ function GetTargetRunnerFromMemberID(id) {
     }
     else if(MembersIDOffset[MembersIDOffset.length-1] < id) {
         // モブの情報(モブは常に最後に登録される)
-        ret = CPU_Members[ id-MembersIDOffset[MembersIDOffset.length-1]-1 ];
+        for(let idx = 0; idx < CPU_Members.length; idx++){
+            if(CPU_Members[idx].ID == (id-MembersIDOffset[MembersIDOffset.length-1])){
+                ret = CPU_Members[idx];
+                break;
+            }
+        }
+        
     }
     else {
         ret = new MemberResultObj();
