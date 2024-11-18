@@ -71,7 +71,7 @@ function SetRaceResult () {
             for(let idx = 0; idx < member.length; idx++) {
                 const clone = template.content.cloneNode(true);
                 
-                const memberID = result[idx];    // 出走者情報のIDを取得
+                const memberID = member[result[idx]-1];    // 出走者情報のIDを取得
     
                 // メンバーIDのオフセットを参照して出走者情報を取得する
                 const target = GetTargetRunnerFromMemberID(memberID);
@@ -80,7 +80,7 @@ function SetRaceResult () {
                 const RaceRes = GetTargetRaceInfoFromMemberID(target);
                 
                 clone.querySelector('.result_table_runk').textContent            = idx + 1;
-                clone.querySelector('.result_table_number').textContent          = member.indexOf(result[idx])+1;
+                clone.querySelector('.result_table_number').textContent          = result[idx];
                 clone.querySelector('.result_table_name').textContent            = RaceRes.Name>0?Characters[Math.trunc(RaceRes.Name/100-1)].Name[0]:RaceRes.Name;
                 clone.querySelector('.result_table_training_rank').textContent   = RaceRes.Runk[0];
                 clone.querySelector('.result_table_training_point').textContent  = RaceRes.Runk[1];
@@ -103,7 +103,7 @@ function SetRaceResult () {
                 }
 
                 // 枠番画像を挿入
-                row.getElementsByClassName('result_table_frame')[0].appendChild(SetFrameImg(result.length, member.indexOf(result[idx])));
+                row.getElementsByClassName('result_table_frame')[0].appendChild(SetFrameImg(result.length, result[idx]-1));
             }
         }
         catch(err){
