@@ -245,7 +245,7 @@ const Characters = [
     ]),
     new CharactersObj(54,["ビコーペガサス", ""]),
     new CharactersObj(55,["マーベラスサンデー", ""]),
-    new CharactersObj(56,["フクキタル", ""],"","",[],WebSitePablicLink,"",{},[
+    new CharactersObj(56,["マチカネフクキタル", ""],"","",[],WebSitePablicLink,"",{},[
         new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
         new CharactersKindInfoObj(2,"","",{Year:0,Month:0,Day:0,Date:""},"",""),
     ]),
