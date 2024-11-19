@@ -241,24 +241,24 @@ const DB_RaceInfo = [
                 11,"第4試合 第2レース","トリオ杯 準決勝1 2レース","サークル内","阪神ジュベナイルフィリーズ","G1",
                 {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
                 new RaceInfoObj("阪神","冬","昼","芝",1600,"右・外","晴","良",9),
-                {"Top":{"Name":"", "Time":0},"Next":{"Name":"", "Time":0}}
+                {"Top":{"Name":1402, "Time":900},"Next":{"Name":6501, "Time":0}}
             ),
             new RaceInfomationObj(
                 12,"第4試合 第3レース","トリオ杯 準決勝1 3レース","サークル内","エリザベス女王杯","G1",
                 {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
-                new RaceInfoObj("","","昼","芝",0,"","晴","良",9),
-                {"Top":{"Name":"", "Time":0},"Next":{"Name":"", "Time":0}}
+                new RaceInfoObj("京都","秋","昼","芝",2200,"右・外","晴","良",9),
+                {"Top":{"Name":5802, "Time":1299},"Next":{"Name":5701, "Time":0}}
             ),
             new RaceInfomationObj(
                 13,"第5試合 第1レース","トリオ杯 準決勝2 1レース","サークル内","NHKマイルカップ","G1",
                 {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
-                new RaceInfoObj("","","昼","芝",0,"","晴","良",9),
-                {"Top":{"Name":"", "Time":0},"Next":{"Name":"", "Time":0}}
+                new RaceInfoObj("東京","春","昼","芝",1600,"左","晴","良",9),
+                {"Top":{"Name":401, "Time":904},"Next":{"Name":1902, "Time":0}}
             ),
             new RaceInfomationObj(
                 14,"第5試合 第2レース","トリオ杯 準決勝2 2レース","サークル内","高松宮記念","G1",
                 {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
-                new RaceInfoObj("","","昼","芝",0,"","晴","良",9),
+                new RaceInfoObj("中京","春","昼","芝",1200,"左","晴","良",9),
                 {"Top":{"Name":"", "Time":0},"Next":{"Name":"", "Time":0}}
             ),
             new RaceInfomationObj(

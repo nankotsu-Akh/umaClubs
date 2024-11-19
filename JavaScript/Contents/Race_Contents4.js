@@ -51,61 +51,25 @@ const MatchingRace_3 = [
 // レース出走情報　第4試合
 const MatchingRace_4 = [
     // レース出走情報　レース順
-    [   // 第1レース
+    [
         [9,5,4,2,3,8,1,6,7],
         [1072,1094,1068,1095,7,1027,1057,1096,6]
     ],
-    [   // 第1レース
-        [],
-        [],
-        [
-            {
-                "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
-                "beforeRuns":[]
-            },
-        ],
-        {
-            "grade": "-",
-            "raceTitle": "阪神ジュベナイルフィリーズ",
-            "raceDay": { "year": "00", "month": 0, "day": 0, "date": "-", },
-            "startTime": "-:-",
-            "season": "-",
-            "timeZone": "-",
-            "weather": "-",
-            "field": "-",
-            "condition": "-",
-            "course": {"length": 0, "place": "-", "rotate": "-", },
-        },
+    [
+        [1,4,7,5,2,8,9,6,3],
+        [3,1097,1098,8,1028,1099,1051,1100,1101]
     ],
-    [   // 第2レース
-        [],
-        [],
-        [
-            {
-                "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
-                "beforeRuns":[]
-            },
-        ],
-        {
-            "grade": "-",
-            "raceTitle": "エリザベス女王杯",
-            "raceDay": { "year": "00", "month": 0, "day": 0, "date": "-", },
-            "startTime": "-:-",
-            "season": "-",
-            "timeZone": "-",
-            "weather": "-",
-            "field": "-",
-            "condition": "-",
-            "course": {"length": 0, "place": "-", "rotate": "-", },
-        },
+    [
+        [7,1,2,5,4,6,3,9,8],
+        [5,1102,1103,1104,1105,1106,10,1108,1107]
     ],
 ]
 // レース出走情報　第5試合
 const MatchingRace_5 = [
     // レース出走情報　レース順
     [   // 第1レース
-        [],
-        [],
+        [4,9,2,5,8,1,6,7,3],
+        [1109,1110,1111,23,1112,1113,1104,1078,12],
         [
             {
                 "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
@@ -125,7 +89,7 @@ const MatchingRace_5 = [
             "course": {"length": 0, "place": "-", "rotate": "-", },
         },
     ],
-    [   // 第1レース
+    [   // 第2レース
         [],
         [],
         [
@@ -147,7 +111,7 @@ const MatchingRace_5 = [
             "course": {"length": 0, "place": "-", "rotate": "-", },
         },
     ],
-    [   // 第2レース
+    [   // 第3レース
         [],
         [],
         [

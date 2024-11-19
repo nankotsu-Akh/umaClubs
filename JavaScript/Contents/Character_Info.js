@@ -270,6 +270,7 @@ const Characters = [
     ]),
     new CharactersObj(65,["ダイタクヘリオス", ""],"","",[],WebSitePablicLink,"",{},[
         new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
+        new CharactersKindInfoObj(2,"","",{Year:0,Month:0,Day:0,Date:""},"",""),
     ]),
     new CharactersObj(66,["ツインターボ", ""],"","",[],WebSitePablicLink,"",{},[
         new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
