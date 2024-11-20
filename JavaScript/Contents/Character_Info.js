@@ -315,7 +315,9 @@ const Characters = [
         new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
     ]),
     new CharactersObj(88,["サトノクラウン", ""]),
-    new CharactersObj(89,["シュヴァルグラン", ""]),
+    new CharactersObj(89,["シュヴァルグラン", ""],"","",[],WebSitePablicLink,"",{},[
+        new CharactersKindInfoObj(1,"","通常",{Year:0,Month:0,Day:0,Date:""},"",""),
+    ]),
     new CharactersObj(90,["ヴィルシーナ", ""]),
     new CharactersObj(91,["ヴィブロス", ""]),
     new CharactersObj(92,["ダンツフレーム", ""]),

@@ -259,13 +259,13 @@ const DB_RaceInfo = [
                 14,"第5試合 第2レース","トリオ杯 準決勝2 2レース","サークル内","高松宮記念","G1",
                 {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
                 new RaceInfoObj("中京","春","昼","芝",1200,"左","晴","良",9),
-                {"Top":{"Name":"", "Time":0},"Next":{"Name":"", "Time":0}}
+                {"Top":{"Name":6102, "Time":672},"Next":{"Name":5302, "Time":0}}
             ),
             new RaceInfomationObj(
                 15,"第5試合 第3レース","トリオ杯 準決勝2 3レース","サークル内","オークス 優駿牝馬","G1",
                 {"Year":2024,"Month":2,"Day":12,"Date":"月曜","Hour":"","Min":""},
-                new RaceInfoObj("","","昼","芝",0,"","晴","良",9),
-                {"Top":{"Name":"", "Time":0},"Next":{"Name":"", "Time":0}}
+                new RaceInfoObj("東京","春","昼","芝",0,"左","晴","良",9),
+                {"Top":{"Name":1902, "Time":1422},"Next":{"Name":8901, "Time":0}}
             ),
             new RaceInfomationObj(
                 16,"第6試合 第1レース","トリオ杯 決勝 1レース","サークル内","秋華賞","G1",

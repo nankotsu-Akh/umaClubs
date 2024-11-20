@@ -69,51 +69,15 @@ const MatchingRace_5 = [
     // レース出走情報　レース順
     [   // 第1レース
         [4,9,2,5,8,1,6,7,3],
-        [1109,1110,1111,23,1112,1113,1104,1078,12],
-        [
-            {
-                "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
-                "beforeRuns":[]
-            },
-        ],
-        {
-            "grade": "-",
-            "raceTitle": "NHKマイル",
-            "raceDay": { "year": "00", "month": 0, "day": 0, "date": "-", },
-            "startTime": "-:-",
-            "season": "-",
-            "timeZone": "-",
-            "weather": "-",
-            "field": "-",
-            "condition": "-",
-            "course": {"length": 0, "place": "-", "rotate": "-", },
-        },
+        [1109,1110,1111,23,1112,1113,1104,1078,12]
     ],
     [   // 第2レース
-        [],
-        [],
-        [
-            {
-                "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
-                "beforeRuns":[]
-            },
-        ],
-        {
-            "grade": "-",
-            "raceTitle": "高松宮",
-            "raceDay": { "year": "00", "month": 0, "day": 0, "date": "-", },
-            "startTime": "-:-",
-            "season": "-",
-            "timeZone": "-",
-            "weather": "-",
-            "field": "-",
-            "condition": "-",
-            "course": {"length": 0, "place": "-", "rotate": "-", },
-        },
+        [6,7,2,9,4,3,1,5,8],
+        [1114,1115,1061,1116,1117,28,21,1118,1119]
     ],
     [   // 第3レース
-        [],
-        [],
+        [8,1,6,3,2,5,9,4,7],
+        [4,1120,1121,1078,1122,1123,1124,27,1125],
         [
             {
                 "Name":"なまえ", "Strategy":"脚質", "Runk":["", ], "Trainer":"トレーナー", "TrainerID":0, "GoalTime":"00:00.0", "GoalTimeDef":"着差", "CornerPass":[0,0,0], "FurlongTime":"00.0", "Favorite":0, "parents":["継承元1", "継承元2"],
