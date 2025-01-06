@@ -1,10 +1,9 @@
 class RaceInfoObj {
     constructor(
         Place, Season, TimeZone, Field, Length,
-        Rotate, Weather, Condition, MembersCnt
+        Rotate, Weather, Condition
     ) {
         {
-            this.MembersCnt = 0;
             this.Condition = "";
             this.Weather = "";
             this.Rotate = "";
@@ -15,8 +14,6 @@ class RaceInfoObj {
             this.Place = "";
 
             switch(arguments.length) {
-            case 9:
-                this.MembersCnt = MembersCnt;
             case 8:
                 this.Condition = Condition;
             case 7:
@@ -42,7 +39,7 @@ class RaceInfoObj {
 class RaceInfomationObj {
     constructor(
         RaceID, SubTitle, AbbreviationName, terms,
-        RaceName, RaceGrade, RaceDate, RaceInfo, Winner
+        RaceName, RaceGrade, RaceDate, RaceInfo, MembersCnt, Winner
     ) {
         this.RaceID = 0;
         this.SubTitle = "";
@@ -52,11 +49,14 @@ class RaceInfomationObj {
         this.RaceGrade = "";
         this.RaceDate = {"Year":0,"Month":0,"Day":0,"Date":"","Hour":22, "Min":0};
         this.RaceInfo = new RaceInfoObj();
+        this.MembersCnt = 0;
         this.Winner = {"Top":{"Name":"", "Time":0},"Next":{"Name":"", "Time":0}};
         
         switch(arguments.length) {
-        case 9:
+        case 10:
             this.Winner = Winner;
+        case 9:
+            this.MembersCnt = MembersCnt;
         case 8:
             this.RaceInfo = RaceInfo;
         case 7:
@@ -108,14 +108,46 @@ class RaceGropeInfomationObj {
 /**
  * レーステンプレート
  */
-const RACE_TEMPRETE_TENNOSHO_SPRING = {"name":"天皇賞・春","info":new RaceInfoObj("京都","春","昼","芝",3200,"右・外","晴","良",12)};
-const RACE_TEMPRETE_KIKUKASHO = {"name":"菊花賞", "info":new RaceInfoObj("京都","秋","昼","芝",3000,"右・外","晴","良",12)};
-const RACE_TEMPRETE_JAPANCUP = {"name":"ジャパンカップ", "info":new RaceInfoObj("東京","冬","昼","芝",2400,"左","晴","良",12)};
-const RACE_TEMPRETE_TOKYODAISHOTEN = {"name":"東京大賞典", "info":new RaceInfoObj("大井","冬","昼","芝",2000,"右","晴","良",12)};
-const RACE_TEMPRETE_NHKMILECUP = {"name":"NHKマイルカップ", "info":new RaceInfoObj("東京","春","昼","芝",1600,"左","晴","良",12)};
-const RACE_TEMPRETE_SPRINTERSSTAKES = {"name":"スプリンターズステークス", "info":new RaceInfoObj("中山","秋","昼","芝",1200,"右・外","晴","良",12)};
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+const RACE_TEMPRETE_TENNOSHO_SPRING     = {"name":"天皇賞・春",                 "info":new RaceInfoObj("京都","春","昼","芝",3200,"右・外","晴","良")};
+const RACE_TEMPRETE_NHKMILECUP          = {"name":"NHKマイルカップ",            "info":new RaceInfoObj("東京","春","昼","芝",1600,"左","晴","良")};
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+const RACE_TEMPRETE_SPRINTERSSTAKES     = {"name":"スプリンターズステークス",   "info":new RaceInfoObj("中山","秋","昼","芝",1200,"右・外","晴","良")};
+// const RACE_TEMPRETE_
+const RACE_TEMPRETE_KIKUKASHO           = {"name":"菊花賞",                    "info":new RaceInfoObj("京都","秋","昼","芝",3000,"右・外","晴","良")};
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+const RACE_TEMPRETE_JAPANCUP            = {"name":"ジャパンカップ",             "info":new RaceInfoObj("東京","冬","昼","芝",2400,"左","晴","良")};
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+const RACE_TEMPRETE_ARIMAKINEN          = {"name":"有馬記念",                   "info":new RaceInfoObj("中山","冬","昼","芝",2500,"右","晴","良")};
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+const RACE_TEMPRETE_TOKYODAISHOTEN      = {"name":"東京大賞典",                 "info":new RaceInfoObj("大井","冬","昼","芝",2000,"右","晴","良")};
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
+// const RACE_TEMPRETE_
 
-
+/**
+ * レース情報を配列に登録
+ */
 const DB_RaceInfo = [
     new RaceGropeInfomationObj(
         1, 1,"第1回","すっ　ご杯",
@@ -535,21 +567,21 @@ const DB_RaceInfo = [
         7, 3, "第3回", "すっ　ご杯",
         [
             new RaceInfomationObj(
-                1,"第1レース","すっ ご杯3 1R","サークル内","有馬記念","G1",
+                1,"第1レース","すっ ご杯3 1R","サークル内",RACE_TEMPRETE_ARIMAKINEN.name,"G1",
                 {"Year":2024,"Month":11,"Day":18,"Date":"月曜","Hour":"","Min":""},
-                new RaceInfoObj("中山","冬","昼","芝",2500,"右","晴","良",15),
+                RACE_TEMPRETE_ARIMAKINEN.info, 15,
                 {"Top":{"Name":5602, "Time":1485},"Next":{"Name":7402, "Time":0}}
             ),
             new RaceInfomationObj(
-                2,"第2レース","すっ ご杯3 2R","サークル内","有馬記念","G1",
+                2,"第2レース","すっ ご杯3 2R","サークル内",RACE_TEMPRETE_ARIMAKINEN.name,"G1",
                 {"Year":2024,"Month":11,"Day":18,"Date":"月曜","Hour":"","Min":""},
-                new RaceInfoObj("中山","冬","昼","芝",2500,"右","晴","良",15),
+                RACE_TEMPRETE_ARIMAKINEN.info, 15,
                 {"Top":{"Name":6402, "Time":1484},"Next":{"Name":7402, "Time":0}}
             ),
             new RaceInfomationObj(
-                3,"第3レース","すっ ご杯3 3R","サークル内","有馬記念","G1",
+                3,"第3レース","すっ ご杯3 3R","サークル内",RACE_TEMPRETE_ARIMAKINEN.name,"G1",
                 {"Year":2024,"Month":11,"Day":18,"Date":"月曜","Hour":"","Min":""},
-                new RaceInfoObj("中山","冬","昼","芝",2500,"右","晴","良",15),
+                RACE_TEMPRETE_ARIMAKINEN.info, 15,
                 {"Top":{"Name":6402, "Time":1492},"Next":{"Name":7402, "Time":0}}
             ),
         ]
@@ -560,32 +592,32 @@ const DB_RaceInfo = [
             new RaceInfomationObj(
                 1,"第1レース","合同杯3 1R","サークル内",RACE_TEMPRETE_JAPANCUP.name,"G1",
                 {"Year":2025,"Month":2,"Day":10,"Date":"月曜","Hour":"","Min":""},
-                RACE_TEMPRETE_JAPANCUP.info
+                RACE_TEMPRETE_JAPANCUP.info, 12,
             ),
             new RaceInfomationObj(
                 2,"第2レース","合同杯3 2R","サークル内",RACE_TEMPRETE_TOKYODAISHOTEN.name,"G1",
                 {"Year":2025,"Month":2,"Day":10,"Date":"月曜","Hour":"","Min":""},
-                RACE_TEMPRETE_TOKYODAISHOTEN.info
+                RACE_TEMPRETE_TOKYODAISHOTEN.info, 12,
             ),
             new RaceInfomationObj(
                 3,"第3レース","合同杯3 3R","サークル内",RACE_TEMPRETE_NHKMILECUP.name,"G1",
                 {"Year":2025,"Month":2,"Day":10,"Date":"月曜","Hour":"","Min":""},
-                RACE_TEMPRETE_NHKMILECUP.info
+                RACE_TEMPRETE_NHKMILECUP.info, 12,
             ),
             new RaceInfomationObj(
                 4,"第4レース","合同杯3 4R","サークル内",RACE_TEMPRETE_SPRINTERSSTAKES.name,"G1",
                 {"Year":2025,"Month":2,"Day":10,"Date":"月曜","Hour":"","Min":""},
-                RACE_TEMPRETE_SPRINTERSSTAKES.info
+                RACE_TEMPRETE_SPRINTERSSTAKES.info, 12,
             ),
             new RaceInfomationObj(
                 5,"第5レース","合同杯3 5R","サークル内",RACE_TEMPRETE_TENNOSHO_SPRING.name,"G1",
                 {"Year":2025,"Month":2,"Day":10,"Date":"月曜","Hour":"","Min":""},
-                RACE_TEMPRETE_TENNOSHO_SPRING.info
+                RACE_TEMPRETE_TENNOSHO_SPRING.info, 12,
             ),
             new RaceInfomationObj(
                 6,"第6レース","合同杯3 EX","サークル内",RACE_TEMPRETE_KIKUKASHO.name,"G1",
                 {"Year":2025,"Month":2,"Day":10,"Date":"月曜","Hour":"","Min":""},
-                RACE_TEMPRETE_KIKUKASHO.info
+                RACE_TEMPRETE_KIKUKASHO.info, 12,
             ),
         ]
     ),

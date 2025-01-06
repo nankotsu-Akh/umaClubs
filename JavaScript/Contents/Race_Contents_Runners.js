@@ -90,15 +90,15 @@ function SetRaceRunner () {
         catch(err){
             alert("Data Error");
             console.log(err);
-            baseTabelEle.tBodies[0].appendChild(this.SetDefaultDatas());
+            baseTabelEle.tBodies[0].appendChild(this.SetDefaultRunnerDatas());
         }
     }
     else {
-        baseTabelEle.tBodies[0].appendChild(this.SetDefaultDatas());
+        baseTabelEle.tBodies[0].appendChild(this.SetDefaultRunnerDatas());
     }
 }
 
-function SetDefaultDatas() {
+function SetDefaultRunnerDatas() {
     const row = document.createElement('tr');
     row.classList.add("runner_table_rows");
     row.style.backgroundColor = "#ffffff";
@@ -129,7 +129,7 @@ function SetBeforeRuns(row, target){
             continue;
         }
         // レースグループが同値かつ対象よりレースIDが同値以上ならば前走ではないのでスキップ
-        if(befData.RaceGrpID == RaceGroupeID && befData.RaceID-1 >= ActiveTabIdx){
+        if(befData.RaceGrpID == RaceGroupeID && befData.RaceID-1 >= (ActiveRacedIdx*3) + ActiveTabIdx){
             continue;
         }
 
