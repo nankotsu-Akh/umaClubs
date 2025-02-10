@@ -132,6 +132,10 @@ function SetBeforeRuns(row, target){
         if(befData.RaceGrpID == RaceGroupeID && befData.RaceID-1 >= (ActiveRacedIdx*3) + ActiveTabIdx){
             continue;
         }
+        // 無効なレースID（初期値など）なため前走登録なし
+        if(befData.RaceGrpID <= 0 || befData.RaceID <= 0){
+            break;
+        }
 
         const RaceInfo = DB_RaceInfo[befData.RaceGrpID-1].Races[befData.RaceID-1];
         SetBeforeRunsTextContent(el, befData, RaceInfo)

@@ -148,113 +148,124 @@ class MemberResultObj {
 
 }
 
+class ENUM {
+    constructor(offset, value) {
+        this.Values = {};
+        let cnt = offset;
+        value.forEach(el => {
+            this.Values[el] = cnt;
+            cnt++;
+        });
+    }
+}
+
 const SUGGO_MEMBER_ID_OFFSET = 0;
 const RINRIN_MEMBER_ID_OFFSET = 100;
 const CPU_MEMBER_ID_OFFSET = 1000;
 const MembersIDOffset = [SUGGO_MEMBER_ID_OFFSET, RINRIN_MEMBER_ID_OFFSET, CPU_MEMBER_ID_OFFSET];
 
-const ENUM_Members = {
-    "Vanilla"       :0,
-    "Meuniere"      :1,
-    "Gumashi"       :2,
-    "Resiter"       :3,
-    "REON"          :4,
-    "Miyabi"        :5,
-    "Haidara"       :6,
-    "Katsusen"      :7,
-    "Kurosatou"     :8,
-    "Omachi"        :9,
-    "Toa"           :10,
-    "Nankotsu"      :11,
-    "Mika"          :12,
-    "Enma"          :13,
-    "Sorao"         :14,
-    "Node"          :15,
-    "Ushiushi"      :16,
-    "Seren"         :17,
-    "takkun"        :18,
-    "Nifunihu"      :19,
-    "Shakatore"     :20,
-    "Masa"          :21,
-    "Poyodai"       :22,
-    "Haruhaagepoyo" :23,
-    "Temi"          :24,
-    "Yasu"          :25,
-    "Kiriyutanpo"   :26,
-    "_108"          :27,
-    "Itsuki"        :28,
-    "Hina"          :29,
-    "BroMan"        :30,
-    "Umashib"       :31,
+const ENUM_Members = new ENUM(SUGGO_MEMBER_ID_OFFSET+1, [
+    "Vanilla",
+    "Meuniere",
+    "Gumashi",
+    "Resiter",
+    "REON",
+    "Miyabi",
+    "Haidara",
+    "Katsusen",
+    "Kurosatou",
+    "Omachi",
+    "Toa",
+    "Nankotsu",
+    "Mika",
+    "Enma",
+    "Sorao",
+    "Node",
+    "Ushiushi",
+    "Seren",
+    "takkun",
+    "Nifunihu",
+    "Shakatore",
+    "Masa",
+    "Poyodai",
+    "Haruhaagepoyo",
+    "Temi",
+    "Yasu",
+    "Kiriyutanpo",
+    "_108",
+    "Itsuki",
+    "Hina",
+    "BroMan",
+    "Umashib",
 
-    "MEMBERS_MAX":32,
-}
-const ENUM_RINRIN = {
-    "Rinpatch"      :0,
-    "Fujunbungaku"  :1,
-    "Leon"          :2,
-    "Souryu"        :3,
-    "Asuku"         :4,
-    "Karasu"        :5,
-    "Hago"          :6,
-    "Mizakura"      :7,
-    "Natadecoco"    :8,
-    "Disyupa"       :9,
-    "Atashi"        :10,
-    "Tokitsukaze"   :11,
-    "Yakumo"        :12,
-    "Omuret"        :13,
-    "BonressBro"    :14,
-    "Seshiru"       :15,
-    "Dengen"        :16,
-    "Samehada"      :17,
-    "Takiza"        :18,
-    "Tyoran"        :19,
-    "Marumaru"      :20,
-    "Goro"          :21,
+    "MEMBERS_MAX",
+]);
+const ENUM_RINRIN = new ENUM(RINRIN_MEMBER_ID_OFFSET+1, [
+    "Rinpatch",
+    "Fujunbungaku",
+    "Leon",
+    "Souryu",
+    "Asuku",
+    "Karasu",
+    "Hago",
+    "Mizakura",
+    "Natadecoco",
+    "Disyupa",
+    "Atashi",
+    "Tokitsukaze",
+    "Yakumo",
+    "Omuret",
+    "BonressBro",
+    "Seshiru",
+    "Dengen",
+    "Samehada",
+    "Takiza",
+    "Tyoran",
+    "Marumaru",
+    "Goro",
  
-    "MEMBERS_MAX"   :22,
-}
+    "MEMBERS_MAX",
+]);
 const ENUM_CPU = {
-    "AjisaiGekko":1,    // アジサイゲッコウ
-    "TideAndFrow":2,    // タイドアンドフロウ
-    "LeafLeaf":3,       // リーフリーフ
-    "WeissManager":4,   // ワイスマネージャー
-    "PaladinSword":5,   // パラディンソード
-    "OboeRhythm":6,     // オーボエリズム
-    "OrangeScrunchie":7,    // オレンジシュシュ
-    "Imperialis":8,     // インペリアルタリス
-    "PuddingParfait":9, // プディングパルフェ
-    "BeatingPulse":10,  // ビーティングパルス
-    "JewelCalcite":11,  // ジュエルカルサイト
-    "OriginalShine":12, // オリジナルシャイン
-    "RoyalCorot":13,    // ロイヤルコロット
-    "Kitarism":14,      // キタラリズム
-    "Mushamusha":15,    // ムシャムシャ
-    "KetchupStep":16,   // ケチャップステップ
-    "Unchanging":17,    // アンチェンジング
-    "Myonmyon":18,   // ミョンミョン
-    "MiniOrchid":19,   // ミニオーキッド
-    "EveryoneLikes":20,   // エブリワンライクス
-    "FlyingTurkey":21,   // フライングターキー
-    "BreezeDrone":22,   // ブリーズドローン
-    "DualingStella":23,   // デュアリングステラ
-    "FrilledOrange":24,   // フリルドオレンジ
-    "PanPacific":25,   // パンパシフィック
-    "PretzEclair":26,   // プリッツエクレール
-    "Leverent":27,   // レベレント
-    "Kustawi":28,   // クスタウィ
-    "Duosvel":29,   // デュオスヴェル
-    "PetitFolklore":30,   // プチフォークロア
-    "RoombaStep":31,   // ルンバステップ
-    "MemoryLabyrinth":32,   // メモラビリンス
-    "StateOfArt":33,   // ステートオブアート
-    "WeissGrimoire":34,   // ヴァイスグリモア
-    "RibbonOperetta":35,   // リボンオペレッタ
-    "JewelTopaz":36,   // ジュエルトパーズ
-    "BlackGrimoire":37,   // ブラックグリモア
-    "Tarcke":38,   // タルッケ
-    "EyeCaret":39,   // アイキャレット
+    "AjisaiGekko"       :0, // アジサイゲッコウ
+    "TideAndFrow"       :1, // タイドアンドフロウ
+    "LeafLeaf"          :2, // リーフリーフ
+    "WeissManager"      :3, // ワイスマネージャー
+    "PaladinSword"      :4, // パラディンソード
+    "OboeRhythm"        :5, // オーボエリズム
+    "OrangeScrunchie"   :6,    // オレンジシュシュ
+    "Imperialis"        :7,     // インペリアルタリス
+    "PuddingParfait"    :8, // プディングパルフェ
+    "BeatingPulse"      :9,  // ビーティングパルス
+    "JewelCalcite"      :10,  // ジュエルカルサイト
+    "OriginalShine"     :11, // オリジナルシャイン
+    "RoyalCorot"        :12,    // ロイヤルコロット
+    "Kitarism"          :13,      // キタラリズム
+    "Mushamusha"        :14,    // ムシャムシャ
+    "KetchupStep"       :15,   // ケチャップステップ
+    "Unchanging"        :16,    // アンチェンジング
+    "Myonmyon"          :17,   // ミョンミョン
+    "MiniOrchid"        :18,   // ミニオーキッド
+    "EveryoneLikes"     :19,   // エブリワンライクス
+    "FlyingTurkey"      :20,   // フライングターキー
+    "BreezeDrone"       :21,   // ブリーズドローン
+    "DualingStella"     :22,   // デュアリングステラ
+    "FrilledOrange"     :23,   // フリルドオレンジ
+    "PanPacific"        :24,   // パンパシフィック
+    "PretzEclair"       :25,   // プリッツエクレール
+    "Leverent"          :26,   // レベレント
+    "Kustawi"           :27,   // クスタウィ
+    "Duosvel"           :28,   // デュオスヴェル
+    "PetitFolklore"     :29,   // プチフォークロア
+    "RoombaStep"        :30,   // ルンバステップ
+    "MemoryLabyrinth"   :31,   // メモラビリンス
+    "StateOfArt"        :32,   // ステートオブアート
+    "WeissGrimoire"     :33,   // ヴァイスグリモア
+    "RibbonOperetta"    :34,   // リボンオペレッタ
+    "JewelTopaz"        :35,   // ジュエルトパーズ
+    "BlackGrimoire"     :36,   // ブラックグリモア
+    "Tarcke"            :37,   // タルッケ
+    "EyeCaret"          :38,   // アイキャレット
 //     "Name": ["", ""],
 //     "ID":40,
 //     new RaceResultObj(4, 1, 6, 4, 6, "ブラボーアール", ["S", 0], "先行", "普通", 0, [], 0, "", 0)
