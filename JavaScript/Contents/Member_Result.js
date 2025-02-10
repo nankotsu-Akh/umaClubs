@@ -154,66 +154,66 @@ const CPU_MEMBER_ID_OFFSET = 1000;
 const MembersIDOffset = [SUGGO_MEMBER_ID_OFFSET, RINRIN_MEMBER_ID_OFFSET, CPU_MEMBER_ID_OFFSET];
 
 const ENUM_Members = {
-    "Vanilla":1,
-    "Meuniere":2,
-    "Gumashi":3,
-    "Resiter":4,
-    "REON":5,
-    "Miyabi":6,
-    "Haidara":7,
-    "Katsusen":8,
-    "Kurosatou":9,
-    "Omachi":10,
-    "Toa":11,
-    "Nankotsu":12,
-    "Mika":13,
-    "Enma":14,
-    "Sorao":15,
-    "Node":16,
-    "Ushiushi":17,
-    "Seren":18,
-    "takkun":19,
-    "Nifunihu":20,
-    "Shakatore":21,
-    "Masa":22,
-    "Poyodai":23,
-    "Haruhaagepoyo":24,
-    "Temi":25,
-    "Yasu":26,
-    "Kiriyutanpo":27,
-    "_108":28,
-    "Itsuki":29,
-    "Hina":30,
-    "BroMan":31,
-    "Umashib":32,
+    "Vanilla"       :0,
+    "Meuniere"      :1,
+    "Gumashi"       :2,
+    "Resiter"       :3,
+    "REON"          :4,
+    "Miyabi"        :5,
+    "Haidara"       :6,
+    "Katsusen"      :7,
+    "Kurosatou"     :8,
+    "Omachi"        :9,
+    "Toa"           :10,
+    "Nankotsu"      :11,
+    "Mika"          :12,
+    "Enma"          :13,
+    "Sorao"         :14,
+    "Node"          :15,
+    "Ushiushi"      :16,
+    "Seren"         :17,
+    "takkun"        :18,
+    "Nifunihu"      :19,
+    "Shakatore"     :20,
+    "Masa"          :21,
+    "Poyodai"       :22,
+    "Haruhaagepoyo" :23,
+    "Temi"          :24,
+    "Yasu"          :25,
+    "Kiriyutanpo"   :26,
+    "_108"          :27,
+    "Itsuki"        :28,
+    "Hina"          :29,
+    "BroMan"        :30,
+    "Umashib"       :31,
 
-    "MEMBERS_MAX":33,
+    "MEMBERS_MAX":32,
 }
 const ENUM_RINRIN = {
-    "Rinpatch":1,
-    "Fujunbungaku":2,
-    "Leon":3,
-    "Souryu":4,
-    "Asuku":5,
-    "Karasu":6,
-    "Hago":7,
-    "Mizakura":8,
-    "Natadecoco":9,
-    "Disyupa":10,
-    "Atashi":11,
-    "Tokitsukaze":12,
-    "Yakumo":13,
-    "Omuret":14,
-    "BonressBro":15,
-    "Seshiru":16,
-    "Dengen":17,
-    "Samehada":18,
-    "Takiza":19,
-    "Tyoran":20,
-    "Marumaru":21,
-    "Goro":22,
+    "Rinpatch"      :0,
+    "Fujunbungaku"  :1,
+    "Leon"          :2,
+    "Souryu"        :3,
+    "Asuku"         :4,
+    "Karasu"        :5,
+    "Hago"          :6,
+    "Mizakura"      :7,
+    "Natadecoco"    :8,
+    "Disyupa"       :9,
+    "Atashi"        :10,
+    "Tokitsukaze"   :11,
+    "Yakumo"        :12,
+    "Omuret"        :13,
+    "BonressBro"    :14,
+    "Seshiru"       :15,
+    "Dengen"        :16,
+    "Samehada"      :17,
+    "Takiza"        :18,
+    "Tyoran"        :19,
+    "Marumaru"      :20,
+    "Goro"          :21,
  
-    "MEMBERS_MAX":23,
+    "MEMBERS_MAX"   :22,
 }
 const ENUM_CPU = {
     "AjisaiGekko":1,    // アジサイゲッコウ
@@ -228,87 +228,33 @@ const ENUM_CPU = {
     "BeatingPulse":10,  // ビーティングパルス
     "JewelCalcite":11,  // ジュエルカルサイト
     "OriginalShine":12, // オリジナルシャイン
-//     "Name": ["", ""],
-//     "ID":13,
-//     new RaceResultObj(3, 1, 7, 1, 11, "ロイヤルコロット", ["-", 0], "", "", 0, [], 0, "5", 0)
-//     "Name": ["", ""],
-//     "ID":14,
-//     new RaceResultObj(3, 1, 11, 3, 8, "キタラリズム", ["-", 0], "", "", 0, [], 0, "3/4", 0)
-//     "Name": ["", ""],
-//     "ID":15,
-//     new RaceResultObj(3, 1, 8, 4, 6, "ムシャムシャ", ["-", 0], "", "", 0, [], 0, "1/2", 0)
-//     "Name": ["", ""],
-//     "ID":16,
-//     new RaceResultObj(3, 1, 9, 5, 12, "ケチャップステップ", ["-", 0], "", "", 0, [], 0, "ハナ", 0)
-//     "Name": ["", ""],
-//     "ID":17,
-//     new RaceResultObj(3, 3, 11, 6, 0, "アンチェンジング", ["-", 0], "", "", 0, [], 0, "ハナ", 0),
-//     "Name": ["", ""],
-//     "ID":18,
-//     new RaceResultObj(3, 1, 12, 10, 9, "ミョンミョン", ["-", 0], "", "", 0, [], 0, "クビ", 0)
-//     "Name": ["", ""],
-//     "ID":19,
-//     new RaceResultObj(3, 3, 9, 9, 0, "ミニオーキッド", ["-", 0], "", "", 0, [], 0, "大差", 0),
-//     "Name": ["", ""],
-//     "ID":20,
-//     new RaceResultObj(3, 2, 10, 3, 10, "エブリワンライクス", ["-", 0], "", "", 0, [], 0, "", 0)
-//     "Name": ["", ""],
-//     "ID":21,
-//     new RaceResultObj(3, 2, 12, 4, 8, "フライングターキー", ["-", 0], "", "", 0, [], 0, "", 0)
-//     "Name": ["", ""],
-//     "ID":22,
-//     new RaceResultObj(3, 2, 8, 7, 11, "ブリーズドローン", ["-", 0], "", "", 0, [], 0, "", 0)
-//     "Name": ["", ""],
-//     "ID":23,
-//     new RaceResultObj(3, 2, 9, 8, 12, "デュアリングステラ", ["-", 0], "", "", 0, [], 0, "", 0)
-//     "Name": ["", ""],
-//     "ID":24,
-//     new RaceResultObj(3, 3, 12, 1, 0, "フリルドオレンジ", ["-", 0], "", "", 0, [], 0, "5/2", 0),
-//     "Name": ["", ""],
-//     "ID":25,
-//     new RaceResultObj(3, 3, 8, 5, 0, "パンパシフィック", ["-", 0], "", "", 0, [], 0, "5/2", 0)
-//     "Name": ["", ""],
-//     "ID":26,
-//     new RaceResultObj(3, 3, 10, 10, 0, "プリッツエクレール", ["-", 0], "", "", 0, [], 0, "3/2", 0)
-//     "Name": ["", ""],
-//     "ID":27,
-//     new RaceResultObj(4, 10, 8, 6, 5, "レベレント", ["-", 0], "先行", "好調", 0, [], 0, "1/2", 0),
-//     "Name": ["", ""],
-//     "ID":28,
-//     new RaceResultObj(4, 11, 4, 5, 6, "クスタウィ", ["S", 0], "差し", "不調", 0, [], 0, "5/4", 0),
-//     "Name": ["", ""],
-//     "ID":29,
-//     new RaceResultObj(3, 4, 12, 3, 0, "デュオスヴェル", ["-", 0], "", "", 0, [], 0, "3/2", 0),
-//     "Name": ["", ""],
-//     "ID":30,
-//     new RaceResultObj(3, 4, 8, 8, 0, "プチフォークロア", ["-", 0], "", "", 0, [], 0, "7/4", 0)
-//     "Name": ["", ""],
-//     "ID":31,
-//     new RaceResultObj(3, 4, 7, 11, 8, "ルンバステップ", ["-", 0], "", "", 0, [], 0, "6", 0)
-//     "Name": ["", ""],
-//     "ID":32,
-//     new RaceResultObj(3, 4, 9, 12, 0, "メモラビリンス", ["-", 0], "", "", 0, [], 0, "アタマ", 0)
-//     "Name": ["", ""],
-//     "ID":33,
-//     new RaceResultObj(3, 5, 10, 1, 11, "ステートオブアート", ["-", 0], "", "", 0, [], 0, "ハナ", 0)
-//     "Name": ["", ""],
-//     "ID":34,
-//     new RaceResultObj(3, 5, 12, 3, 0, "ヴァイスグリモア", ["-", 0], "", "", 0, [], 0, "1/2", 0)
-//     "Name": ["", ""],
-//     "ID":35,
-//     new RaceResultObj(3, 5, 9, 8, 0, "リボンオペレッタ", ["-", 0], "", "", 0, [], 0, "1", 0)
-//     "Name": ["", ""],
-//     "ID":36,
-//     new RaceResultObj(3, 5, 8, 10, 0, "ジュエルトパーズ", ["-", 0], "", "", 0, [], 0, "1/2", 0)
-//     "Name": ["", ""],
-//     "ID":37,
-//     new RaceResultObj(3, 5, 11, 11, 0, "ブラックグリモア", ["-", 0], "", "", 0, [], 0, "1/2", 0)
-//     "Name": ["", ""],
-//     "ID":38,
-//     new RaceResultObj(3, 5, 7, 12, 0, "タルッケ", ["-", 0], "", "", 0, [], 0, "5", 0)
-//     "Name": ["", ""],
-//     "ID":39,
-//     new RaceResultObj(4, 1, 3, 1, 9, "アイキャレット", ["A+", 0], "逃げ", "絶不調", 0, [], 0, "6", 0)
+    "RoyalCorot":13,    // ロイヤルコロット
+    "Kitarism":14,      // キタラリズム
+    "Mushamusha":15,    // ムシャムシャ
+    "KetchupStep":16,   // ケチャップステップ
+    "Unchanging":17,    // アンチェンジング
+    "Myonmyon":18,   // ミョンミョン
+    "MiniOrchid":19,   // ミニオーキッド
+    "EveryoneLikes":20,   // エブリワンライクス
+    "FlyingTurkey":21,   // フライングターキー
+    "BreezeDrone":22,   // ブリーズドローン
+    "DualingStella":23,   // デュアリングステラ
+    "FrilledOrange":24,   // フリルドオレンジ
+    "PanPacific":25,   // パンパシフィック
+    "PretzEclair":26,   // プリッツエクレール
+    "Leverent":27,   // レベレント
+    "Kustawi":28,   // クスタウィ
+    "Duosvel":29,   // デュオスヴェル
+    "PetitFolklore":30,   // プチフォークロア
+    "RoombaStep":31,   // ルンバステップ
+    "MemoryLabyrinth":32,   // メモラビリンス
+    "StateOfArt":33,   // ステートオブアート
+    "WeissGrimoire":34,   // ヴァイスグリモア
+    "RibbonOperetta":35,   // リボンオペレッタ
+    "JewelTopaz":36,   // ジュエルトパーズ
+    "BlackGrimoire":37,   // ブラックグリモア
+    "Tarcke":38,   // タルッケ
+    "EyeCaret":39,   // アイキャレット
 //     "Name": ["", ""],
 //     "ID":40,
 //     new RaceResultObj(4, 1, 6, 4, 6, "ブラボーアール", ["S", 0], "先行", "普通", 0, [], 0, "", 0)
