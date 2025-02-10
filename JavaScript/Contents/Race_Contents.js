@@ -124,7 +124,7 @@ function SetFrameImg(fullCnt, idx) {
 }
 
 function GetTargetRunnerFromMemberID(id) {
-    let ret;
+    let ret = new MemberResultObj();;
     if(MembersIDOffset[0] < id && id <= MembersIDOffset[1]) {
         // すっごメンバーの情報
         ret = Members[ id-1 ];
@@ -141,25 +141,21 @@ function GetTargetRunnerFromMemberID(id) {
                 break;
             }
         }
-        
     }
     else {
-        ret = new MemberResultObj();
+        /* NOP */
     }
 
     return ret;
 }
 
 function GetTargetRaceInfoFromMemberID(target, grpID, ID) {
-    let ret;
+    let ret = new RaceResultObj();
     let groupeID;
     let raceID;
 
     // 検索に使用する対象が存在しない場合は空のオブジェクトを返す
-    if(target == undefined) {
-        ret = new RaceResultObj();
-    }
-    else {
+    if(target != undefined) {
         // レースグループIDが入力されていない場合は現在のレースグループを使用
         if(grpID == undefined) {
             groupeID = RaceGroupeID;
@@ -224,22 +220,33 @@ function ViewInfomation(event){
         }
     };
 
-    const el = document.getElementById("ViewModal");
-    if(el != null){
-        el.style.top = window.scrollY+"px";
-        el.style.display = "block";
+    const el_vmCont = document.getElementById("ViewModalContainer");
+    const el_vm = document.getElementById("ViewModal");
+    if(el_vmCont != null && el_vm != null){
+        el_vmCont.style.top = window.scrollY+"px";
+        el_vmCont.style.display = "block";
         document.getElementsByTagName("body")[0].style.overflow = "hidden";
+        
+        el_vm.style.top = window.scrollY+"px";
+        el_vm.style.display = "block";
 
         targetInfo = GetTargetRunnerFromMemberID(MatchingRace[ActiveTabIdx][WRITE_INFO_TYPE_TABS][i-1]);
         WriteInfomation(targetInfo);
 
-        el.addEventListener('click',()=>{
-            el.style.display = "none";
+        el_vmCont.addEventListener('click',()=>{
+            el_vmCont.style.display = "none";
+            el_vm.style.display = "none";
             document.getElementsByTagName("body")[0].style.overflow = "visible";
         },false);
     }
-    
     console.log("idx:"+i);
+
+    const elmt = document.getElementById("ViewModalViewAreaList");
+    if(elmt != null){
+        elmt.addEventListener('click',()=>{
+            alert("test");
+        },false);
+    }
 }
 
 function WriteInfomation(targetInfo){

@@ -18,7 +18,7 @@ const MatchingRace = [
     [
         [11,7,3,1,9,6,5,2,8,12,10,4],
         [ENUM_Members.Values.REON, ENUM_Members.Values.Sorao, ENUM_Members.Values.Ushiushi, 1159, ENUM_RINRIN.Values.Goro, ENUM_Members.Values._108,
-         ENUM_Members.Values.BroMan, ENUM_RINRIN.Values.Mizakura, ENUM_Members.Values.Vanilla, 1160, ENUM_Members.Values.Resiter, ENUM_Members.Values.Disyupa]
+         ENUM_Members.Values.BroMan, ENUM_RINRIN.Values.Mizakura, ENUM_Members.Values.Vanilla, 1160, ENUM_Members.Values.Resiter, ENUM_RINRIN.Values.Disyupa]
     ],
     [
         [12,6,5,8,4,3,10,7,2,1,9,11],
