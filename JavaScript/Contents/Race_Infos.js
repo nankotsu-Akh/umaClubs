@@ -124,7 +124,7 @@ const RACE_TEMPRETE_NHKMILECUP          = {"name":"NHKマイルカップ",      
 const RACE_TEMPRETE_SPRINTERSSTAKES     = {"name":"スプリンターズステークス",   "info":new RaceInfoObj("中山","秋","昼","芝",1200,"右・外","晴","良")};
 // const RACE_TEMPRETE_
 const RACE_TEMPRETE_KIKUKASHO           = {"name":"菊花賞",                    "info":new RaceInfoObj("京都","秋","昼","芝",3000,"右・外","晴","良")};
-// const RACE_TEMPRETE_
+const RACE_TEMPRETE_TENNOSHO_AUTUMN = {"name":"天皇賞・秋", "info":new RaceInfoObj("東京", "秋", "昼", "芝", 2000, "左", "晴", "良")}
 // const RACE_TEMPRETE_
 // const RACE_TEMPRETE_
 const RACE_TEMPRETE_JAPANCUP            = {"name":"ジャパンカップ",             "info":new RaceInfoObj("東京","冬","昼","芝",2400,"左","晴","良")};
@@ -143,6 +143,7 @@ const RACE_TEMPRETE_TOKYODAISHOTEN      = {"name":"東京大賞典",            
 // const RACE_TEMPRETE_
 // const RACE_TEMPRETE_
 // const RACE_TEMPRETE_
+const RACE_TEMPRETE_KASHIWA_KINEN = {"name":"かしわ記念", "info":new RaceInfoObj("船橋", "春", "夜", "ダート", 1600, "左", "晴", "良")}
 // const RACE_TEMPRETE_
 
 /**
@@ -621,6 +622,38 @@ const DB_RaceInfo = [
             ),
         ]
     ),
+    new RaceGropeInfomationObj(
+        9, 5, "第1回", "すっご紅白戦",
+        [
+            new RaceInfomationObj(
+                1,"第1レース","紅白戦1 1R","サークル内",RACE_TEMPRETE_KASHIWA_KINEN.name,"G1",
+                {"Year":2025,"Month":8,"Day":18,"Date":"月曜","Hour":"21","Min":"15"},
+                RACE_TEMPRETE_KASHIWA_KINEN.info, 9,
+            ),
+            new RaceInfomationObj(
+                2,"第2レース","紅白戦1 2R","サークル内",RACE_TEMPRETE_KIKUKASHO.name,"G1",
+                {"Year":2025,"Month":8,"Day":18,"Date":"月曜","Hour":"21","Min":"45"},
+                RACE_TEMPRETE_KIKUKASHO.info, 9,
+            ),
+            new RaceInfomationObj(
+                3,"第3レース","紅白戦1 3R","サークル内",RACE_TEMPRETE_NHKMILECUP.name,"G1",
+                {"Year":2025,"Month":8,"Day":18,"Date":"月曜","Hour":"22","Min":"15"},
+                RACE_TEMPRETE_NHKMILECUP.info, 9,
+            ),
+            new RaceInfomationObj(
+                4,"第4レース","紅白戦1 4R","サークル内",RACE_TEMPRETE_SPRINTERSSTAKES.name,"G1",
+                {"Year":2025,"Month":8,"Day":18,"Date":"月曜","Hour":"22","Min":"45"},
+                RACE_TEMPRETE_SPRINTERSSTAKES.info, 9,
+            ),
+            new RaceInfomationObj(
+                5,"第5レース","紅白戦1 5R","サークル内",RACE_TEMPRETE_TENNOSHO_AUTUMN.name,"G1",
+                {"Year":2025,"Month":8,"Day":18,"Date":"月曜","Hour":"23","Min":"45"},
+                RACE_TEMPRETE_TENNOSHO_SPRING.info, 9,
+            ),
+        ]
+    ),
 ]
 
+
 console.log("Input Race Data complete");
+
