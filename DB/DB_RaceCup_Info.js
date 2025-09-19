@@ -1,0 +1,70 @@
+const enum_DB_Cup = {
+	CupID				:0,		// 大会ID
+	TitleNumbering		:1,		// 大会開催回数
+	Title				:2,		// 大会名
+	AbbreviationName	:3,		// 大会略名
+	Terms				:4,		// 大会条件
+	done				:5,		// 開催済みフラグ (0:未開催, 1:開催)
+	Races				:6,		// 試合情報
+}
+
+const enum_DB_Race = {
+	RaceID				: 0,		// 試合ID
+	SubTitle			: 1,		// 大会副題
+	AbbreviationName	: 2,		// 大会略名
+	Year				: 3,		// 開催年 (20xx)
+	Month				: 4,		// 開催月 (1～12)
+	Day					: 5,		// 開催日 (1～31)
+	Date				: 6,		// 開催曜日 (1:日～7：土)
+	Hour				: 7,		// 開催時間(時) (0～24)
+	Min					: 8,		// 開催時間(分) (0～60)
+	Grade				: 9,		// レースグレード (1:G1, 2:G2, 3:G3, 4:OP, 5:PreOP, 6:JpnG1, 7:その他)
+	RaceTemprate		:10,		// レーステンプレートID
+	Weather				:11,		// 開催日の天気 (1:晴, 2:曇, 3:雨, 4:雪)
+	Condition			:12,		// 馬場状態 (1:良, 2:稍重, 3:重, 4:不良)
+	MembersCnt			:13,		// 出走人数
+	TopWinnerName		:14,		// 1着バ名
+	TopWinnerTime		:15,		// 1着ゴールタイム
+	NextWinnerName		:16,		// 2着バ名
+	NextWinnerTime		:17,		// 2着ゴールタイム
+	done				:18,		// 開催済みフラグ (0:未開催, 1:開催)
+}
+
+const DB_RaceCup_Info = [
+	[1, 1, "すっ　ご杯", "すっ　ご杯1", "サークル内", true, 
+		[
+			[1, "", "すっ　ご杯1", 2023, 7, 31, 2, 22, 0, 2, RACE_ID_G2_KOBE_SHINBUN_CUP, 0, 0, 18, "テイエムオペラオー", 1305, "アグネスタキオン", 1309, true],
+		],
+	],
+	[2, 2, "すっ　ご杯", "すっ　ご杯2", "サークル内", true,
+		[
+			[1, "予選奇数ブロック", "すっ　ご杯2 予選1", 23, 9, 25, 2, 21, 40, 7, 0, 0, 0, 16, "エアグルーヴ", 902, "エアシャカール", 908, true],
+			[2, "予選偶数ブロック", "すっ　ご杯2 予選2", 23, 9, 25, 2, 21, 50, 7, 0, 0, 0, 16, "サイレンススズカ", 916, "ミスターシービー", 921, true],
+			[3, "決勝", "すっ　ご杯2 決勝", 23, 9, 25, 2, 22, 0, 7, 0, 0, 0, 16, "タイキシャトル", 913, "ミスターシービー", 915, true],
+		],
+	],
+
+	[3, 1, "すっ　ごりんりん杯", "すっ　ごりんりん杯1", "", true],
+	[4, 1, "すっ　ご杯 トリオカップ", "トリオカップ1", "", true],
+	[5, 2, "すっ　ごりんりん杯", "すっ　ごりんりん杯2", "", true],
+	[6, 1, "すっ　ご杯-FourSquad-", "FourSquad 1", "", true],
+	[7, 3, "すっ　ご杯", "すっ　ご杯3", "", true],
+	[8, 3, "すっ　ごりんりん杯", "すっ　ごりんりん杯3", "", true],
+	[9, 4, "すっ　ご杯", "すっ　ご杯4", "", true],
+];
+
+function func_Tool_Get_Done_False() {
+	let retIdx = -1;
+
+	for(let idx = 0; idx < DB_RaceCup_Info.length; idx++) {
+		if(false == DB_RaceCup_Info[idx][enum_DB_Cup.done]) {
+			retIdx = idx;
+			break;
+		}
+	}
+
+	return retIdx
+}
+function func_Tool_Get_Target_RaceCup(idx) {
+	return DB_RaceCup_Info[idx];
+}

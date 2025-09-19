@@ -1,0 +1,48 @@
+html,
+body {
+	padding: 0px;
+	margin: 0px;
+}
+
+.cls_border_bs1 {
+	border: 1px black solid;
+}
+
+.cls_view_W80p {
+	width: 80%;
+}
+.cls_view_W90p {
+	width: 90%;
+}
+.cls_view_W95p {
+	width: 95%;
+}
+
+.cls_view_Center {
+	margin: 0px auto;
+}
+
+.cls_Padding_L5p {
+	padding-left: 5%;
+}
+.cls_Padding_R5p {
+	padding-right: 5%;
+}
+
+.cls_text_align_R {
+	text-align: right;
+}
+
+.cls_vertical_space_5px {
+	margin: 5px;
+}
+.cls_vertical_space_10px {
+	margin: 10px;
+}
+
+header {
+	width: 100%;
+	height: 7vh;
+	position: relative;
+	background-color: aquamarine;
+}
