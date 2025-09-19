@@ -1,4 +1,4 @@
-const el_CommonHeader = document.getElementsByClassName('id_Common_Header');
+const el_CommonHeader = document.getElementById('id_Common_Header');
 el_CommonHeader.addEventListener("click", () => {
 	const tmp_Atag = document.createElement('a');
 
