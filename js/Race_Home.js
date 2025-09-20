@@ -28,7 +28,7 @@ function func_Init_NextRace() {
 	const doneIdx = func_DB_Get_Done_False();
 	
 	if(-1 != doneIdx) {
-		const targetRaceCup = func_Tool_Get_Target_RaceCup(doneIdx);
+		const targetRaceCup = func_DB_Get_Target_RaceCup(doneIdx);
 		el_NextRaceText.innerHTML = "第" + targetRaceCup[enum_DB_Cup.TitleNumbering] + "回 " + targetRaceCup[enum_DB_Cup.Title];
 		
 		el_NextRace.addEventListener("click", () => {
@@ -57,10 +57,10 @@ function func_Init_NewRace() {
 	let targetRaceCup;
 	
 	if(-1 != doneIdx) {
-		targetRaceCup = func_Tool_Get_Target_RaceCup(doneIdx - 1);
+		targetRaceCup = func_DB_Get_Target_RaceCup(doneIdx - 1);
 	}
 	else {
-		targetRaceCup = func_Tool_Get_Target_RaceCup(DB_RaceCup_Info.length - 1);
+		targetRaceCup = func_DB_Get_Target_RaceCup(DB_RaceCup_Info.length - 1);
 	}
 
 	el_NewRaceText.innerHTML = "第" + targetRaceCup[enum_DB_Cup.TitleNumbering] + "回 " + targetRaceCup[enum_DB_Cup.Title];
@@ -97,7 +97,7 @@ function func_Init_RaceLog() {
 	for(let idx = 0; idx < 5; idx++) {
 		if(idx > RaceCupIdx)	break;
 
-		const targetRaceCup = func_Tool_Get_Target_RaceCup(RaceCupIdx - idx);
+		const targetRaceCup = func_DB_Get_Target_RaceCup(RaceCupIdx - idx);
 		const tmpEl = document.createElement('div');
 		
 		tmpEl.classList = ["cls_view_W95p", "cls_border_bs1"];
