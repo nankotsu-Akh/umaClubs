@@ -1,0 +1,41 @@
+.cls_RaceContents {
+	overflow-x: scroll;
+}
+
+#id_RaceContents_RaceResult_Table {
+	width: 600px;
+}
+.cls_ResultTable_Header_Row,
+.cls_ResultTable_Body_Row {
+	/* width: fit-content; */
+}
+.cls_ResultTable_Header_Row th,
+.cls_ResultTable_Body_Row td {
+	text-align: center;
+}
+
+.cls_ResultTable_Col_ResultNum,
+.cls_ResultTable_Col_Frame,
+.cls_ResultTable_Col_Num,
+.cls_ResultTable_Col_GoalDiff,
+.cls_ResultTable_Col_Favorite {
+	width: 40px;
+}
+.cls_ResultTable_Col_Name {
+	width: 160px;
+}
+.cls_ResultTable_Col_Rank {
+	width: 85px;
+}
+.cls_ResultTable_Col_TrainerName {
+	width: 165px;
+}
+.cls_ResultTable_Col_GoalTime {
+	width: 60px;
+}
+.cls_ResultTable_Col_PassageCorner {
+	width: 140px;
+}
+.cls_ResultTable_Col_FTime {
+	width: 45px;
+}

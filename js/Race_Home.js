@@ -1,17 +1,31 @@
-const el_NextRace = document.getElementById('id_MainContents_Next');
-const el_NewRace = document.getElementById('id_MainContents_New');
+const RacePage_Path = "html/Race_Page.html";
+const RacePage_Path_ID = "?id=";
+const RaceLog_Path = "html/Race_Log.html";
 
-const dammyData = []
-
+/*******************************************************************************************************
+ * 関数名	func_Init
+ * 概要		ページの生成
+ * I/O		-
+ * return	-
+ * 更新日	2025/09/20	新規
+ *******************************************************************************************************/
 function func_Init() {
 	func_Init_NextRace();
 	func_Init_NewRace();
 	func_Init_RaceLog();
 }
 
+/*******************************************************************************************************
+ * 関数名	fnc_Init_NextRace
+ * 概要		レーストピックの生成
+ * I/O		-
+ * return	-
+ * 更新日	2025/09200	新規
+ *******************************************************************************************************/
 function func_Init_NextRace() {
+	const el_NextRace = document.getElementById('id_MainContents_Next');
 	const el_NextRaceText = document.getElementById('id_MainContents_Next_Text');
-	const doneIdx = func_Tool_Get_Done_False();
+	const doneIdx = func_DB_Get_Done_False();
 	
 	if(-1 != doneIdx) {
 		const targetRaceCup = func_Tool_Get_Target_RaceCup(doneIdx);
@@ -20,7 +34,7 @@ function func_Init_NextRace() {
 		el_NextRace.addEventListener("click", () => {
 			const tmp_Atag = document.createElement('a');
 	
-			tmp_Atag.href = "html/Race_Page.html#id=" + targetRaceCup[enum_DB_Cup.CupID];
+			tmp_Atag.href = RacePage_Path + RacePage_Path_ID + targetRaceCup[enum_DB_Cup.CupID];
 			tmp_Atag.click();
 		});
 	}
@@ -29,9 +43,17 @@ function func_Init_NextRace() {
 	}
 }
 
+/*******************************************************************************************************
+ * 関数名	fnc_Init_NextRace
+ * 概要		レーストピックの生成
+ * I/O		-
+ * return	-
+ * 更新日	2025/09200	新規
+ *******************************************************************************************************/
 function func_Init_NewRace() {
+	const el_NewRace = document.getElementById('id_MainContents_New');
 	const el_NewRaceText = document.getElementById('id_MainContents_New_Text');
-	const doneIdx = func_Tool_Get_Done_False();
+	const doneIdx = func_DB_Get_Done_False();
 	let targetRaceCup;
 	
 	if(-1 != doneIdx) {
@@ -46,14 +68,21 @@ function func_Init_NewRace() {
 	el_NewRace.addEventListener("click", () => {
 		const tmp_Atag = document.createElement('a');
 
-		tmp_Atag.href = "html/Race_Page.html#id=" + targetRaceCup[enum_DB_Cup.CupID];
+		tmp_Atag.href = RacePage_Path + RacePage_Path_ID + targetRaceCup[enum_DB_Cup.CupID];
 		tmp_Atag.click();
 	});
 }
 
+/*******************************************************************************************************
+ * 関数名	fnc_Init_NextRace
+ * 概要		レースログの生成
+ * I/O		-
+ * return	-
+ * 更新日	2025/09200	新規
+ *******************************************************************************************************/
 function func_Init_RaceLog() {
 	const el_RaceLogText = document.getElementById('id_MainContents_Log_Content');
-	const doneIdx = func_Tool_Get_Done_False();
+	const doneIdx = func_DB_Get_Done_False();
 	let RaceCupIdx = DB_RaceCup_Info.length - 1;
 
 	// トピックの次回にデータが入る場合はIdxをさらに-1する
@@ -78,10 +107,17 @@ function func_Init_RaceLog() {
 		tmpEl.addEventListener("click", () => {
 			const tmp_Atag = document.createElement('a');
 
-			tmp_Atag.href = "html/Race_Page.html#id=" + targetRaceCup[enum_DB_Cup.CupID];
+			tmp_Atag.href = RacePage_Path + RacePage_Path_ID + targetRaceCup[enum_DB_Cup.CupID];
 			tmp_Atag.click();
 		});
 	}
-}
 
-func_Init();
+	// もっと見るの押下処理
+	const el_RaceLogMore = document.getElementById('id_MainContents_Log_More');
+	el_RaceLogMore.addEventListener("click", () => {
+		const tmp_Atag = document.createElement('a');
+
+		tmp_Atag.href = RaceLog_Path;
+		tmp_Atag.click();
+	});
+}

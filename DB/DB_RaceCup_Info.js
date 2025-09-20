@@ -53,7 +53,7 @@ const DB_RaceCup_Info = [
 	[9, 4, "すっ　ご杯", "すっ　ご杯4", "", true],
 ];
 
-function func_Tool_Get_Done_False() {
+function func_DB_Get_Done_False() {
 	let retIdx = -1;
 
 	for(let idx = 0; idx < DB_RaceCup_Info.length; idx++) {
@@ -65,6 +65,6 @@ function func_Tool_Get_Done_False() {
 
 	return retIdx
 }
-function func_Tool_Get_Target_RaceCup(idx) {
+function func_DB_Get_Target_RaceCup(idx) {
 	return DB_RaceCup_Info[idx];
 }

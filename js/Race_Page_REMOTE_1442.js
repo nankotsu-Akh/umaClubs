@@ -1,3 +1,4 @@
+
 /** ページID */
 const urlParams = new URLSearchParams(window.location.search);
 const targetCupID = urlParams.get('id');
@@ -310,4 +311,3 @@ function fnc_SetFrameImg(fullCnt, idx) {
 	frame.alt = (flm_idx + 1) + "枠";
 	return frame;
 }
->>>>>>> Stashed changes

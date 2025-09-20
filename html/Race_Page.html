@@ -5,8 +5,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 
+	<!-- スタイル -->
 	<link rel="stylesheet" href="../css/Common.css">
 	<link rel="stylesheet" href="../css/Race_Page.css">
+	
+	<script src="../js/Common.js"></script>
+
+	<!-- データベース -->
+	<script src="../DB/DB_RaceCup_Info.js"></script>
+	<script src="../DB/DB_Character_Info.js"></script>
+	<script src="../DB/DB_RaceMember_Trainee.js"></script>
+	<script src="../DB/DB_Member_Info.js"></script>
 </head>
 <body>
 	<header id="id_Common_Header">
@@ -14,9 +23,117 @@
 	</header>
 
 	<div class="cls_MainContents">
-		工事中
+		<div class="header">すっご杯</div>
+
+		<div class="cls_MainContents_Main cls_view_W95p cls_view_Center">
+			<ul class="cls_Acordion_List cls_view_W100p">
+				<li class="cls_border_bs1">
+					<div>
+						<div class="cls_Acordion_Title">ルール</div>
+						<div class="cls_Acordion_Content">内容</div>
+					</div>
+				</li>
+				<li class="cls_border_bs1">
+					<div>
+						<div class="cls_Acordion_Title">トーナメント表</div>
+						<div class="cls_Acordion_Content">内容</div>
+					</div>
+				</li>
+				<li class="cls_border_bs1">
+					<div>
+                        <div class="cls_Acordion_Title">結果/出馬表</div>
+						
+						<!-- 結果/出馬表 選択タブ -->
+                        <div class="cls_Acordion_Content open">
+							
+							<!-- 選択タブ -->
+							<ul class="cls_SelectTab cls_view_W80p cls_view_Center">
+								<li class="cls_border_bs1">レース結果</li>
+								<li class="cls_border_bs1">出馬表</li>
+							</ul>
+							
+							<div class="cls_RaceContents cls_border_bs1 cls_view_W97p cls_view_Center">
+								<!-- レース結果 -->
+								<div id="id_RaceContents_RaceResult">
+									<table id="id_RaceContents_RaceResult_Table" class="cls_Table cls_border_bs1">
+										<colgroup>
+											<col class="cls_ResultTable_Col_ResultNum">
+											<col class="cls_ResultTable_Col_Frame">
+											<col class="cls_ResultTable_Col_Num">
+											<col class="cls_ResultTable_Col_Name">
+											<col class="cls_ResultTable_Col_Rank">
+											<col class="cls_ResultTable_Col_TrainerName">
+											<col class="cls_ResultTable_Col_GoalTime">
+											<col class="cls_ResultTable_Col_GoalDiff">
+											<col class="cls_ResultTable_Col_PassageCorner">
+											<col class="cls_ResultTable_Col_FTime">
+											<col class="cls_ResultTable_Col_Favorite">
+										</colgroup>
+	
+										<thead>
+											<tr class="cls_ResultTable_Header_Row">
+												<th class="cls_Table_Header">着順</th>
+												<th class="cls_Table_Header">枠番号</th>
+												<th class="cls_Table_Header">ウマ番</th>
+												<th class="cls_Table_Header">バ名</th>
+												<th class="cls_Table_Header">評価ランク</th>
+												<th class="cls_Table_Header">トレーナー名</th>
+												<th class="cls_Table_Header">ゴールタイム</th>
+												<th class="cls_Table_Header">着差</th>
+												<th class="cls_Table_Header">コーナー通過順位</th>
+												<th class="cls_Table_Header">上がりハロンタイム</th>
+												<th class="cls_Table_Header">人気</th>
+											</tr>
+										<!-- </thead> -->
+										<tbody>
+											<tr class="cls_ResultTable_Body_Row">
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+	
+								<!-- 出馬表 -->
+								<!-- <div id="id_RaceInfo_RaceMember">
+									<table id="RunnerTable">
+										<tr class="runner_table_row_tag">
+											<th class="runner_table_col_frame">枠</th>
+											<th class="runner_table_col_number">ウマ番</th>
+											<th class="runner_table_col_name_etc">
+												<div style="margin: 0 2px;">バ名</div>
+												<div style="margin: 0 2px;">トレーナー名</div>
+												<div style="margin: 0 2px;">継承</div>
+											</th>
+											<th class="runner_table_col_ranks">
+												<div style="margin: 0 2px;">評価ランク</div>
+												<div style="margin: 0 2px;">評価点</div>
+											</th>
+											<th class="runner_table_col_befores">前走</th>
+											<th class="runner_table_col_befores">前々走</th>
+											<th class="runner_table_col_befores">3走前</th>
+											<th class="runner_table_col_befores">4走前</th>
+										</tr>
+									</table>
+								</div> -->
+							</div>
+						</div>
+                    </div>
+                </li>
+			</ul>
+		</div>
 	</div>
 
 	<script src="../js/Race_Page.js"></script>
+	<script>func_Init()</script>
 </body>
 </html>

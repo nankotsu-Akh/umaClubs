@@ -1,3 +1,13 @@
+<<<<<<< Updated upstream
+const el_CommonHeader = document.getElementById('id_Common_Header');
+el_CommonHeader.addEventListener("click", () => {
+	const tmp_Atag = document.createElement('a');
+
+	tmp_Atag.href = "Race_Home.html";
+	tmp_Atag.click();
+});
+=======
+
 /** ページID */
 const urlParams = new URLSearchParams(window.location.search);
 const targetCupID = urlParams.get('id');

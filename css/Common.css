@@ -4,10 +4,7 @@ body {
 	margin: 0px;
 }
 
-.cls_border_bs1 {
-	border: 1px black solid;
-}
-
+/* 要素の幅 */
 .cls_view_W80p {
 	width: 80%;
 }
@@ -17,22 +14,32 @@ body {
 .cls_view_W95p {
 	width: 95%;
 }
-
+.cls_view_W97p {
+	width: 97%;
+}
+.cls_view_W100p {
+	width: 100%;
+}
+/* 要素のマージン */
 .cls_view_Center {
 	margin: 0px auto;
 }
-
+/* 要素のパディング */
 .cls_Padding_L5p {
 	padding-left: 5%;
 }
 .cls_Padding_R5p {
 	padding-right: 5%;
 }
-
+/* ボーダー */
+.cls_border_bs1 {
+	border: 1px black solid;
+}	
+/* テキスト */
 .cls_text_align_R {
 	text-align: right;
 }
-
+/* スペーサ */
 .cls_vertical_space_5px {
 	margin: 5px;
 }
@@ -45,4 +52,46 @@ header {
 	height: 7vh;
 	position: relative;
 	background-color: aquamarine;
+}
+
+/* アコーディオンメニュー */
+.cls_Acordion_List {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+.cls_Acordion_Content {
+	display: none;
+}
+.cls_Acordion_Content.open {
+	display: block;
+}
+
+/* 選択タブ */
+.cls_SelectTab {
+    padding: 0px;
+    list-style: none;
+    display: flex;
+}
+.cls_SelectTab li {
+    padding: 22px 0px;
+    width: 160px;
+    text-align: center;
+    /* background-color: rgb(161, 145, 125); */
+}
+.cls_SelectTab li.active {
+    background-color: rgb(192, 250, 169);
+}
+
+/* 表 */
+.cls_Table {
+	border-collapse: collapse;
+}
+.cls_Table th,
+.cls_Table td {
+	border: 1px black solid;
+}
+.cls_Table_Header {
+	color: white;
+	background-color: rgb(53, 82, 136);
 }
