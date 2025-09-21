@@ -1,3 +1,6 @@
+// const ROOT = "/"
+const ROOT = "/umaClubs"
+
 // 曜日の定義
 const DATE_ID_NONE			= 0;
 const DATE_ID_SUNDAY		= 1;

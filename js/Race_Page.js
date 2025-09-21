@@ -306,7 +306,7 @@ function fnc_SetFrameImg(fullCnt, idx) {
 		else					flm_idx = Math.trunc((2*idx+defs)/6)
 	}
 
-	frame.src = '../Img/Frame_Num_Color/40x40/' + (flm_idx + 1) + '.png';
+	frame.src = '/umaClubs/Img/Frame_Num_Color/40x40/' + (flm_idx + 1) + '.png';
 	frame.alt = (flm_idx + 1) + "枠";
 	return frame;
 }
