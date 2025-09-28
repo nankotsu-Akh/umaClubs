@@ -47,9 +47,9 @@
                         <div class="cls_Acordion_Content open">
 							
 							<!-- 選択タブ -->
-							<ul class="cls_SelectTab cls_view_W80p cls_view_Center">
-								<li class="cls_border_bs1">レース結果</li>
-								<li class="cls_border_bs1">出馬表</li>
+							<ul id="id_SelectTab" class="cls_SelectTab cls_view_W80p cls_view_Center">
+								<li id="id_SelectTab_Result" class="cls_border_bs1">レース結果</li>
+								<li id="id_SelectTab_Member" class="cls_border_bs1">出馬表</li>
 							</ul>
 							
 							<div class="cls_RaceContents cls_border_bs1 cls_view_W97p cls_view_Center">
@@ -71,7 +71,7 @@
 										</colgroup>
 	
 										<thead>
-											<tr class="cls_ResultTable_Header_Row">
+											<tr class="cls_RaceContents_TableHeader_Row">
 												<th class="cls_Table_Header">着順</th>
 												<th class="cls_Table_Header">枠番号</th>
 												<th class="cls_Table_Header">ウマ番</th>
@@ -84,47 +84,46 @@
 												<th class="cls_Table_Header">上がりハロンタイム</th>
 												<th class="cls_Table_Header">人気</th>
 											</tr>
-										<!-- </thead> -->
-										<tbody>
-											<!-- <tr class="cls_ResultTable_Body_Row">
-												<td>-</td>
-												<td>-</td>
-												<td>-</td>
-												<td>-</td>
-												<td>-</td>
-												<td>-</td>
-												<td>-</td>
-												<td>-</td>
-												<td>-</td>
-												<td>-</td>
-												<td>-</td>
-											</tr> -->
-										</tbody>
+										</thead>
+										<tbody></tbody>
 									</table>
 								</div>
 	
 								<!-- 出馬表 -->
-								<!-- <div id="id_RaceInfo_RaceMember">
-									<table id="RunnerTable">
-										<tr class="runner_table_row_tag">
-											<th class="runner_table_col_frame">枠</th>
-											<th class="runner_table_col_number">ウマ番</th>
-											<th class="runner_table_col_name_etc">
-												<div style="margin: 0 2px;">バ名</div>
-												<div style="margin: 0 2px;">トレーナー名</div>
-												<div style="margin: 0 2px;">継承</div>
-											</th>
-											<th class="runner_table_col_ranks">
-												<div style="margin: 0 2px;">評価ランク</div>
-												<div style="margin: 0 2px;">評価点</div>
-											</th>
-											<th class="runner_table_col_befores">前走</th>
-											<th class="runner_table_col_befores">前々走</th>
-											<th class="runner_table_col_befores">3走前</th>
-											<th class="runner_table_col_befores">4走前</th>
-										</tr>
+								<div id="id_RaceInfo_RaceMember">
+									<table id="id_RaceContents_RaceMember_Table" class="cls_Table cls_border_bs1">
+										<colgroup>
+											<col class="cls_MemberTable_Col_Frame">
+											<col class="cls_MemberTable_Col_Num">
+											<col class="cls_MemberTable_Col_Name_Etc">
+											<col class="cls_MemberTable_Col_Ranks">
+											<col class="cls_MemberTable_Col_Befores">
+											<col class="cls_MemberTable_Col_Befores">
+											<col class="cls_MemberTable_Col_Befores">
+											<col class="cls_MemberTable_Col_Befores">
+										</colgroup>
+										<thead>
+											<tr class="cls_RaceContents_TableHeader_Row">
+												<th class="cls_Table_Header">枠</th>
+												<th class="cls_Table_Header">ウマ番</th>
+												<th class="cls_Table_Header">
+													<div style="margin: 0 2px;">バ名</div>
+													<div style="margin: 0 2px;">トレーナー名</div>
+													<div style="margin: 0 2px;">継承</div>
+												</th>
+												<th class="cls_Table_Header">
+													<div style="margin: 0 2px;">評価ランク</div>
+													<div style="margin: 0 2px;">評価点</div>
+												</th>
+												<th class="cls_Table_Header">前走</th>
+												<th class="cls_Table_Header">前々走</th>
+												<th class="cls_Table_Header">3走前</th>
+												<th class="cls_Table_Header">4走前</th>
+											</tr>
+										</thead>
+										<tbody></tbody>
 									</table>
-								</div> -->
+								</div>
 							</div>
 						</div>
                     </div>

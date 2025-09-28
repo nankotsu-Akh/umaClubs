@@ -83,6 +83,10 @@ header {
     background-color: rgb(192, 250, 169);
 }
 
+.cls_border_bs1 .active {
+    background-color: rgb(62, 77, 214);
+}
+
 /* 表 */
 .cls_Table {
 	border-collapse: collapse;

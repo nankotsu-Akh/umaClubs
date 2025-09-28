@@ -213,7 +213,7 @@ const DB_Characters_Info = [
  * 更新日	2025/09/20	新規
  *******************************************************************************************************/
 function fnc_DB_Get_CharacterInfo(id, data) {
-    let retName;
+    let retName = "-";
 
     for(let idx = 0; idx < DB_Characters_Info.length; idx++) {
         if(DB_Characters_Info[idx][enum_DB_Characters.ID] == id) {

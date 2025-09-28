@@ -575,7 +575,7 @@ function fnc_DB_Split_GoalTime(time) {
 	// 分
 	retTime = Math.trunc(time / 600) + ":";
 	// 秒
-	retTime += (Math.trunc(time / 10) % 60) + ":";
+	retTime += (Math.trunc(time / 10) % 60) + ".";
 	// コンマ秒
 	retTime += time % 10;
 

@@ -5,12 +5,19 @@
 #id_RaceContents_RaceResult_Table {
 	width: 600px;
 }
-.cls_ResultTable_Header_Row,
+#id_RaceContents_RaceMember_Table {
+	width: 600px;
+}
+.cls_RaceContents_TableHeader_Row,
 .cls_ResultTable_Body_Row {
 	/* width: fit-content; */
 }
-.cls_ResultTable_Header_Row th,
+.cls_RaceContents_TableHeader_Row th,
 .cls_ResultTable_Body_Row td {
+	text-align: center;
+}
+.cls_RaceContents_TableHeader_Row th,
+.cls_MemberTable_Body_Row td {
 	text-align: center;
 }
 
