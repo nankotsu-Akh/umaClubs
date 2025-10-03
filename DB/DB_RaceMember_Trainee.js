@@ -547,12 +547,16 @@ const DB_RaceMember_Trainee = [
  * return	出走キャラのデータ
  * 更新日	2025/09/20	新規
  *******************************************************************************************************/
-function fnc_DB_RaceMember_Trainee_Data(id) {
+function fnc_DB_RaceMember_Trainee_Data(CupId, RaceId) {
 	let idx = 0;
 	let retArr = [];
 
 	while(idx < DB_RaceMember_Trainee.length) {
-		if(DB_RaceMember_Trainee[idx][enum_DB_Trainee.CupID] == id) {
+		if(
+			(DB_RaceMember_Trainee[idx][enum_DB_Trainee.CupID] == CupId)
+				&&
+			(DB_RaceMember_Trainee[idx][enum_DB_Trainee.RaceID] == RaceId)
+		) {
 			retArr.push(DB_RaceMember_Trainee[idx]);
 		}
 		

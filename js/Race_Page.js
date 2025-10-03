@@ -1,6 +1,6 @@
 /** ページID */
 const urlParams = new URLSearchParams(window.location.search);
-const targetCupID = urlParams.get('id');
+const targetCupID = parseInt(urlParams.get('id'));
 let targetRaceID = 0;
 
 // ページの対象となる大会のデータ
@@ -62,9 +62,10 @@ function func_Init() {
 	// アコーディオンメニューの動作処理
 	func_Init_Acordion();
 
-	// ページIDによって描画する要素を選択
-	
-	// 出馬表などは必ず表示する
+	// トーナメント表
+	func_Init_Tournament();
+
+	// 出馬表
 	func_Init_RaceContents();
 
 	// データを挿入
@@ -99,6 +100,21 @@ function func_Init_Acordion() {
 	}
 }
 
+/*******************************************************************************************************
+ * 関数名	func_Init_Tournament
+ * 概要		トーナメント表の生成
+ * I/O		-
+ * return	-
+ * 更新日	2025/09/20	新規
+ *******************************************************************************************************/
+function func_Init_Tournament() {
+	// 必要のないページには描画しない
+	if(4 != targetCupID) {
+		document.getElementById("id_Acordion_Tournament").style = "display:none;";
+		return;
+	}
+}
+
 
 
 /*******************************************************************************************************
@@ -109,6 +125,8 @@ function func_Init_Acordion() {
  * 更新日	2025/09/20	新規
  *******************************************************************************************************/
 function func_Init_RaceContents() {
+	/** 出馬表等は必ず表示する　*/
+
 	// 選択タブの挙動を生成
 	func_Init_RaceContents_ClickAction();
 	// レース情報の生成
@@ -128,6 +146,39 @@ function func_Init_RaceContents_ClickAction() {
 	const el_SelectTabResult = document.getElementById('id_SelectTab_Result');
 	const el_SelectTabMember = document.getElementById('id_SelectTab_Member');
 	
+	// 1大会でレースが複数ある場合はレース選択タブを追加
+	const el_RaceCntTab = document.getElementById('id_RaceCntTab');
+	
+	if(2 <= targetRaceCupData[enum_DB_Cup.Races].length){
+		const arr_el_SelectRaceCnt = new Array(targetRaceCupData[enum_DB_Cup.Races].length);
+		
+		for(let idx = 0; idx < targetRaceCupData[enum_DB_Cup.Races].length; idx++) {
+			arr_el_SelectRaceCnt[idx] = document.createElement("li");
+
+			arr_el_SelectRaceCnt[idx].classList = ["cls_SelectRaceCnt", "cls_border_bs1"];
+			arr_el_SelectRaceCnt[idx].innerHTML = "第" + (idx+1) + "レース";
+
+			el_RaceCntTab.appendChild(arr_el_SelectRaceCnt[idx]);
+
+			// タブ押下時の処理
+			arr_el_SelectRaceCnt[idx].addEventListener("click", () => {
+				if( !arr_el_SelectRaceCnt[idx].classList.contains('active') ) {
+					for(let i = 0; i < arr_el_SelectRaceCnt.length; i++) {
+						arr_el_SelectRaceCnt[i].classList.remove('active');
+					}
+					arr_el_SelectRaceCnt[idx].classList.add('active');
+
+					targetRaceID = idx;
+					func_DataInsert();
+				}
+			})
+		}
+
+		// 初期表示の操作
+		arr_el_SelectRaceCnt[0].classList.add('active');
+	}
+	
+	// タブ押下時の処理
 	el_SelectTabResult.addEventListener("click", () => {
 		if( !el_SelectTabResult.classList.contains('active') ) {
 			el_SelectTabResult.classList.add('active');
@@ -138,6 +189,7 @@ function func_Init_RaceContents_ClickAction() {
 		}
 	})
 	
+	// 表示変更の処理
 	el_SelectTabMember.addEventListener("click", () => {
 		if( !el_SelectTabMember.classList.contains('active') ) {
 			el_SelectTabResult.classList.remove('active');
@@ -161,8 +213,7 @@ function func_Init_RaceContents_Result() {
 	const table = document.getElementById('id_RaceContents_RaceResult_Table').getElementsByTagName('tbody')[0];		// 表のエレメント
 	
 	// 各レース各行のオブジェクトを保持
-	arr_RaceResult_Elements = new Array(targetRaceCupData[enum_DB_Cup.Races].length);
-	arr_RaceResult_Elements[targetRaceID] = new Array(18);
+	arr_RaceResult_Elements = new Array(18);
 
 	// 表の行を最大行(18)生成
 	for(let cnt = 0; cnt < 18; cnt++) {
@@ -189,11 +240,16 @@ function func_Init_RaceContents_Result() {
 		tmpRowData.Row.classList = ["cls_ResultTable_Body_Row"];
 		table.appendChild(tmpRowData.Row);
 
-		arr_RaceResult_Elements[targetRaceID][cnt] = tmpRowData;
-		arr_RaceResult_Elements[targetRaceID][cnt].Row.style = "display:none";
-		arr_RaceResult_Elements[targetRaceID][cnt].ResultNum.innerHTML = cnt + 1;
+		arr_RaceResult_Elements[cnt] = tmpRowData;
+		arr_RaceResult_Elements[cnt].Row.style = "display:none";
+		arr_RaceResult_Elements[cnt].ResultNum.innerHTML = cnt + 1;
 		delete(tmpRowData);
 	}
+
+	// 初期表示の操作
+	document.getElementById('id_SelectTab_Result').classList.add('active');
+	document.getElementById('id_RaceContents_RaceResult').style = "display:block;";
+	document.getElementById('id_RaceInfo_RaceMember').style = "display:none;";
 }
 
 /*******************************************************************************************************
@@ -207,9 +263,8 @@ function func_Init_RaceContents_Member() {
 	// 出馬表テーブルを生成
 	const table = document.getElementById('id_RaceContents_RaceMember_Table').getElementsByTagName('tbody')[0];		// 表のエレメント
 	
-	// 各レース各行のオブジェクトを保持
-	arr_RaceMember_Elements = new Array(targetRaceCupData[enum_DB_Cup.Races].length);
-	arr_RaceMember_Elements[targetRaceID] = new Array(18);
+	// 各行のオブジェクトを保持
+	arr_RaceMember_Elements = new Array(18);
 
 	// 表の行を最大行(18)生成
 	for(let cnt = 0; cnt < 18; cnt++) {
@@ -241,9 +296,9 @@ function func_Init_RaceContents_Member() {
 		tmpRowData.Row.classList = ["cls_MemberTable_Body_Row"];
 		table.appendChild(tmpRowData.Row);
 
-		arr_RaceMember_Elements[targetRaceID][cnt] = tmpRowData;
-		arr_RaceMember_Elements[targetRaceID][cnt].Row.style = "display:none";
-		arr_RaceMember_Elements[targetRaceID][cnt].Num.innerHTML = cnt + 1;
+		arr_RaceMember_Elements[cnt] = tmpRowData;
+		arr_RaceMember_Elements[cnt].Row.style = "display:none";
+		arr_RaceMember_Elements[cnt].Num.innerHTML = cnt + 1;
 		delete(tmpRowData);
 	}
 }
@@ -270,19 +325,20 @@ function func_DataInsert() {
  * 更新日	2025/09/20	新規
  *******************************************************************************************************/
 function func_DataInsert_Result() {
-	const member = fnc_DB_RaceMember_Trainee_Data(targetCupID);		// 該当レースに出走したメンバーの配列
+	const member = fnc_DB_RaceMember_Trainee_Data(targetCupID, targetRaceID+1);		// 該当レースに出走したメンバーの配列
 	const targetRaceData = targetRaceCupData[enum_DB_Cup.Races][targetRaceID];	// 対象レース情報
 	
 	// 出走数に合わせて表の描画を調整
 	for(let idx = 0; idx < targetRaceData[enum_DB_Race.MembersCnt]; idx++) {
-		arr_RaceResult_Elements[targetRaceID][idx].Row.style = "";
+		arr_RaceResult_Elements[idx].Row.style = "";
 	}
 	
 	// 表の行を出走人数分挿入
 	for(let idx = 0; idx < targetRaceData[enum_DB_Race.MembersCnt]; idx++) {
 		// 着順に挿入対象を取る
 		let tmpTarget;
-		for(let idx2 = 0; idx2 < member.length; idx2++) {
+		let idx2;
+		for(idx2 = 0; idx2 < member.length; idx2++) {
 			if(member[idx2][enum_DB_Trainee.Goal] == idx + 1){
 				tmpTarget = member[idx2];
 				break;
@@ -297,40 +353,36 @@ function func_DataInsert_Result() {
 		/** 着順は生成時に登録済み */
 
 		/** 枠番画像を登録 */
-		arr_RaceResult_Elements[targetRaceID][idx].Frame.appendChild(fnc_SetFrameImg(targetRaceData[enum_DB_Race.MembersCnt], idx));
+		arr_RaceResult_Elements[targetMember[enum_DB_Trainee.Goal] - 1].Frame.innerHTML = "";
+		arr_RaceResult_Elements[targetMember[enum_DB_Trainee.Goal] - 1].Frame.appendChild(fnc_SetFrameImg(targetRaceData[enum_DB_Race.MembersCnt], targetMember[enum_DB_Trainee.Num] - 1));
 
 		/** ウマ番を登録 */
-		arr_RaceResult_Elements[targetRaceID][idx].Num.innerHTML = idx + 1;
+		arr_RaceResult_Elements[targetMember[enum_DB_Trainee.Goal] - 1].Num.innerHTML = targetMember[enum_DB_Trainee.Num];
 		
 		/** バ名を登録 */
-		arr_RaceResult_Elements[targetRaceID][idx].Name.innerHTML = fnc_DB_Get_CharacterInfo(Math.trunc(targetMember[enum_DB_Trainee.Name] / 100), enum_DB_Characters.Name_jp);
+		arr_RaceResult_Elements[targetMember[enum_DB_Trainee.Goal] - 1].Name.innerHTML = fnc_DB_Get_CharacterInfo(Math.trunc(targetMember[enum_DB_Trainee.Name] / 100), enum_DB_Characters.Name_jp);
 
 		/** 評価ランクを登録 */
-		arr_RaceResult_Elements[targetRaceID][idx].Rank.innerHTML = func_Common_RankPoint(targetMember[enum_DB_Trainee.RankPoint]);
+		arr_RaceResult_Elements[targetMember[enum_DB_Trainee.Goal] - 1].Rank.innerHTML = func_Common_RankPoint(targetMember[enum_DB_Trainee.RankPoint]);
 
 		/** トレーナー名 */
-		arr_RaceResult_Elements[targetRaceID][idx].TrainerName.innerHTML = fnc_DB_Get_Member_Info(targetMember[enum_DB_Trainee.TrainerName], enum_DB_MemberInfo.Name);
+		arr_RaceResult_Elements[targetMember[enum_DB_Trainee.Goal] - 1].TrainerName.innerHTML = fnc_DB_Get_Member_Info(targetMember[enum_DB_Trainee.TrainerName], enum_DB_MemberInfo.Name);
 		
 		/** ゴールタイム */
-		arr_RaceResult_Elements[targetRaceID][idx].GoalTime.innerHTML = fnc_DB_Split_GoalTime(targetMember[enum_DB_Trainee.GoalTime]);
+		arr_RaceResult_Elements[targetMember[enum_DB_Trainee.Goal] - 1].GoalTime.innerHTML = fnc_DB_Split_GoalTime(targetMember[enum_DB_Trainee.GoalTime]);
 		
 		/** 着差 */
-		arr_RaceResult_Elements[targetRaceID][idx].GoalDiff.innerHTML = targetMember[enum_DB_Trainee.GoalDiff];
+		arr_RaceResult_Elements[targetMember[enum_DB_Trainee.Goal] - 1].GoalDiff.innerHTML = targetMember[enum_DB_Trainee.GoalDiff];
 
 		/** コーナー通過順位 */
-		arr_RaceResult_Elements[targetRaceID][idx].PassageCorner.innerHTML = "-";
+		arr_RaceResult_Elements[targetMember[enum_DB_Trainee.Goal] - 1].PassageCorner.innerHTML = "-";
 
 		/** 上がりハロンタイム */
-		arr_RaceResult_Elements[targetRaceID][idx].FTime.innerHTML = "-";
+		arr_RaceResult_Elements[targetMember[enum_DB_Trainee.Goal] - 1].FTime.innerHTML = "-";
 
 		/** 人気 */
-		arr_RaceResult_Elements[targetRaceID][idx].Favorite.innerHTML = targetMember[enum_DB_Trainee.Favorite];
+		arr_RaceResult_Elements[targetMember[enum_DB_Trainee.Goal] - 1].Favorite.innerHTML = targetMember[enum_DB_Trainee.Favorite];
 	}
-
-	// 初期表示の操作
-	document.getElementById('id_SelectTab_Result').classList.add('active');
-	document.getElementById('id_RaceContents_RaceResult').style = "display:block;";
-	document.getElementById('id_RaceInfo_RaceMember').style = "display:none;";
 }
 
 /*******************************************************************************************************
@@ -341,12 +393,12 @@ function func_DataInsert_Result() {
  * 更新日	2025/09/20	新規
  *******************************************************************************************************/
 function func_DataInsert_Member() {
-	const member = fnc_DB_RaceMember_Trainee_Data(targetCupID);		// 該当レースに出走したメンバーの配列
+	const member = fnc_DB_RaceMember_Trainee_Data(targetCupID, targetRaceID+1);		// 該当レースに出走したメンバーの配列
 	const targetRaceData = targetRaceCupData[enum_DB_Cup.Races][targetRaceID];	// 対象レース情報
 	
 	// 出走数に合わせて表の描画を調整
 	for(let idx = 0; idx < targetRaceData[enum_DB_Race.MembersCnt]; idx++) {
-		arr_RaceMember_Elements[targetRaceID][idx].Row.style = "";
+		arr_RaceMember_Elements[idx].Row.style = "";
 	}
 	
 	// 表の行を出走人数分挿入
@@ -365,30 +417,31 @@ function func_DataInsert_Member() {
 		const targetMember = tmpTarget;
 		
 		// 枠番画像を登録
-		arr_RaceMember_Elements[targetRaceID][idx].Frame.appendChild(fnc_SetFrameImg(targetRaceData[enum_DB_Race.MembersCnt], idx));
+		arr_RaceMember_Elements[idx].Frame.innerHTML = "";
+		arr_RaceMember_Elements[idx].Frame.appendChild(fnc_SetFrameImg(targetRaceData[enum_DB_Race.MembersCnt], idx));
 
 		// ウマ番を登録
 		/** 着順は生成時に登録済み */
 		
 		// バ名
-		arr_RaceMember_Elements[targetRaceID][idx].NameEtc.Name.innerHTML = fnc_DB_Get_CharacterInfo(Math.trunc(targetMember[enum_DB_Trainee.Name] / 100), enum_DB_Characters.Name_jp);
+		arr_RaceMember_Elements[idx].NameEtc.Name.innerHTML = fnc_DB_Get_CharacterInfo(Math.trunc(targetMember[enum_DB_Trainee.Name] / 100), enum_DB_Characters.Name_jp);
 
 		// トレーナー名
-		arr_RaceMember_Elements[targetRaceID][idx].NameEtc.TrainerName.innerHTML = fnc_DB_Get_Member_Info(targetMember[enum_DB_Trainee.TrainerName], enum_DB_MemberInfo.Name);
+		arr_RaceMember_Elements[idx].NameEtc.TrainerName.innerHTML = fnc_DB_Get_Member_Info(targetMember[enum_DB_Trainee.TrainerName], enum_DB_MemberInfo.Name);
 
 		// // 継承親
-		arr_RaceMember_Elements[targetRaceID][idx].NameEtc.Parent_1.innerHTML = ((targetMember[enum_DB_Trainee.Parents_1] == "") ? "-" : fnc_DB_Get_CharacterInfo(Math.trunc(targetMember[enum_DB_Trainee.Parents_1] / 100), enum_DB_Characters.Name_jp));
+		arr_RaceMember_Elements[idx].NameEtc.Parent_1.innerHTML = ((targetMember[enum_DB_Trainee.Parents_1] == "") ? "-" : fnc_DB_Get_CharacterInfo(Math.trunc(targetMember[enum_DB_Trainee.Parents_1] / 100), enum_DB_Characters.Name_jp));
 		
 		// // 継承親
-		arr_RaceMember_Elements[targetRaceID][idx].NameEtc.Parent_2.innerHTML = ((targetMember[enum_DB_Trainee.Parents_2] == "") ? "-" : fnc_DB_Get_CharacterInfo(Math.trunc(targetMember[enum_DB_Trainee.Parents_2] / 100), enum_DB_Characters.Name_jp));
+		arr_RaceMember_Elements[idx].NameEtc.Parent_2.innerHTML = ((targetMember[enum_DB_Trainee.Parents_2] == "") ? "-" : fnc_DB_Get_CharacterInfo(Math.trunc(targetMember[enum_DB_Trainee.Parents_2] / 100), enum_DB_Characters.Name_jp));
 
 		// 評価ランク
-		arr_RaceMember_Elements[targetRaceID][idx].Ranks.Rank.innerHTML = func_Common_RankPoint(targetMember[enum_DB_Trainee.RankPoint]);
+		arr_RaceMember_Elements[idx].Ranks.Rank.innerHTML = func_Common_RankPoint(targetMember[enum_DB_Trainee.RankPoint]);
 		// 評価点
-		arr_RaceMember_Elements[targetRaceID][idx].Ranks.RankPoint.innerHTML = ((targetMember[enum_DB_Trainee.RankPoint] == 0) ? "-" : targetMember[enum_DB_Trainee.RankPoint]);
+		arr_RaceMember_Elements[idx].Ranks.RankPoint.innerHTML = ((targetMember[enum_DB_Trainee.RankPoint] == 0) ? "-" : targetMember[enum_DB_Trainee.RankPoint]);
 		
 		// 前走情報
-		// let el_arr_before = [arr_RaceMember_Elements[targetRaceID][idx].Before_1, arr_RaceMember_Elements[targetRaceID][idx].Before_2, arr_RaceMember_Elements[targetRaceID_inGroupe][idx].Before_3, arr_RaceMember_Elements[targetRaceID_inGroupe][idx].Before_4]
+		// let el_arr_before = targetRaceID][idx].Before_1, arr_RaceMember_Elements[idx].Before_2, arr_RaceMember_Elements[idx].Before_3, arr_RaceMember_Elements[idx].Before_4]
 		// fnc_View_MemberRaceLog_El(el_arr_before, targetMember[enum_DB_Trainee.TrainerName]);
 	}
 }
@@ -402,23 +455,49 @@ function func_DataInsert_Member() {
  * 更新日	2025/09/20	新規
  *******************************************************************************************************/
 function fnc_SetFrameImg(fullCnt, idx) {
-	const frame = document.createElement('img');
-
 	let flm_idx;
 	
 	if(fullCnt < 17) {
-		let defs = (2*8)-fullCnt;
-		if(idx < defs)  flm_idx = Math.trunc(idx);
-		else			flm_idx = Math.trunc((idx+defs)/2)
+		const diff = 16 - fullCnt;
+		if(idx < diff) {
+			flm_idx = Math.trunc(idx);
+		}
+		else {
+			flm_idx = Math.trunc( (idx + diff + 1)/2 + 0.5);
+		}
 	}
 	else {
-		let defs = (3*16)-(2*fullCnt);
-		if(idx < defs)  flm_idx = Math.trunc(idx/2);
-		else					flm_idx = Math.trunc((2*idx+defs)/6)
+		const diff = 48-(2*fullCnt);
+		if(idx < diff) {
+			flm_idx = Math.trunc(idx / 2);
+		}
+		else {
+			flm_idx = Math.trunc( ((2*idx) + diff) / 6);
+		}
 	}
 
-	frame.src = '../Img/Frame_Num_Color/40x40/' + (flm_idx + 1) + '.png';
-	frame.alt = (flm_idx + 1) + "枠";
+	// SVG画像を生成
+	const arr_Frame_Color = ["#FFFFFF", "#000000", "#FF0000", "#0000FF", "#FFFF00", "#00A500", "#FF7F00", "#FFB5EB"];
+	const arr_Font_Color = ["#000000", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#000000", "#FFFFFF", "#000000", "#000000"];
+	const frame = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+	const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+	const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+
+	frame.setAttribute("width", "40");
+	frame.setAttribute("height", "40");
+
+	rect.setAttribute("width", "40");
+	rect.setAttribute("height", "40");
+	rect.setAttribute("fill", arr_Frame_Color[flm_idx - 1]);
+	
+	text.setAttribute("x", "10");
+	text.setAttribute("y", "32");
+	text.setAttribute("font-size", "26pt");
+	text.style = "font-family:'Gill Sans', sans-serif;;";
+	// text.setAttribute("font-weight", "bold");
+	text.setAttribute("fill", arr_Font_Color[flm_idx - 1]);
+	text.innerHTML = flm_idx;
+	frame.append(rect, text);
 	return frame;
 }
 
