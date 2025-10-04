@@ -57,7 +57,7 @@ const tpltRowData_Member = {	// 行のエレメント
  * 更新日	2025/09/20	新規
  *******************************************************************************************************/
 function func_Init() {
-	func_Common_HeaderLink("../Race_Home.html");
+	func_Common_HeaderLink("../Races_Home.html");
 
 	// アコーディオンメニューの動作処理
 	func_Init_Acordion();
@@ -450,7 +450,8 @@ function func_DataInsert_Member() {
 /*******************************************************************************************************
  * 関数名	fnc_SetFrameImg
  * 概要		枠番画像の挿入
- * I/O		-
+ * I/O		fullCnt	: 最大出走数
+ * 			idx		: ウマ番(0オリジン)
  * return	-
  * 更新日	2025/09/20	新規
  *******************************************************************************************************/
@@ -463,7 +464,7 @@ function fnc_SetFrameImg(fullCnt, idx) {
 			flm_idx = Math.trunc(idx);
 		}
 		else {
-			flm_idx = Math.trunc( (idx + diff + 1)/2 + 0.5);
+			flm_idx = Math.trunc( (idx + diff)/2 );
 		}
 	}
 	else {
@@ -488,15 +489,15 @@ function fnc_SetFrameImg(fullCnt, idx) {
 
 	rect.setAttribute("width", "40");
 	rect.setAttribute("height", "40");
-	rect.setAttribute("fill", arr_Frame_Color[flm_idx - 1]);
+	rect.setAttribute("fill", arr_Frame_Color[flm_idx]);
 	
 	text.setAttribute("x", "10");
 	text.setAttribute("y", "32");
 	text.setAttribute("font-size", "26pt");
 	text.style = "font-family:'Gill Sans', sans-serif;;";
 	// text.setAttribute("font-weight", "bold");
-	text.setAttribute("fill", arr_Font_Color[flm_idx - 1]);
-	text.innerHTML = flm_idx;
+	text.setAttribute("fill", arr_Font_Color[flm_idx]);
+	text.innerHTML = flm_idx + 1;
 	frame.append(rect, text);
 	return frame;
 }

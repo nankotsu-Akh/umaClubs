@@ -5,7 +5,7 @@ const enum_DB_Trainee = {
 	RankPoint		: 3,		// 育成評価点
 	Strategy		: 4,		// 出走時脚質
 	Motivation		: 5,		// 出走時調子
-	CupID			: 6,		// 出走大会ID
+	CupID			: 6,		// 出走大会ID	(0:競技場登録, 1~:大会使用, 999:貸出登録)
 	RaceID			: 7,		// 出走レースID
 	Num				: 8,		// ウマ番
 	Favorite		: 9,		// 人気
