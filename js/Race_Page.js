@@ -333,6 +333,20 @@ function func_DataInsert_Result() {
 		arr_RaceResult_Elements[idx].Row.style = "";
 	}
 	
+	// 既に記入されている行情報を削除
+	for(let idx = 0; idx < arr_RaceResult_Elements.length; idx++) {
+		arr_RaceResult_Elements[idx].Frame.innerHTML = "";
+		arr_RaceResult_Elements[idx].Num.innerHTML = "";
+		arr_RaceResult_Elements[idx].Name.innerHTML = "";
+		arr_RaceResult_Elements[idx].Rank.innerHTML = "";
+		arr_RaceResult_Elements[idx].TrainerName.innerHTML = "";
+		arr_RaceResult_Elements[idx].GoalTime.innerHTML = "";
+		arr_RaceResult_Elements[idx].GoalDiff.innerHTML = "";
+		arr_RaceResult_Elements[idx].PassageCorner.innerHTML = "";
+		arr_RaceResult_Elements[idx].FTime.innerHTML = "";
+		arr_RaceResult_Elements[idx].Favorite.innerHTML = "";
+	}
+	
 	// 表の行を出走人数分挿入
 	for(let idx = 0; idx < targetRaceData[enum_DB_Race.MembersCnt]; idx++) {
 		// 着順に挿入対象を取る
