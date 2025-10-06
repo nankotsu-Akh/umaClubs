@@ -22,6 +22,22 @@
 	text-align: center;
 }
 
+.cls_RaceContents_Popup_Container {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100vw;
+	height: 100vh;
+	background-color: #00000077;
+}
+.cls_RaceContents_Popup_Item {
+	position: relative;
+	margin: 10vh auto;
+	width: 80vw;
+	height: 80vh;
+	background-color: #FFFFFF;
+}
+
 .cls_ResultTable_Col_ResultNum,
 .cls_ResultTable_Col_Frame,
 .cls_ResultTable_Col_Num,

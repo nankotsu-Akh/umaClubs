@@ -133,6 +133,8 @@ function func_Init_RaceContents() {
 	func_Init_RaceContents_Result();	// レース結果の生成
 	// 出走馬の生成
 	func_Init_RaceContents_Member();	// 出馬表の生成
+	// ポップアップの処理
+	func_Init_RaceContents_Popup();
 }
 
 /*******************************************************************************************************
@@ -303,6 +305,42 @@ function func_Init_RaceContents_Member() {
 	}
 }
 
+/*******************************************************************************************************
+ * 関数名	func_DataInsert
+ * 概要		DBからのデータの挿入
+ * I/O		-
+ * return	-
+ * 更新日	2025/09/20	新規
+ *******************************************************************************************************/
+function func_Init_RaceContents_Popup() {
+	const el_PopupContainer = document.createElement('div');
+	el_PopupContainer.className = ['cls_RaceContents_Popup_Container'];
+	el_PopupContainer.style = 'display:none;';
+	document.body.appendChild(el_PopupContainer);
+	el_PopupContainer.addEventListener('click', ()=>{
+		el_PopupContainer.style = 'display:none;';
+	});
+
+	const el_PopupItem = document.createElement('div');
+	el_PopupItem.className = ['cls_RaceContents_Popup_Item'];
+	el_PopupContainer.appendChild(el_PopupItem);
+
+
+	// 行クリック時の挙動を設定
+	for(let idx = 0; idx < arr_RaceResult_Elements.length; idx++) {
+		const target = arr_RaceResult_Elements[idx];
+		target.Row.addEventListener('click', ()=>{
+			el_PopupContainer.style = '';
+		});
+	}
+	for(let idx = 0; idx < arr_RaceMember_Elements.length; idx++) {
+		const target = arr_RaceMember_Elements[idx];
+		target.Row.addEventListener('click', ()=>{
+			el_PopupContainer.style = '';
+		});
+	}
+}
+
 
 /*******************************************************************************************************
  * 関数名	func_DataInsert
@@ -413,6 +451,22 @@ function func_DataInsert_Member() {
 	// 出走数に合わせて表の描画を調整
 	for(let idx = 0; idx < targetRaceData[enum_DB_Race.MembersCnt]; idx++) {
 		arr_RaceMember_Elements[idx].Row.style = "";
+	}
+	
+	// 既に記入されている行情報を削除
+	for(let idx = 0; idx < arr_RaceMember_Elements.length; idx++) {
+		arr_RaceMember_Elements[idx].Frame.innerHTML = "";
+		arr_RaceMember_Elements[idx].Num.innerHTML = "";
+		arr_RaceMember_Elements[idx].NameEtc.Name.innerHTML = "";
+		arr_RaceMember_Elements[idx].NameEtc.TrainerName.innerHTML = "";
+		arr_RaceMember_Elements[idx].NameEtc.Parent_1.innerHTML = "";
+		arr_RaceMember_Elements[idx].NameEtc.Parent_2.innerHTML = "";
+		arr_RaceMember_Elements[idx].Ranks.Ranks.innerHTML = "";
+		arr_RaceMember_Elements[idx].Ranks.RankPoint.innerHTML = "";
+		arr_RaceMember_Elements[idx].Before_1.innerHTML = "";
+		arr_RaceMember_Elements[idx].Before_2.innerHTML = "";
+		arr_RaceMember_Elements[idx].Before_3.innerHTML = "";
+		arr_RaceMember_Elements[idx].Before_4.innerHTML = "";
 	}
 	
 	// 表の行を出走人数分挿入
